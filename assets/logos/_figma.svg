@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <!-- Official Figma colors: 5 shapes -->
+  <!-- Top-left orange semicircle -->
+  <path d="M50 0 h50 v100 H50 a50 50 0 0 1 0-100 z" fill="#F24E1E"/>
+  <!-- Top-right red semicircle -->
+  <path d="M100 0 h50 a50 50 0 0 1 0 100 H100 z" fill="#FF7262"/>
+  <!-- Middle-left purple semicircle -->
+  <path d="M50 100 h50 v100 H50 a50 50 0 0 1 0-100 z" fill="#A259FF"/>
+  <!-- Middle-right blue circle -->
+  <circle cx="150" cy="150" r="50" fill="#1ABCFE"/>
+  <!-- Bottom-left green semicircle -->
+  <path d="M50 200 h50 v50 a50 50 0 0 1 -100 0 a50 50 0 0 1 50 -50 z" fill="#0ACF83"/>
+</svg>

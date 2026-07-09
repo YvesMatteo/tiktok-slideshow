@@ -1,0 +1,14 @@
+# Generated slideshow output — regenerated on every run
+runs/
+
+# Python
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
+
+# Local backup copies of the copy bank
+*.bak
+*.bak2
+*.bak3
