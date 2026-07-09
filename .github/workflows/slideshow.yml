@@ -1,0 +1,64 @@
+name: Generate TikTok slideshow
+
+# Cloud runner for the slideshow generator.
+# NOTE: GitHub Actions has no MCP access, so this workflow reuses the committed
+# assets/title_slide.png. It does NOT regenerate the title slide via Higgsfield.
+# See the "OPTIONAL — Higgsfield title-slide refresh" step below and README.md.
+
+on:
+  schedule:
+    # 09:00 UTC daily. cron is always UTC — adjust to your timezone.
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}   # allow manual runs from the Actions tab
+
+permissions:
+  contents: read
+
+jobs:
+  slideshow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python3 -m pip install --upgrade Pillow
+
+      # OPTIONAL — Higgsfield title-slide refresh.
+      # The Cowork task regenerates assets/title_slide.png via the Higgsfield MCP.
+      # There is no MCP here, so without a step the generator reuses the committed
+      # assets/title_slide.png. To enable a fresh title slide in CI, add a repo
+      # secret HIGGSFIELD_API_KEY and a script that calls the Higgsfield API, e.g.:
+      #
+      # - name: Refresh title slide (Higgsfield)
+      #   env:
+      #     HIGGSFIELD_API_KEY: ${{ secrets.HIGGSFIELD_API_KEY }}
+      #   run: python3 scripts/refresh_title.py   # you provide this script
+
+      - name: Generate slideshow
+        run: python3 scripts/make_slideshow.py
+
+      - name: Upload slideshow
+        uses: actions/upload-artifact@v4
+        with:
+          name: slideshow-${{ github.run_id }}
+          path: runs/**
+          if-no-files-found: error
+          retention-days: 30
+
+      # OPTIONAL — commit the run back into the repo instead of / as well as
+      # uploading an artifact. runs/ is git-ignored, so this uses `git add -f`.
+      # Requires `permissions: contents: write` above.
+      #
+      # - name: Commit run to repo
+      #   run: |
+      #     git config user.name "slideshow-bot"
+      #     git config user.email "actions@users.noreply.github.com"
+      #     git add -f runs/
+      #     git commit -m "Automated slideshow run ${{ github.run_id }}" || echo "nothing to commit"
+      #     git push
