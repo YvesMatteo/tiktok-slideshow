@@ -19,19 +19,31 @@ Use the Higgsfield MCP `generate_image`:
 - aspect_ratio: `3:4`
 - resolution: `2k`
 - count: `1`
-- medias: **randomly pick ONE** of the three starting images using these weights
-  — `start_18yo.png` 50%, each `start_always` image 25%. Decide with a real
-  random draw, e.g.
-  `python3 -c "import random;print(random.choices(['18yo','a1','a3'],weights=[50,25,25])[0])"`.
+- medias: **randomly pick ONE** of the five starting images using these weights
+  — `start_18yo.png` 25%, `start_always.png` 12.5%, `start_always_3.png` 12.5%,
+  `start_always_4.png` 25%, `start_always_5.png` 25%. Decide with a real random
+  draw, e.g.
+  `python3 -c "import random;print(random.choices(['18yo','a1','a3','a4','a5'],weights=[25,12.5,12.5,25,25])[0])"`.
   Pass the chosen image as `[{"role":"image","value":"<media_id>"}]`.
   **The prompt depends on which image was picked.**
-    - `start_always.png`   (25%) → media_id `945e5643-26e1-4a6e-a3d4-d6f469f44e04` → **prompt A**
-    - `start_always_3.png` (25%) → media_id `c93aeed2-beec-4109-9dc7-5138ffac4b6d` → **prompt A**
-    - `start_18yo.png`     (50%) → no cached id: upload `assets/start_18yo.png`
+    - `start_always.png`   (12.5%) → media_id `945e5643-26e1-4a6e-a3d4-d6f469f44e04` → **prompt A**
+    - `start_always_3.png` (12.5%) → media_id `c93aeed2-beec-4109-9dc7-5138ffac4b6d` → **prompt A**
+    - `start_always_4.png` (25%)   → media_id `102026d6-3870-4145-84cc-566b786769d5` → **prompt C**
+    - `start_always_5.png` (25%)   → media_id `bb17588f-526a-4aa8-84f5-5a355a30808f` → **prompt D**
+    - `start_18yo.png`     (25%)   → no cached id: upload `assets/start_18yo.png`
       via `media_upload` → curl PUT → `media_confirm`, then use the fresh
       media_id → **prompt B**
-- **prompt A** (start_always images): `Either Same person or Different attractive about 25 year old person, similar outfit, same overall color palette, exactly the same text but put it very slightly in a different position, clean and same aesthetic. Different background, different camera angle. Photographic.`
+- **Rotating hook text** — prompts A, C, and D all need one line of hook text
+  substituted in at `<CHOSEN LINE>`. Pick it with an independent real random
+  draw each run, e.g.
+  `python3 -c "import random;print(random.choice(['5 apps I use to run my entire business.','the 5 apps behind my entire business.','how I run a business with just 5 apps.']))"`.
+  Use the *same* chosen line for whichever of A/C/D ends up firing this run
+  (only one of them ever fires per run, since only one starting image is
+  drawn).
+- **prompt A** (start_always / start_always_3): `Either same person or different attractive about 25 year old person, similar outfit, same overall color palette, clean and same aesthetic, different background, different camera angle. Add clean bold white sans-serif text reading '<CHOSEN LINE>' in a similar clean position/style as before. Photographic.`
 - **prompt B** (start_18yo.png): `Keep the same young man seen from behind and the same dark, moody aesthetic and color palette. Keep the text exactly the same, always written across his bare back and only where his back is, in the same clean white type so it stands out clearly. Subtly change the rest of the scene: different room details, slightly different lighting and camera angle. Photographic, realistic.`
+- **prompt C** (start_always_4.png): `Same or a different attractive person in their mid-20s, seated at a minimalist designer desk in a bright, sun-lit apartment with tall windows and herringbone floors, similar relaxed pose at the computer, same airy natural-light color palette. Add clean bold white sans-serif text in the upper-left reading '<CHOSEN LINE>', same simple typography style as the rest. Vary the room details, time of day, and camera angle slightly. Photographic, realistic.`
+- **prompt D** (start_always_5.png): `Same or a different person seen from behind in silhouette, walking away through a modern architectural space with clean concrete lines, reflecting pool, and cars in the driveway, same dusk lighting and moody color palette. Add clean bold white sans-serif text centered in the upper portion reading '<CHOSEN LINE>', same simple typography style as the rest. Vary the architecture details, framing, and camera angle slightly. Photographic, realistic.`
 - If a cached media_id is expired/invalid, re-upload the matching file from
   `assets/<that filename>` via `media_upload` → curl PUT → `media_confirm`, then
   use the fresh media_id.
