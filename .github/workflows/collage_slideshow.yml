@@ -1,0 +1,72 @@
+name: Generate collage slideshow
+
+# Cloud runner for the COLLAGE / sticker slideshow (the "Tools I use" look).
+# Every run:
+#   1. regenerates the title photo via Higgsfield (best-effort, needs HF_KEY secret)
+#   2. builds the 7-slide collage deck with the collage generator
+#   3. uploads the run as a downloadable artifact
+#   4. commits the run + refreshed title photo back into the repo
+#
+# Manual trigger only (Run workflow button). Add a `schedule:` block to also run
+# on a cron if you want it automated later.
+
+on:
+  schedule:
+    # Runs daily at 09:00 UTC. cron is always UTC — adjust to your timezone.
+    - cron: "0 9 * * *"
+  workflow_dispatch: {}   # also allow manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: write         # needed to commit the run back to the repo
+
+concurrency:
+  group: collage-slideshow
+  cancel-in-progress: false
+
+jobs:
+  collage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: python3 -m pip install --upgrade Pillow higgsfield-client
+
+      # Always regenerate the title photo via Higgsfield. Best-effort: if the
+      # HF_KEY secret is missing or the API errors, this step still succeeds and
+      # the generator falls back to the committed assets/title_inspo_bg.png.
+      - name: Refresh title photo (Higgsfield)
+        env:
+          HF_KEY: ${{ secrets.HF_KEY }}
+          # Optional: override the model slug, e.g. a different photoreal model.
+          # HF_MODEL: bytedance/seedream/v4/text-to-image
+        run: python3 scripts/refresh_title.py
+
+      - name: Generate collage slideshow
+        run: python3 scripts/make_slideshow_collage.py photos
+
+      - name: Upload slideshow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: collage-slideshow-${{ github.run_id }}
+          path: runs_collage/**
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Commit run back to repo
+        run: |
+          git config user.name "slideshow-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -f runs_collage/ assets/title_inspo_bg.png
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git commit -m "Automated collage run ${{ github.run_id }}"
+            git push
+          fi

@@ -34,24 +34,14 @@ _positional = [a for a in _args if not a.startswith('--')]
 
 
 def _detect_photos_dir():
-    """Resolve the background-photos directory (portable-first).
-
-    Order of preference:
-      1. Bundled ``photos/`` next to this skill — makes the whole folder
-         self-contained so it runs anywhere (cloud, CI, another Mac) with
-         no separately-connected folder required.
-      2. Mac-native host path (original local setup).
-      3. Cowork sandbox mounts, including the nested checkvibe-Marketing path.
-    """
+    """Photos live in pinterest_final — a separately-connected workspace
+    folder under checkvibe-Marketing. Check the host path first (Mac native
+    runs) then the Cowork sandbox mount."""
     import glob as _glob
-    bundled = os.path.join(SKILL_DIR, 'photos')
-    if os.path.isdir(bundled) and os.listdir(bundled):
-        return bundled
     host_path = '/Users/yvesromano/checkvibe-Marketing/pinterest_final'
     if os.path.isdir(host_path):
         return host_path
-    for p in (_glob.glob('/sessions/*/mnt/pinterest_final')
-              + _glob.glob('/sessions/*/mnt/checkvibe-Marketing/pinterest_final')):
+    for p in _glob.glob('/sessions/*/mnt/pinterest_final'):
         if os.path.isdir(p):
             return p
     return host_path
