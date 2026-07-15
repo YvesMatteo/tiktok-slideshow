@@ -1,0 +1,219 @@
+{
+  "title_hook": [
+    "5 MCP servers that give you an unfair advantage",
+    "5 MCP servers that feel illegal to know",
+    "the 5 MCP servers I'd install first",
+    "5 MCP servers every AI coder needs"
+  ],
+  "title_highlight": "unfair advantage",
+  "title_sub": [
+    "and actually make you 10x faster",
+    "connect these to Claude or Cursor",
+    "your AI just got way more powerful"
+  ],
+  "slideshow_title": [
+    "5 MCP servers that give you an unfair advantage",
+    "the 5 MCP servers running my whole AI setup",
+    "5 MCP servers that make Claude & Cursor 10x better",
+    "the only 5 MCP servers I actually use"
+  ],
+  "hashtags": [
+    "#mcp", "#ai", "#aitools", "#claude", "#cursor", "#vibecoding",
+    "#buildinpublic", "#coding", "#developer", "#saas", "#indiehacker",
+    "#aiagents", "#devtools", "#modelcontextprotocol", "#techtok",
+    "#programming", "#startup", "#automation", "#anthropic", "#aicoding"
+  ],
+  "caption_templates": [
+    "5 MCP servers that give your AI an unfair advantage 🤖 save this before you scroll\n\nMCP lets tools plug straight into Claude, Cursor and other AI agents. these are the 5 I'd connect first:\n\n{server_list}\n\nhook these up and your AI stops guessing and starts actually doing the work. follow for more AI building tips. which one would you add? 👇\n\n{hashtags}",
+    "stop using your AI raw. connect these 5 MCP servers first.\n\nMCP is how you give Claude or Cursor real superpowers, live data, real actions, no copy-paste. my starting 5:\n\n{server_list}\n\nthis is the difference between an AI that chats and one that ships. save it, send it to the friend still pasting errors by hand. follow for the rest of the setup 👇\n\n{hashtags}",
+    "the MCP servers that quietly run my whole AI workflow\n\neveryone's arguing about models. the real unlock is what you connect to them:\n\n{server_list}\n\nfive servers, and my AI can read my code, my data and the live web, then act on all of it. save this before it gets buried. follow for more 👇\n\n{hashtags}"
+  ],
+  "first_slide": "checkvibe",
+  "rotating_pool": [
+    "github", "context7", "playwright", "figma", "supabase", "stripe",
+    "notion", "sentry", "linear", "vercel", "slack", "cloudflare", "exa",
+    "firecrawl", "perplexity", "neon", "atlassian", "zapier", "hubspot"
+  ],
+  "servers": {
+    "checkvibe": {
+      "name": "CheckVibe",
+      "plate": "checkvibe",
+      "tagline": "scans any site for security, SEO and AI-visibility issues in seconds",
+      "copy": [
+        "paste any website and it scans it for security, SEO and AI-visibility issues in seconds, ranked by what to fix first.",
+        "a full security and SEO scan of any site in 30 seconds, it tells your AI exactly what to fix and in what order."
+      ]
+    },
+    "github": {
+      "name": "GitHub",
+      "plate": "github",
+      "tagline": "gives your AI direct access to your repos, issues and pull requests",
+      "copy": [
+        "gives your AI direct access to your repos, issues and PRs, so it can read code and open pull requests without you leaving the chat.",
+        "your AI can browse your repos, read files, open issues and raise pull requests for you, all from one prompt."
+      ]
+    },
+    "context7": {
+      "name": "Context7",
+      "plate": "context7",
+      "tagline": "feeds your AI the latest version-accurate docs for any library",
+      "copy": [
+        "feeds your AI the latest, version-accurate docs for any library, so it stops hallucinating outdated code.",
+        "just add 'use context7' and your AI writes code against the real, current docs instead of guessing."
+      ]
+    },
+    "playwright": {
+      "name": "Playwright",
+      "plate": "playwright",
+      "tagline": "lets your AI open a browser and test your site like a real user",
+      "copy": [
+        "lets your AI actually open a browser, click around and test your site like a real user.",
+        "your AI can drive a real browser, fill forms, click buttons and catch bugs before your users do."
+      ]
+    },
+    "figma": {
+      "name": "Figma",
+      "plate": "figma",
+      "tagline": "pulls your Figma designs straight into matching code",
+      "copy": [
+        "pulls your Figma designs straight into code, colors, spacing and components matched automatically.",
+        "hand your AI a Figma file and it builds the screen in code, pixel-matched to the design."
+      ]
+    },
+    "supabase": {
+      "name": "Supabase",
+      "plate": "supabase",
+      "tagline": "gives your AI a direct line to your database and backend",
+      "copy": [
+        "gives your AI a direct line to your database, it can query, migrate and debug your backend for you.",
+        "your AI can read your tables, write migrations and fix backend issues without you touching SQL."
+      ]
+    },
+    "stripe": {
+      "name": "Stripe",
+      "plate": "stripe",
+      "tagline": "lets your AI wire up payments and manage customers",
+      "copy": [
+        "lets your AI wire up payments, read charges and manage customers straight from your prompt.",
+        "your AI can set up checkout, inspect payments and pull revenue data without opening the dashboard."
+      ]
+    },
+    "notion": {
+      "name": "Notion",
+      "plate": "notion",
+      "tagline": "connects your AI to your Notion docs, tasks and notes",
+      "copy": [
+        "connects your AI to your Notion, it reads and writes your docs, tasks and notes on command.",
+        "your AI can search your Notion, update pages and check off tasks while you keep building."
+      ]
+    },
+    "sentry": {
+      "name": "Sentry",
+      "plate": "sentry",
+      "tagline": "pipes your app's real errors into your AI to fix them fast",
+      "copy": [
+        "pipes your app's real errors into your AI so it can find the bug and suggest the fix instantly.",
+        "your AI reads the actual stack traces from Sentry and tells you exactly what broke and why."
+      ]
+    },
+    "linear": {
+      "name": "Linear",
+      "plate": "linear",
+      "tagline": "your AI can read, create and update Linear issues",
+      "copy": [
+        "your AI can read, create and update Linear issues, turning a chat into shipped tickets.",
+        "turn a conversation into real Linear tickets, your AI files and updates them for you."
+      ]
+    },
+    "vercel": {
+      "name": "Vercel",
+      "plate": "vercel",
+      "tagline": "deploy, inspect and debug your Vercel projects from your AI",
+      "copy": [
+        "deploy, inspect and debug your Vercel projects straight from your AI, logs and all.",
+        "your AI can ship a deploy and read the build logs to fix it if anything breaks."
+      ]
+    },
+    "slack": {
+      "name": "Slack",
+      "plate": "slack",
+      "tagline": "your AI can read channels and post updates in Slack",
+      "copy": [
+        "your AI can read channels and post updates in Slack, so it keeps your team in the loop for you.",
+        "let your AI summarize a channel or drop an update in Slack without you switching tabs."
+      ]
+    },
+    "cloudflare": {
+      "name": "Cloudflare",
+      "plate": "cloudflare",
+      "tagline": "gives your AI the keys to Workers, D1 and R2 at the edge",
+      "copy": [
+        "gives your AI the keys to your Cloudflare edge, Workers, D1 databases and R2 storage in one prompt.",
+        "your AI can deploy Workers, query D1 and manage R2 storage across Cloudflare's edge for you."
+      ]
+    },
+    "exa": {
+      "name": "Exa",
+      "plate": "exa",
+      "tagline": "a search engine built for AI, clean relevant results",
+      "copy": [
+        "a search engine built for AI, it returns clean, relevant results instead of keyword spam.",
+        "your AI searches the web the smart way, semantic results it can actually use, not link soup."
+      ]
+    },
+    "firecrawl": {
+      "name": "Firecrawl",
+      "plate": "firecrawl",
+      "tagline": "turns any website into clean structured data for your AI",
+      "copy": [
+        "turns any website into clean, structured data your AI can actually read, one URL in, markdown out.",
+        "point it at any site and your AI gets clean markdown instead of messy HTML."
+      ]
+    },
+    "perplexity": {
+      "name": "Perplexity",
+      "plate": "perplexity",
+      "tagline": "gives your AI live, cited web research on demand",
+      "copy": [
+        "gives your AI live, cited web research on demand, real answers with real sources.",
+        "your AI can pull fresh, sourced answers from the web mid-task instead of guessing."
+      ]
+    },
+    "neon": {
+      "name": "Neon",
+      "plate": "neon",
+      "tagline": "spin up and query serverless Postgres from your AI",
+      "copy": [
+        "spin up and query serverless Postgres databases straight from your AI, branches included.",
+        "your AI can create a Postgres branch, run queries and test changes safely before you ship."
+      ]
+    },
+    "atlassian": {
+      "name": "Atlassian",
+      "plate": "atlassian",
+      "tagline": "your AI reads and updates Jira tickets and Confluence docs",
+      "copy": [
+        "your AI can read and update Jira tickets and Confluence docs without you opening either.",
+        "turn a chat into Jira tickets and Confluence pages, your AI handles the busywork."
+      ]
+    },
+    "zapier": {
+      "name": "Zapier",
+      "plate": "zapier",
+      "tagline": "connects your AI to 8,000+ apps and real actions",
+      "copy": [
+        "connects your AI to 8,000+ apps, one prompt can trigger real actions across your whole stack.",
+        "your AI can fire off real workflows across thousands of apps, no integrations to build."
+      ]
+    },
+    "hubspot": {
+      "name": "HubSpot",
+      "plate": "hubspot",
+      "tagline": "your AI reads and updates contacts, deals and your CRM",
+      "copy": [
+        "your AI can read and update contacts, deals and your CRM pipeline straight from a prompt.",
+        "let your AI log activity, update deals and pull CRM data without opening HubSpot."
+      ]
+    }
+  }
+}

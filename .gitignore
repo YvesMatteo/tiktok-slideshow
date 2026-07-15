@@ -12,3 +12,4 @@ __pycache__/
 *.bak
 *.bak2
 *.bak3
+runs_mcp/
