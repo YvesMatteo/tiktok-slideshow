@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+the 5 apps that secretly run my entire one-person business 💻 save this before you scroll
+
+I quit my 9-5 to build apps full time. two years of trying every tool later, these are the only 5 I actually open every day:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. Obsidian: a private notes app, everything saved on my own computer forever
+6. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+no team, no office, no investors. just me, my laptop and these 5 apps. if you've been wanting to build something of your own, an app, a side hustle, anything, this is the exact setup I'd copy.
+
+follow for more behind the scenes of running a one-person business. save this so you don't lose it. drop the app you can't live without in the comments 👇
+
+#startuptools #solopreneur #saasfounder #indiehacker #vibecode
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Framer -> Railway -> Obsidian -> PostHog
+Generated: 2026-07-15 18:18
