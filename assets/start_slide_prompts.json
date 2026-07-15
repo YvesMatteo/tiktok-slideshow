@@ -1,0 +1,38 @@
+{
+  "model": "nano_banana_pro",
+  "aspect_ratio": "3:4",
+  "resolution": "2k",
+  "_note": "Starting-slide prompt bank for the MCP-servers slideshow. Each run picks ONE image at random, sends it through Higgsfield with its prompt for a subtle variation, then apply_start_slide.py swaps it in as slide_00. Hook text is about 5 MCP servers. One of the three hook lines below is chosen per prompt at generation time by substituting <CHOSEN LINE>; since only one image fires per run, pick the line randomly when building the request.",
+  "hook_lines": [
+    "the 5 MCP servers running my whole AI setup",
+    "the 5 MCP servers I'd install first",
+    "5 MCP servers that make my AI actually useful"
+  ],
+  "images": [
+    {
+      "file": "start_18yo.png",
+      "weight": 25,
+      "prompt": "Keep the same young man seen from behind and the same dark, moody aesthetic and color palette. Replace the text so it reads '<CHOSEN LINE>' exactly, still written across his bare back and only where his back is, in the same clean white type so it stands out clearly. Subtly change the rest of the scene: different room details, slightly different lighting and camera angle. Photographic, realistic."
+    },
+    {
+      "file": "start_always.png",
+      "weight": 12.5,
+      "prompt": "Either same person or a different attractive about 25 year old person, similar outfit, same overall color palette, clean and same aesthetic, different background, different camera angle. Add clean bold white sans-serif text reading '<CHOSEN LINE>' in a similar clean position/style as before. Photographic."
+    },
+    {
+      "file": "start_always_3.png",
+      "weight": 12.5,
+      "prompt": "Either same person or a different attractive about 25 year old person, similar outfit, same overall color palette, clean and same aesthetic, different background, different camera angle. Add clean bold white sans-serif text reading '<CHOSEN LINE>' in a similar clean position/style as before. Photographic."
+    },
+    {
+      "file": "start_always_4.png",
+      "weight": 25,
+      "prompt": "Same or a different attractive person in their mid-20s, seated at a minimalist designer desk in a bright, sun-lit apartment with tall windows and herringbone floors, similar relaxed pose at the computer, same airy natural-light color palette. Add clean bold white sans-serif text in the upper-left reading '<CHOSEN LINE>', same simple typography style as the rest. Vary the room details, time of day, and camera angle slightly. Photographic, realistic."
+    },
+    {
+      "file": "start_always_5.png",
+      "weight": 25,
+      "prompt": "Same or a different person seen from behind in silhouette, walking away through a modern architectural space with clean concrete lines, reflecting pool, and cars in the driveway, same dusk lighting and moody color palette. Add clean bold white sans-serif text centered in the upper portion reading '<CHOSEN LINE>', same simple typography style as the rest. Vary the architecture details, framing, and camera angle slightly. Photographic, realistic."
+    }
+  ]
+}
