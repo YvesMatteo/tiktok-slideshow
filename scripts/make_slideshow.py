@@ -35,9 +35,13 @@ _positional = [a for a in _args if not a.startswith('--')]
 
 def _detect_photos_dir():
     """Photos live in pinterest_final — a separately-connected workspace
-    folder under checkvibe-Marketing. Check the host path first (Mac native
-    runs) then the Cowork sandbox mount."""
+    folder under checkvibe-Marketing. Check the repo-bundled photos/ folder
+    first (self-contained / headless runs), then the host path (Mac native
+    runs), then the Cowork sandbox mount."""
     import glob as _glob
+    bundled_path = os.path.join(SKILL_DIR, 'photos')
+    if os.path.isdir(bundled_path):
+        return bundled_path
     host_path = '/Users/yvesromano/checkvibe-Marketing/pinterest_final'
     if os.path.isdir(host_path):
         return host_path
