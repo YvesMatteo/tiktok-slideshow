@@ -1,0 +1,22 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+if i started over tomorrow with $0, i'd download these 5 apps first
+
+no savings, no audience, no connections. just these:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Convex: a database and backend for apps, stores all my data and logins and updates the screen in real time
+4. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+5. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+this is the leanest way i know to go from idea to a real product on your own. start with the tools, the rest follows.
+
+save this for your fresh start. follow for the step by step 👇
+
+#founder #saas #productivity #startuptools #buildwithai
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Convex -> Lovable -> Pinterest
+Generated: 2026-07-16 18:29
