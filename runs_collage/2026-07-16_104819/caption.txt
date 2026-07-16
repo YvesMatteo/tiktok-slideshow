@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+5. Obsidian: a private notes app, everything saved on my own computer forever
+6. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#founder #entrepreneur #indiesaas #startuptools #tech
+
+---
+Slides: title -> Claude -> checkvibe.dev -> GitHub -> Framer -> Obsidian -> Pinterest
+Generated: 2026-07-16 10:48
