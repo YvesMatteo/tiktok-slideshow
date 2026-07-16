@@ -1,0 +1,22 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+how one person runs an entire app business in 2026, 5 apps, no team, no investors
+
+everybody's selling courses on this. skip them. here's the actual day-to-day:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+4. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+5. Notion: a notes and planning app, every plan, idea and to-do in one place
+
+that's it. no 30-app setup, no $500 a month in subscriptions. five apps that each do one thing really well. I think of an idea, build it, put it online, then make it better based on what people actually do. that loop is the whole secret.
+
+save this for the next time you're tempted to buy another tool you don't need. follow along, I share every part of building this thing.
+
+#aifounder #indiehacker #buildwithai #vibecode #entrepreneur
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Pinterest -> Lovable -> Notion
+Generated: 2026-07-16 12:45
