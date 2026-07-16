@@ -1,0 +1,22 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#indiehacker #saasfounder #vibecoding #buildwithai #sidehustle
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Supabase -> Lovable -> Vercel
+Generated: 2026-07-16 02:39
