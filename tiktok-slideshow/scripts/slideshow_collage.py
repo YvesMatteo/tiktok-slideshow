@@ -234,6 +234,27 @@ def draw_heading_with_icon(base, name, key, y, top_font_size=80,
     return y
 
 
+def draw_step_label(base, text, y, fill=(255, 255, 255)):
+    """Draw a small centered narration line above the app heading, e.g.
+    'First I go to' / 'Then I go to'. Mirrors the heading's soft drop shadow so
+    it reads as part of the same sticker group. Returns the baseline y used."""
+    font = f_med(46)
+    d = ImageDraw.Draw(base)
+    tw = d.textlength(text, font=font)
+    x = (base.width - tw) / 2
+    layer = Image.new('RGBA', base.size, (0, 0, 0, 0))
+    ImageDraw.Draw(layer).text((x, y), text, font=font, fill=fill + (255,))
+    alpha = layer.split()[3]
+    shadow = Image.new('RGBA', base.size, (0, 0, 0, 0))
+    shadow.putalpha(alpha.point(lambda a: int(a * 0.55)))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(5))
+    off = Image.new('RGBA', base.size, (0, 0, 0, 0))
+    off.paste(shadow, (0, 3))
+    base.alpha_composite(off)
+    base.alpha_composite(layer)
+    return y
+
+
 def render_slide(slide, photo_path, shots_dir, out_path):
     # ---- title slide: lifestyle photo + headline + subtitle overlay ----
     if slide.get('type') == 'title_overlay':
@@ -259,7 +280,8 @@ def render_slide(slide, photo_path, shots_dir, out_path):
     im = ImageEnhance.Brightness(im).enhance(0.86)
     im = ImageEnhance.Color(im).enhance(0.98)
     canvas = im.convert('RGBA')
-    _top_gradient(canvas, height=430, strength=120)
+    step_label = slide.get('step_label')
+    _top_gradient(canvas, height=490 if step_label else 430, strength=120)
 
     # bottom screenshot card
     card_w, card_h = 862, 516
@@ -277,13 +299,22 @@ def render_slide(slide, photo_path, shots_dir, out_path):
     canvas.alpha_composite(off)
     canvas.alpha_composite(card, (cx0, cy0))
 
+    # optional narration line ("First I go to" / "Then I go to") + heading below
+    if step_label:
+        draw_step_label(canvas, step_label, 52)
+        head_y = 116
+        chips_y = 268
+    else:
+        head_y = 96
+        chips_y = 250
+
     # heading (app name) with its app-icon tile
-    draw_heading_with_icon(canvas, slide['name'], slide.get('shot'), 96)
+    draw_heading_with_icon(canvas, slide['name'], slide.get('shot'), head_y)
 
     # caption chips scattered between heading and card
     chips = slide.get('chips', [])[:3]
     sides = ['left', 'right', 'left']
-    y = 250
+    y = chips_y
     limit = cy0 - 34
     for i, txt in enumerate(chips):
         if not txt:

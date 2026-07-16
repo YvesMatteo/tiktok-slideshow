@@ -143,12 +143,23 @@ def main():
         approved, os.path.abspath(PHOTOS), title_bg, len(apps))
 
     # ---- slide config ----
+    # A short narration line sits above each app name so the slideshow itself
+    # reads as a walkthrough: "First I go to" Mobbin, "Then I go to" Lovable, ...
+    step_labels = {
+        'design':   'First I go to',
+        'build':    'Then I go to',
+        'check':    'Then I check on',
+        'database': 'Then I connect',
+        'deploy':   'Then I deploy on',
+    }
     config = [{'type': 'title_overlay', 'image': title_bg,
                'headline': TITLE_HEADLINE, 'sub': TITLE_SUB}]
     for i, key in enumerate(apps):
         a = bank['apps'][key]
+        role = WORKFLOW[i]['step'] if i < len(WORKFLOW) else ''
+        step_label = step_labels.get(role, 'Then I go to' if i else 'First I go to')
         config.append({'type': 'app', 'photo': app_photos[i], 'shot': key,
-                       'num': i + 1, 'name': a['name'],
+                       'num': i + 1, 'name': a['name'], 'step_label': step_label,
                        'chips': chips_from_copy(random.choice(a['copy']))})
 
     # ---- render ----
