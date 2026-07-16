@@ -11,6 +11,20 @@
     "5 apps every solo founder needs",
     "the only 5 apps I need to run my business"
   ],
+  "workflow_title": [
+    "how I build a website, step by step",
+    "my exact website-building workflow",
+    "the 5 steps I follow to build any website",
+    "how I go from idea to live website",
+    "the tools I use to build a website, in order"
+  ],
+  "workflow_caption_templates": [
+    "how I actually build a website, step by step 👇 save this as your blueprint\n\neveryone shows you the tools. nobody shows you the order. here's the exact workflow I follow, start to finish:\n\n{app_list}\n\nthat's the whole loop. get design inspo, build it, check it, wire up the data, put it live. no team, no agency, just me and these five steps.\n\nfollow for the full breakdown of each step. save this so you don't lose it. which step do you skip? comment 👇\n\n{hashtags}",
+    "the exact order I build a website in (most people get this wrong)\n\nit's not about having the best tools, it's about doing things in the right order. this is my step-by-step:\n\n{app_list}\n\ninspo first, then build, then check for SEO and security, then the database, then deploy. skip a step and it shows.\n\nsave this workflow. follow for how I do each step in detail 👇\n\n{hashtags}",
+    "POV: you watch a solo dev build a whole website from scratch\n\nstop scrolling, this is the actual order I work in every single time:\n\n{app_list}\n\nfrom a blank page to a live site, five steps. no guessing, no chaos, just the same loop on repeat.\n\nsave it, screenshot it, follow for the deep dive on each step 👇\n\n{hashtags}",
+    "idea to live website in 5 steps, here's my exact workflow\n\ni used to jump straight into building and regret it. now I follow this order every time:\n\n{app_list}\n\ndesign inspo, build, check SEO + security, database, deploy. do it in this order and you ship way faster.\n\nsave this for your next project. follow for the full playbook 👇\n\n{hashtags}",
+    "the step-by-step I wish someone showed me before I started building websites\n\nno course needed. this is the entire workflow, in order, for free:\n\n{app_list}\n\ninspo, build, check, database, launch. that's it. that's how one person ships a real website.\n\nsave this and skip the $500 course. follow for how I run each step 👇\n\n{hashtags}"
+  ],
   "caption_templates": [
     "the 5 apps that secretly run my entire one-person business 💻 save this before you scroll\n\nI quit my 9-5 to build apps full time. two years of trying every tool later, these are the only 5 I actually open every day:\n\n{app_list}\n\nno team, no office, no investors. just me, my laptop and these 5 apps. if you've been wanting to build something of your own, an app, a side hustle, anything, this is the exact setup I'd copy.\n\nfollow for more behind the scenes of running a one-person business. save this so you don't lose it. drop the app you can't live without in the comments 👇\n\n{hashtags}",
     "five apps. one business. zero employees.\n\npeople always ask how I run a whole app business by myself. honestly? it's mostly these five:\n\n{app_list}\n\nthey replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.\n\nsave this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.\n\n{hashtags}",
@@ -98,11 +112,21 @@
     "checkvibe": {
       "name": "checkvibe.dev",
       "logo": "checkvibe",
-      "tagline": "a security scanner for websites, paste a link, get a report of what to fix in 30 seconds",
+      "tagline": "a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds",
       "copy": [
-        "checkvibe.dev is a security scanner for websites.\nPaste a link, get a full report of what to fix in 30 seconds.",
-        "checkvibe.dev checks any website for security holes.\nIt finds them before hackers do and tells you exactly what to fix.",
-        "checkvibe.dev is the fastest security check for any website.\nPaste your link, get a 30-second report with the fixes."
+        "checkvibe.dev checks your site's SEO, AEO and security.\nPaste a link, get a full report of what to fix in 30 seconds before you launch.",
+        "checkvibe.dev is the check I run before every launch.\nSEO, AI answer readiness and security holes, all in one 30-second report.",
+        "checkvibe.dev scans any website for SEO, AEO and security issues.\nIt finds what's broken before Google and hackers do, and tells you exactly what to fix."
+      ]
+    },
+    "convex": {
+      "name": "Convex",
+      "logo": "convex",
+      "tagline": "a database and backend for apps, stores all my data and logins and updates the screen in real time",
+      "copy": [
+        "Convex is a database and backend for apps.\nIt stores all my data and logins and keeps everything in sync in real time.",
+        "Convex handles everything behind the scenes of an app.\nData, users, live updates, all wired up in minutes instead of weeks.",
+        "Convex is where my app's data lives and stays in sync.\nSet it up once and the whole engine room just works."
       ]
     },
     "cursor": {
