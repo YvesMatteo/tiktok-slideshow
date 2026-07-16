@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+broke college student to running my own apps, here's the stack
+
+no rich parents, no investors. i learned a few apps and started shipping:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+5. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+
+if you're young and broke but want to build, this is your shortcut. tools first, momentum second.
+
+save this. follow for how i got my first users 👇
+
+#entrepreneur #aifounder #tech #startup #saasfounder
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Notion -> Higgsfield -> Supabase
+Generated: 2026-07-16 13:17
