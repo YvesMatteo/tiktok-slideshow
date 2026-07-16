@@ -1,0 +1,22 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+if i started over tomorrow with $0, i'd download these 5 apps first
+
+no savings, no audience, no connections. just these:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+this is the leanest way i know to go from idea to a real product on your own. start with the tools, the rest follows.
+
+save this for your fresh start. follow for the step by step 👇
+
+#sidehustle #founder #startuptools #saasfounder #tech
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Pinterest -> Obsidian -> PostHog
+Generated: 2026-07-16 02:34
