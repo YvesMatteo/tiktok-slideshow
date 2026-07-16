@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+the apps nobody tells you about when you start a business
+
+the gurus sell courses. here's the actual stack, for free:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+4. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+5. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+6. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+
+five apps. that's the secret. i think of an idea, build it, put it online, and improve it based on what people do.
+
+save this and skip the $500 course. follow for the real version 👇
+
+#aitools #saas #solopreneur #buildinpublic #saasfounder
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Railway -> Pinterest -> Supabase -> Lovable
+Generated: 2026-07-16 13:17
