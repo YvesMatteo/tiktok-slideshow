@@ -1,0 +1,22 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+how i build a whole app in a weekend (the tools)
+
+people think it takes a team. it takes these five apps and a free weekend:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Obsidian: a private notes app, everything saved on my own computer forever
+4. Notion: a notes and planning app, every plan, idea and to-do in one place
+5. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+idea on friday, live by sunday. that's the loop, and these are the tools that make it possible solo.
+
+save this for your next weekend project. follow to watch me build 👇
+
+#startup #solopreneur #coding #saas #startuptools
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Obsidian -> Notion -> Railway
+Generated: 2026-07-16 13:16
