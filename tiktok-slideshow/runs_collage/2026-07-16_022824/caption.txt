@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+stop researching tools. this is the whole setup.
+
+this is everything I use to run my one-person app business. every product, every launch, every customer goes through at least one of these:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. Vercel: a hosting service, it puts my apps live on the internet with one click
+5. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+6. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+
+I tried the complicated setups. I tried doing everything manually. nothing beats keeping it simple, five apps, each one doing one job really well.
+
+save it. use it. tell me which one surprised you in the comments 👇 follow for the rest of the playbook.
+
+#techtok #aifounder #startuptools #indiehacker #coding
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Notion -> Vercel -> Framer -> Lovable
+Generated: 2026-07-16 02:28
