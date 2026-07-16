@@ -46,6 +46,11 @@ RUNS = os.path.join(SKILL_DIR, 'runs_workflow')
 TITLE_BG = os.path.join(ASSETS, 'title_inspo_bg.png')
 TITLE_FALLBACK = os.path.join(ASSETS, 'title_slide.png')
 TITLE_PHOTOS_DIR = os.path.join(ASSETS, 'title_photos')
+# Per-run Higgsfield-varied copies of the mog photos land here (gitignored,
+# never committed). When present they are used INSTEAD of the pristine
+# originals in title_photos/, so each run's mog looks slightly different
+# without the committed originals ever drifting.
+TITLE_PHOTOS_VARIED_DIR = os.path.join(ASSETS, 'title_photos_varied')
 MOG_NAMES = ['mog1', 'mog2', 'mog3']
 
 # English title text in the reference style — edit these two lines to retune
@@ -94,13 +99,21 @@ def pick_title_photo():
     pool = []
     if os.path.exists(TITLE_BG):
         pool.append((TITLE_BG, 'higgsfield'))
-    if os.path.isdir(TITLE_PHOTOS_DIR):
-        for name in MOG_NAMES:
+    for name in MOG_NAMES:
+        # Prefer this run's Higgsfield-varied copy; fall back to the pristine
+        # original. Either way the label is just the mog name.
+        chosen = None
+        for base_dir, tag in ((TITLE_PHOTOS_VARIED_DIR, 'varied'),
+                              (TITLE_PHOTOS_DIR, 'original')):
             for ext in ('.png', '.jpg', '.jpeg', '.PNG', '.JPG'):
-                p = os.path.join(TITLE_PHOTOS_DIR, name + ext)
+                p = os.path.join(base_dir, name + ext)
                 if os.path.exists(p):
-                    pool.append((p, name))
+                    chosen = (p, f'{name} ({tag})')
                     break
+            if chosen:
+                break
+        if chosen:
+            pool.append(chosen)
     if not pool:
         return TITLE_FALLBACK, 'fallback (baked title_slide)'
     return random.choice(pool)
@@ -152,8 +165,11 @@ def main():
         'database': 'Then I connect',
         'deploy':   'Then I deploy on',
     }
+    # Small random vertical jitter so the title text isn't in the exact same
+    # spot every run (ranges roughly from a bit higher to a bit lower).
+    title_y = random.randint(76, 150)
     config = [{'type': 'title_overlay', 'image': title_bg,
-               'headline': TITLE_HEADLINE, 'sub': TITLE_SUB}]
+               'headline': TITLE_HEADLINE, 'sub': TITLE_SUB, 'title_y': title_y}]
     for i, key in enumerate(apps):
         a = bank['apps'][key]
         role = WORKFLOW[i]['step'] if i < len(WORKFLOW) else ''

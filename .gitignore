@@ -13,3 +13,6 @@ __pycache__/
 *.bak2
 *.bak3
 runs_mcp/
+
+# Per-run Higgsfield-varied mog title photos (regenerated each run)
+tiktok-slideshow/assets/title_photos_varied/

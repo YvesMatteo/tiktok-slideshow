@@ -261,11 +261,16 @@ def render_slide(slide, photo_path, shots_dir, out_path):
         im = cover_crop(Image.open(slide['image']).convert('RGB'), W, H)
         im = ImageEnhance.Brightness(im).enhance(0.94)
         canvas = im.convert('RGBA')
-        _top_gradient(canvas, height=560, strength=122)
+        # Optional vertical placement jitter so the title text isn't in the
+        # exact same spot every run. The generator passes a small random
+        # title_y; default keeps the original 104 position.
+        title_y = int(slide.get('title_y', 104))
+        grad_h = max(420, min(620, title_y + 456))
+        _top_gradient(canvas, height=grad_h, strength=122)
         tmp = ImageDraw.Draw(canvas)
         f_head = f_bold(80)
         head_lines = wrap(tmp, slide['headline'], f_head, W - 2 * 84)
-        y = draw_centered(canvas, head_lines, f_head, 104, 92)
+        y = draw_centered(canvas, head_lines, f_head, title_y, 92)
         if slide.get('sub'):
             f_sub = f_med(44)
             sub_lines = wrap(tmp, slide['sub'], f_sub, W - 2 * 130)
