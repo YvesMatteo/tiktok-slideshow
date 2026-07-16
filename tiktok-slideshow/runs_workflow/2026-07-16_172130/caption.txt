@@ -1,0 +1,22 @@
+TITLE: how I go from idea to live website
+
+CAPTION:
+idea to live website in 5 steps, here's my exact workflow
+
+i used to jump straight into building and regret it. now I follow this order every time:
+
+first I go to Mobbin — a library of screenshots from the best apps, I copy what already works
+then I go to Lovable — an AI app builder, describe an app in a sentence and it builds the whole thing for you
+then I run it through checkvibe.dev — a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+then I connect Convex — a database and backend for apps, stores all my data and logins and updates the screen in real time
+then I deploy it on Vercel — a hosting service, it puts my apps live on the internet with one click
+
+design inspo, build, check SEO + security, database, deploy. do it in this order and you ship way faster.
+
+save this for your next project. follow for the full playbook 👇
+
+#buildinpublic #startuptools #tech #aitools #techtok
+
+---
+Slides: title -> Mobbin -> Lovable -> checkvibe.dev -> Convex -> Vercel
+Generated: 2026-07-16 17:21
