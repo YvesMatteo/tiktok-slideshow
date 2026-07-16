@@ -1,0 +1,94 @@
+{
+  "_comment": "Story-format slideshow for CheckVibe. 7 slides: title (Higgsfield) + 6 caption-over-photo beats ending on the checkvibe.dev logo slide. Each beat has several phrasings so every run varies a bit while keeping the same narrative and vibe. Backgrounds for beats 1-5 are pulled from pinterest_final (same pool the other slideshows use). Slide 0 is the shared Higgsfield title_slide.png.",
+
+  "title_top": [
+    "This is how I almost lost my entire business overnight",
+    "How I almost lost my whole business in one night",
+    "I almost lost everything I built overnight",
+    "This one email almost ended my business overnight",
+    "How a single mistake almost cost me my entire business"
+  ],
+
+  "beats": [
+    {
+      "id": "launch",
+      "pos": "split",
+      "top": [
+        "I built my app with AI tools and launched it.",
+        "I built my whole app using AI tools and shipped it.",
+        "I built and launched my app entirely with AI tools.",
+        "I vibe-coded my app with AI and put it live."
+      ],
+      "bottom": [
+        "Got my first 100 users. Life was good.",
+        "First 100 users signed up. Life was good.",
+        "Hit my first 100 users. Everything felt good.",
+        "Got my first real users. Life felt good."
+      ]
+    },
+    {
+      "id": "email",
+      "pos": "split",
+      "top": [
+        "Then I got the email.",
+        "Then the email came.",
+        "Then one email changed everything.",
+        "Then I got that email."
+      ],
+      "bottom": [
+        "Someone hacked my app. All my users' data was leaked.",
+        "My app got hacked. Every user's data was leaked.",
+        "Someone broke in. All my users' data was exposed.",
+        "My app was hacked and all the user data leaked."
+      ]
+    },
+    {
+      "id": "prevented",
+      "pos": "top",
+      "top": [
+        "I later found out this could've been prevented with a single security scan.",
+        "Turns out one security scan would have caught it.",
+        "I later learned a single scan could've stopped the whole thing.",
+        "One quick security scan would have prevented all of it."
+      ]
+    },
+    {
+      "id": "built",
+      "pos": "top",
+      "top": [
+        "So I built checkvibe to make sure this never happens to anybody ever again.",
+        "So I built checkvibe so this never happens to anyone again.",
+        "That's why I built checkvibe, so no one goes through this again.",
+        "So I made checkvibe to make sure nobody ever loses their data like that again."
+      ]
+    },
+    {
+      "id": "cta",
+      "pos": "top",
+      "top": [
+        "scan your website for free and only pay if you have issues.",
+        "scan your site for free, only pay if we find issues.",
+        "run a free scan on your website, only pay if there's something to fix.",
+        "check your website for free and only pay when there's an issue."
+      ]
+    }
+  ],
+
+  "hashtags": [
+    "#buildinpublic", "#saas", "#indiehacker", "#startup", "#solopreneur",
+    "#vibecoding", "#vibecode", "#founder", "#productivity", "#aitools",
+    "#techtok", "#coding", "#entrepreneur", "#startuptools", "#buildwithai",
+    "#indiesaas", "#saasfounder", "#foundertok", "#aifounder", "#cybersecurity",
+    "#security", "#appsecurity", "#datbreach", "#websecurity"
+  ],
+
+  "caption_templates": [
+    "this is how I almost lost my entire business overnight 😳\n\nI built my app with AI tools, launched it, and got my first 100 users. life was good.\n\nthen I got the email: someone hacked my app and all my users' data was leaked.\n\nI later found out this could've been prevented with a single security scan. so I built checkvibe to make sure this never happens to anybody ever again.\n\nscan your website for free at checkvibe.dev and only pay if you have issues.\n\nsave this so it never happens to you.\n\n{hashtags}",
+
+    "I almost lost everything I built in one night 💻\n\nbuilt my app with AI, launched it, hit my first 100 users. felt unstoppable.\n\nthen came the email: my app got hacked and every user's data leaked.\n\nthe worst part? one security scan would've caught it. that's why I built checkvibe, so this never happens to anyone again.\n\nscan your site for free at checkvibe.dev, only pay if there are issues.\n\nfollow for the unfiltered version of building alone.\n\n{hashtags}",
+
+    "the email that almost ended my business 😳\n\nI vibe-coded an app, shipped it, got my first 100 users. life was good.\n\nthen someone hacked it and leaked all my users' data. I found out later a single scan could've prevented the whole thing.\n\nso I built checkvibe. scan your website for free at checkvibe.dev, only pay if you actually have issues.\n\ndon't learn this the hard way like I did. save this.\n\n{hashtags}",
+
+    "if you're building with AI tools, read this before it's too late ⚠️\n\nI launched my app, got my first 100 users, and then got hacked. all their data leaked.\n\none security scan would have caught it. so I built checkvibe to make sure it never happens to anyone else.\n\nscan your site free at checkvibe.dev, only pay if you have issues.\n\nfollow so you don't repeat my mistake.\n\n{hashtags}"
+  ]
+}
