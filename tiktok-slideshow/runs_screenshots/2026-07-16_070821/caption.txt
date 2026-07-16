@@ -1,0 +1,22 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#buildinpublic #saas #startuptools #foundertok #techtok
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Lovable -> Obsidian -> Framer
+Generated: 2026-07-16 07:08
