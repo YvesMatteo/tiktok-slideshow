@@ -171,7 +171,8 @@ POST_HTML = """<!DOCTYPE html>
     <div class="label">6 Slides</div>
     <div class="grid">__THUMBS__</div>
     <div class="row">
-      <button onclick="saveAll(this)">Save all 6 to Photos</button>
+      <button onclick="airdrop(this)">AirDrop 6 slides</button>
+      <button class="ghost" onclick="saveAll(this)">Save all 6 to Photos</button>
       <a class="btn" href="file://__RUN_FOLDER__/" target="_blank">Show in Finder</a>
       <a class="btn ghost" href="import-to-photos.zip" download>Save to Mac Photos (ZIP)</a>
       <a class="btn ghost" href="post.zip" download>Download ZIP</a>
@@ -207,6 +208,35 @@ function copyCap(btn) {
     navigator.clipboard.writeText(el.value).then(done,
       () => { try{document.execCommand('copy');done();}catch(e){alert('Copy failed: '+e.message)} });
   } else { try{document.execCommand('copy');done();}catch(e){alert('Copy failed: '+e.message)} }
+}
+async function collectFiles() {
+  const files = [];
+  for (const img of [...document.querySelectorAll('.slide')]) {
+    const blob = await (await fetch(img.src)).blob();
+    files.push(new File([blob], img.dataset.name, {type: 'image/jpeg'}));
+  }
+  return files;
+}
+async function airdrop(btn) {
+  btn.disabled = true; const o = btn.textContent; btn.textContent = 'Preparing...';
+  try {
+    const files = await collectFiles();
+    btn.textContent = o; btn.disabled = false;
+    if (navigator.canShare && navigator.canShare({files})) {
+      try {
+        await navigator.share({files, title: 'Slideshow'});
+        flash(btn, '\u2713 Shared');
+      } catch (e) { if (e.name !== 'AbortError') throw e; }
+      return;
+    }
+    await saveAll(btn);
+    alert('This browser can\\'t open the share sheet directly.\\n' +
+          'The 6 slides were saved/downloaded \u2014 select them in Finder ' +
+          'and use Share \u2192 AirDrop, or open this page in Safari to AirDrop straight from here.');
+  } catch (e) {
+    btn.disabled = false; btn.textContent = o;
+    alert('AirDrop failed: ' + e.message);
+  }
 }
 async function saveAll(btn) {
   const imgs = [...document.querySelectorAll('.slide')];
