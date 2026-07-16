@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+stop researching tools. this is the whole setup.
+
+this is everything I use to run my one-person app business. every product, every launch, every customer goes through at least one of these:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. Vercel: a hosting service, it puts my apps live on the internet with one click
+5. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+6. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+I tried the complicated setups. I tried doing everything manually. nothing beats keeping it simple, five apps, each one doing one job really well.
+
+save it. use it. tell me which one surprised you in the comments 👇 follow for the rest of the playbook.
+
+#aitools #vibecoding #startup #aifounder #buildinpublic
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Supabase -> Vercel -> Railway -> PostHog
+Generated: 2026-07-16 02:22
