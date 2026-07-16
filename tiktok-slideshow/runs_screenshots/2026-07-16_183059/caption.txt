@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+broke college student to running my own apps, here's the stack
+
+no rich parents, no investors. i learned a few apps and started shipping:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Mobbin: a library of screenshots from the best apps, I copy what already works
+4. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+5. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+
+if you're young and broke but want to build, this is your shortcut. tools first, momentum second.
+
+save this. follow for how i got my first users 👇
+
+#indiesaas #solopreneur #productivity #startup #techtok
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Mobbin -> Pinterest -> Supabase
+Generated: 2026-07-16 18:31
