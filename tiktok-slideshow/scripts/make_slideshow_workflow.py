@@ -160,8 +160,22 @@ def main():
     title = random.choice(bank.get('workflow_title', bank['slideshow_title']))
     tags = ' '.join(random.sample(bank['hashtags'], 5))
     order = ' -> '.join(['title'] + [bank['apps'][k]['name'] for k in apps])
-    app_lines = [f"{i+1}. {bank['apps'][k]['name']}: {bank['apps'][k]['tagline']}"
-                 for i, k in enumerate(apps)]
+    # Narrated walkthrough: "first I go to X, then I go to Y, then ..." — one
+    # connector per workflow step, keyed off the step's role so it reads like a
+    # real story instead of a numbered list.
+    step_connectors = {
+        'design':   'first I go to',
+        'build':    'then I go to',
+        'check':    'then I run it through',
+        'database': 'then I connect',
+        'deploy':   'then I deploy it on',
+    }
+    app_lines = []
+    for i, k in enumerate(apps):
+        role = WORKFLOW[i]['step'] if i < len(WORKFLOW) else ''
+        connector = step_connectors.get(role, 'then I go to' if i else 'first I go to')
+        app_lines.append(f"{connector} {bank['apps'][k]['name']} — "
+                         f"{bank['apps'][k]['tagline']}")
     templates = bank.get('workflow_caption_templates') or bank['caption_templates']
     template = random.choice(templates)
     full_caption = (template
