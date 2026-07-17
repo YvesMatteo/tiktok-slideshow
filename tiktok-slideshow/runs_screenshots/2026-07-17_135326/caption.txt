@@ -1,0 +1,22 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+4. Convex: a database and backend for apps, stores all my data and logins and updates the screen in real time
+5. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#aitools #saas #vibecode #productivity #indiesaas
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Railway -> Convex -> Supabase
+Generated: 2026-07-17 13:53
