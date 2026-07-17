@@ -1,0 +1,18 @@
+TITLE: This is how I almost lost my entire business overnight
+
+CAPTION:
+if you're building with AI tools, read this before it's too late ⚠️
+
+I launched my app, got my first 100 users, and then got hacked. all their data leaked.
+
+one security scan would have caught it. so I built checkvibe to make sure it never happens to anyone else.
+
+scan your site free at checkvibe.dev, only pay if you have issues.
+
+follow so you don't repeat my mistake.
+
+#techtok #aifounder #websecurity #datbreach #cybersecurity
+
+---
+Slides: title -> launch -> hacked -> prevented -> built -> free-scan -> checkvibe.dev
+Generated: 2026-07-17 12:15
