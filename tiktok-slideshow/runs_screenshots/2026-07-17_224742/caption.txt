@@ -1,0 +1,22 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+everyone keeps asking what's on my laptop. here it is.
+
+this is the whole setup i use to build and run my apps by myself:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+4. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+no team, no office, no investors. these five replace what used to take a whole company.
+
+drop your own stack in the comments, i actually read them 👇 follow for more.
+
+#solopreneur #vibecode #buildwithai #aitools #aifounder
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Antigravity -> Framer -> PostHog
+Generated: 2026-07-17 22:47
