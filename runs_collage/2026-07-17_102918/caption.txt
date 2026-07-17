@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+five apps. one business. zero employees.
+
+people always ask how I run a whole app business by myself. honestly? it's mostly these five:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+6. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+they replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.
+
+save this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.
+
+#productivity #buildwithai #techtok #sidehustle #coding
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> GitHub -> Pinterest -> Vercel -> Railway
+Generated: 2026-07-17 10:29
