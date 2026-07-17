@@ -1,0 +1,22 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+everyone keeps asking what's on my laptop. here it is.
+
+this is the whole setup i use to build and run my apps by myself:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+5. Notion: a notes and planning app, every plan, idea and to-do in one place
+
+no team, no office, no investors. these five replace what used to take a whole company.
+
+drop your own stack in the comments, i actually read them 👇 follow for more.
+
+#startuptools #indiesaas #vibecode #saas #vibecoding
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Supabase -> GitHub -> Notion
+Generated: 2026-07-17 16:50
