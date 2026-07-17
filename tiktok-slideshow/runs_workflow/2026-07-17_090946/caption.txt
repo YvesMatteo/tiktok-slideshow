@@ -1,0 +1,22 @@
+TITLE: my exact website-building workflow
+
+CAPTION:
+idea to live website in 5 steps, here's my exact workflow
+
+i used to jump straight into building and regret it. now I follow this order every time:
+
+first I go to Pinterest — a visual search engine where I find design ideas and get free visitors to my websites
+then I go to Antigravity — Google's AI builder, I give it a job and it plans and does it by itself
+then I run it through checkvibe.dev — a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+then I connect Supabase — a database for apps, stores all my data and logins, the whole engine room in one place
+then I deploy it on Vercel — a hosting service, it puts my apps live on the internet with one click
+
+design inspo, build, check SEO + security, database, deploy. do it in this order and you ship way faster.
+
+save this for your next project. follow for the full playbook 👇
+
+#techtok #productivity #foundertok #tech #buildinpublic
+
+---
+Slides: title -> Pinterest -> Antigravity -> checkvibe.dev -> Supabase -> Vercel
+Generated: 2026-07-17 09:09
