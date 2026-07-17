@@ -1,0 +1,22 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+my entire business fits in 5 app icons
+
+no warehouse, no staff, no meetings. just this:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Mobbin: a library of screenshots from the best apps, I copy what already works
+4. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+5. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+
+this is what running a one-person company actually looks like in 2026. lean on purpose.
+
+which one surprised you? comment below 👇 follow for more behind the scenes.
+
+#vibecode #buildinpublic #saasfounder #entrepreneur #productivity
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Mobbin -> PostHog -> GitHub
+Generated: 2026-07-17 08:16
