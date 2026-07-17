@@ -398,9 +398,16 @@ def main():
     # apps drawn from the rotating_pool, never repeating slide 1.
     first = random.choice(bank['first_slide_pool'])
     second = bank['second_slide']
-    pool = [a for a in bank['rotating_pool'] if a not in (first, second)]
-    rest = random.sample(pool, max(0, 5 - 2))
-    apps = [first, second] + rest
+    pin_slideys = os.environ.get('WITH_SLIDEYS') == '1'
+    if pin_slideys:
+        fixed = [first, second, 'slideys']
+        pool = [a for a in bank['rotating_pool'] if a not in fixed]
+        rest = random.sample(pool, max(0, 5 - 3))
+        apps = fixed + rest
+    else:
+        pool = [a for a in bank['rotating_pool'] if a not in (first, second)]
+        rest = random.sample(pool, max(0, 5 - 2))
+        apps = [first, second] + rest
     variant = f"slide1={bank['apps'][first]['name']}"
 
     # ---- pick 5 distinct photos for app slides (title is the static

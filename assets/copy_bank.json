@@ -314,6 +314,16 @@
         "ElevenLabs turns text into speech that sounds human.\nAll my voiceovers, zero microphones.",
         "ElevenLabs gives my content a voice.\nType the words, pick a voice, the AI does the talking."
       ]
+    },
+    "slideys": {
+      "name": "slideys.app",
+      "logo": "slideys",
+      "tagline": "the app that makes these exact slideshows, describe your apps and it builds the whole post for you",
+      "copy": [
+        "slideys.app makes these exact slideshows.\nDescribe the apps you love and it builds the whole post, slides and caption, in one go.",
+        "slideys.app is how this slideshow was made.\nIt turns a list of apps into a ready-to-post TikTok in seconds.",
+        "slideys.app builds app-recommendation slideshows for you.\nYes, including this one, it's slideshows all the way down."
+      ]
     }
   },
   "first_slide_pool": [
