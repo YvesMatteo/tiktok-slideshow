@@ -1,0 +1,22 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+the 5 apps that secretly run my entire one-person business 💻 save this before you scroll
+
+I quit my 9-5 to build apps full time. two years of trying every tool later, these are the only 5 I actually open every day:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+4. Cursor: an AI code editor, I describe what I want in plain English and it builds it with me
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+
+no team, no office, no investors. just me, my laptop and these 5 apps. if you've been wanting to build something of your own, an app, a side hustle, anything, this is the exact setup I'd copy.
+
+follow for more behind the scenes of running a one-person business. save this so you don't lose it. drop the app you can't live without in the comments 👇
+
+#startup #founder #indiesaas #vibecoding #aifounder
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Higgsfield -> Cursor -> Vercel
+Generated: 2026-07-18 01:49
