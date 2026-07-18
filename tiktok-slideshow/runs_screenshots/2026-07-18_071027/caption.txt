@@ -1,0 +1,22 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+five apps. one business. zero employees.
+
+people always ask how I run a whole app business by myself. honestly? it's mostly these five:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Obsidian: a private notes app, everything saved on my own computer forever
+4. Vercel: a hosting service, it puts my apps live on the internet with one click
+5. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+
+they replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.
+
+save this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.
+
+#aifounder #vibecoding #sidehustle #buildinpublic #tech
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Obsidian -> Vercel -> Claude
+Generated: 2026-07-18 07:10
