@@ -1,0 +1,22 @@
+TITLE: my exact website-building workflow
+
+CAPTION:
+the step-by-step I wish someone showed me before I started building websites
+
+no course needed. this is the entire workflow, in order, for free:
+
+first I go to Pinterest — a visual search engine where I find design ideas and get free visitors to my websites
+then I go to Lovable — an AI app builder, describe an app in a sentence and it builds the whole thing for you
+then I run it through checkvibe.dev — a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+then I connect Supabase — a database for apps, stores all my data and logins, the whole engine room in one place
+then I deploy it on Railway — a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+inspo, build, check, database, launch. that's it. that's how one person ships a real website.
+
+save this and skip the $500 course. follow for how I run each step 👇
+
+#vibecoding #aifounder #sidehustle #foundertok #coding
+
+---
+Slides: title -> Pinterest -> Lovable -> checkvibe.dev -> Supabase -> Railway
+Generated: 2026-07-18 09:37
