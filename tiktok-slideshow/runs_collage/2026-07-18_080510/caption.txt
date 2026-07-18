@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+i'm 18 and run a business from my laptop. these 5 apps are how 👇
+
+no degree, no team, no office. just me and a few apps that do the heavy lifting:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Cursor: an AI code editor, I describe what I want in plain English and it builds it with me
+4. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+6. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+
+if you're young and want to build something instead of waiting around, this is the exact stack i'd start with. you don't need money, you need to start.
+
+save this. follow for how i actually run it day to day. comment the app you'd try first 👇
+
+#startuptools #techtok #solopreneur #entrepreneur #sidehustle
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Cursor -> Framer -> Lovable -> slideys.app
+Generated: 2026-07-18 08:05
