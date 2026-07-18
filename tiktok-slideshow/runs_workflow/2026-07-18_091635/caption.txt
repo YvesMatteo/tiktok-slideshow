@@ -1,0 +1,22 @@
+TITLE: how I go from idea to live website
+
+CAPTION:
+POV: you watch a solo dev build a whole website from scratch
+
+stop scrolling, this is the actual order I work in every single time:
+
+first I go to Mobbin — a library of screenshots from the best apps, I copy what already works
+then I go to Cursor — an AI code editor, I describe what I want in plain English and it builds it with me
+then I run it through checkvibe.dev — a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+then I connect Supabase — a database for apps, stores all my data and logins, the whole engine room in one place
+then I deploy it on Railway — a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+from a blank page to a live site, five steps. no guessing, no chaos, just the same loop on repeat.
+
+save it, screenshot it, follow for the deep dive on each step 👇
+
+#indiesaas #solopreneur #vibecoding #buildwithai #saasfounder
+
+---
+Slides: title -> Mobbin -> Cursor -> checkvibe.dev -> Supabase -> Railway
+Generated: 2026-07-18 09:16
