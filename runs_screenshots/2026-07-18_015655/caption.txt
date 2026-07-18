@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+the apps nobody tells you about when you start a business
+
+the gurus sell courses. here's the actual stack, for free:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+5. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+
+five apps. that's the secret. i think of an idea, build it, put it online, and improve it based on what people do.
+
+save this and skip the $500 course. follow for the real version 👇
+
+#startup #solopreneur #aitools #buildinpublic #productivity
+
+---
+Slides: title -> Framer -> checkvibe.dev -> slideys.app -> Pinterest -> Claude
+Generated: 2026-07-18 01:56
