@@ -1,0 +1,22 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+my entire business fits in 5 app icons
+
+no warehouse, no staff, no meetings. just this:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that made this exact slideshow, it generates ready-to-post TikTok slideshows for any app or niche in minutes
+4. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+this is what running a one-person company actually looks like in 2026. lean on purpose.
+
+which one surprised you? comment below 👇 follow for more behind the scenes.
+
+#coding #startuptools #tech #saas #indiehacker
+
+---
+Slides: title -> Framer -> checkvibe.dev -> slideys.app -> Supabase -> PostHog
+Generated: 2026-07-18 01:55

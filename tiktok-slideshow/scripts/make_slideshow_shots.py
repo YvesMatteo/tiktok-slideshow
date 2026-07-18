@@ -54,14 +54,21 @@ def main():
 
     # ---- pick apps (only ones with screenshots) ----
     # slide 1: a first-slide-pool app; slide 2: CheckVibe (if available);
-    # slides 3-5: distinct apps from the rest of the screenshot roster.
-    first_pool = [k for k in bank['first_slide_pool'] if k in roster]
-    first = random.choice(first_pool) if first_pool else random.choice(list(roster))
+    # WITH_SLIDEYS=1 pins slideys.app as product 3 (meta angle: the app that
+    # makes these slideshows); rotation then fills only slides 4-5.
+    # Without the env var, slideys never enters the rotation.
+    with_slideys = bool(os.environ.get('WITH_SLIDEYS')) and 'slideys' in roster \
+        and 'slideys' in bank['apps']
+    first_pool = [k for k in bank['first_slide_pool'] if k in roster and k != 'slideys']
+    first = random.choice(first_pool) if first_pool else random.choice(
+        [k for k in roster if k != 'slideys'] or list(roster))
     picked = [first]
     second = bank.get('second_slide')
     if second in roster and second != first:
         picked.append(second)
-    remaining = [k for k in roster if k not in picked]
+    if with_slideys and 'slideys' not in picked:
+        picked.append('slideys')       # pinned product 3
+    remaining = [k for k in roster if k not in picked and k != 'slideys']
     need = max(0, 5 - len(picked))
     rest = random.sample(remaining, min(need, len(remaining)))
     apps = picked + rest
