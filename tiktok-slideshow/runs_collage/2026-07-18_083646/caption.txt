@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+the only 5 apps I'd keep if I had to start over tomorrow
+
+after two years of building apps on my own, I've cut everything down to what actually matters. every app on this list earns its spot:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. Vercel: a hosting service, it puts my apps live on the internet with one click
+5. Cursor: an AI code editor, I describe what I want in plain English and it builds it with me
+6. Convex: a database and backend for apps, stores all my data and logins and updates the screen in real time
+
+I used to spend weeks hunting for the 'perfect tool.' now I just build. these five let me do that without thinking about my setup. if you've got an idea you keep putting off, this is your sign.
+
+save this and stop researching. you don't need more tools, you need to start. follow for the unfiltered version of building a business alone.
+
+#aifounder #buildwithai #startup #indiesaas #buildinpublic
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Notion -> Vercel -> Cursor -> Convex
+Generated: 2026-07-18 08:36
