@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+everyone keeps asking what's on my laptop. here it is.
+
+this is the whole setup i use to build and run my apps by myself:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+6. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+no team, no office, no investors. these five replace what used to take a whole company.
+
+drop your own stack in the comments, i actually read them 👇 follow for more.
+
+#founder #buildinpublic #indiesaas #solopreneur #saas
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Notion -> Obsidian -> PostHog -> Pinterest
+Generated: 2026-07-19 08:32
