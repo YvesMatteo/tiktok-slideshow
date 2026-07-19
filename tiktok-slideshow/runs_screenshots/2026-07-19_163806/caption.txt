@@ -1,0 +1,22 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+broke college student to running my own apps, here's the stack
+
+no rich parents, no investors. i learned a few apps and started shipping:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Notion: a notes and planning app, every plan, idea and to-do in one place
+5. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+if you're young and broke but want to build, this is your shortcut. tools first, momentum second.
+
+save this. follow for how i got my first users 👇
+
+#productivity #tech #techtok #startuptools #aifounder
+
+---
+Slides: title -> Claude -> checkvibe.dev -> slideys.app -> Notion -> Pinterest
+Generated: 2026-07-19 16:38
