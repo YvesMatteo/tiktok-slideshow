@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#founder #aifounder #startuptools #indiehacker #saasfounder
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Notion -> Railway -> Lovable
+Generated: 2026-07-19 07:11
