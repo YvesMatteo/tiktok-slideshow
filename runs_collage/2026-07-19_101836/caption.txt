@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+how i build a whole app in a weekend (the tools)
+
+people think it takes a team. it takes these five apps and a free weekend:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+4. Vercel: a hosting service, it puts my apps live on the internet with one click
+5. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+6. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+idea on friday, live by sunday. that's the loop, and these are the tools that make it possible solo.
+
+save this for your next weekend project. follow to watch me build 👇
+
+#saas #vibecode #productivity #buildinpublic #sidehustle
+
+---
+Slides: title -> Claude -> checkvibe.dev -> PostHog -> Vercel -> Antigravity -> Railway
+Generated: 2026-07-19 10:18
