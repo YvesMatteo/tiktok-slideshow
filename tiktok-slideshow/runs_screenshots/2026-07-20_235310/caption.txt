@@ -1,0 +1,22 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+if i started over tomorrow with $0, i'd download these 5 apps first
+
+no savings, no audience, no connections. just these:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Cursor: an AI code editor, I describe what I want in plain English and it builds it with me
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+this is the leanest way i know to go from idea to a real product on your own. start with the tools, the rest follows.
+
+save this for your fresh start. follow for the step by step 👇
+
+#vibecode #buildwithai #vibecoding #sidehustle #techtok
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> slideys.app -> Cursor -> PostHog
+Generated: 2026-07-20 23:53
