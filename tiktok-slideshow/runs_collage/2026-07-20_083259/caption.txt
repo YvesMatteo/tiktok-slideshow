@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+five apps. one business. zero employees.
+
+people always ask how I run a whole app business by myself. honestly? it's mostly these five:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+5. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+6. Mobbin: a library of screenshots from the best apps, I copy what already works
+
+they replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.
+
+save this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.
+
+#saas #saasfounder #indiesaas #productivity #tech
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Notion -> Supabase -> Antigravity -> Mobbin
+Generated: 2026-07-20 08:33
