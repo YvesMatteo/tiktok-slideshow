@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+4. Convex: a database and backend for apps, stores all my data and logins and updates the screen in real time
+5. Notion: a notes and planning app, every plan, idea and to-do in one place
+6. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#buildwithai #aifounder #saasfounder #foundertok #solopreneur
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Framer -> Convex -> Notion -> Antigravity
+Generated: 2026-07-20 08:06
