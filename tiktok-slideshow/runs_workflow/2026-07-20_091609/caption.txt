@@ -1,0 +1,22 @@
+TITLE: the 5 steps I follow to build any website
+
+CAPTION:
+POV: you watch a solo dev build a whole website from scratch
+
+stop scrolling, this is the actual order I work in every single time:
+
+first I go to Mobbin — a library of screenshots from the best apps, I copy what already works
+then I go to Lovable — an AI app builder, describe an app in a sentence and it builds the whole thing for you
+then I run it through checkvibe.dev — a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+then I connect Supabase — a database for apps, stores all my data and logins, the whole engine room in one place
+then I deploy it on Vercel — a hosting service, it puts my apps live on the internet with one click
+
+from a blank page to a live site, five steps. no guessing, no chaos, just the same loop on repeat.
+
+save it, screenshot it, follow for the deep dive on each step 👇
+
+#solopreneur #sidehustle #tech #foundertok #founder
+
+---
+Slides: title -> Mobbin -> Lovable -> checkvibe.dev -> Supabase -> Vercel
+Generated: 2026-07-20 09:16
