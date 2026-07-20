@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+5. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#founder #saas #buildwithai #productivity #techtok
+
+---
+Slides: title -> Notion -> checkvibe.dev -> GitHub -> PostHog -> Pinterest
+Generated: 2026-07-20 07:12
