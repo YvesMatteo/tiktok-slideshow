@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+6. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#vibecoding #founder #startuptools #indiesaas #foundertok
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Railway -> Obsidian -> Pinterest -> slideys.app
+Generated: 2026-07-20 20:02
