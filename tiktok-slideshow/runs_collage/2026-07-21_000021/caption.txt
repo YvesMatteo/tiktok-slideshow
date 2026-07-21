@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+how one person runs an entire app business in 2026, 5 apps, no team, no investors
+
+everybody's selling courses on this. skip them. here's the actual day-to-day:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+6. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+
+that's it. no 30-app setup, no $500 a month in subscriptions. five apps that each do one thing really well. I think of an idea, build it, put it online, then make it better based on what people actually do. that loop is the whole secret.
+
+save this for the next time you're tempted to buy another tool you don't need. follow along, I share every part of building this thing.
+
+#saas #buildwithai #productivity #buildinpublic #solopreneur
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> slideys.app -> Claude -> Vercel -> Lovable
+Generated: 2026-07-21 00:00

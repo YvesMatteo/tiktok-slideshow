@@ -40,6 +40,10 @@ TITLE_SUB = "for design, code and inspiration"
 
 N_APPS = 6
 
+# WITH_SLIDEYS=1 pins slideys.app as the 3rd app slide on every run
+# (slide 2 stays CheckVibe, rotation fills the remaining slots).
+WITH_SLIDEYS = os.environ.get('WITH_SLIDEYS', '').strip().lower() in ('1', 'true', 'yes')
+
 _args = [a for a in sys.argv[1:] if not a.startswith('--')]
 PHOTOS = _args[0] if _args else base._detect_photos_dir()
 
@@ -80,10 +84,14 @@ def main():
     second = bank.get('second_slide')
     if second in roster and second != first:
         picked.append(second)
-    remaining = [k for k in roster if k not in picked]
-    need = max(0, N_APPS - len(picked))
+    slideys_pin = WITH_SLIDEYS and 'slideys' in roster and 'slideys' not in picked
+    remaining = [k for k in roster if k not in picked
+                 and not (slideys_pin and k == 'slideys')]
+    need = max(0, N_APPS - len(picked) - (1 if slideys_pin else 0))
     rest = random.sample(remaining, min(need, len(remaining)))
     apps = picked + rest
+    if slideys_pin:
+        apps.insert(2, 'slideys')   # always the 3rd app slide
     variant = f"slide1={bank['apps'][first]['name']}"
 
     # ---- background photos matched to the title photo's mood ----
@@ -129,6 +137,8 @@ def main():
     print(f"GENERATED AT: {now.strftime('%H:%M  %a %b %d')}")
     print(f"FIRST SLIDE: {variant}")
     print(f"STYLE: collage / sticker screenshots")
+    if slideys_pin:
+        print("SLIDEYS PIN: active (slideys.app pinned as 3rd app slide)")
     print(f"TITLE PHOTO: {'higgsfield' if title_bg == TITLE_BG else 'fallback (baked title_slide)'}")
     print(f"PHOTO TONE: {tone_note}")
     print(f"Slideshow ready: {out_dir}")
