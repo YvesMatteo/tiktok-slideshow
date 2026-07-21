@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+five apps. one business. zero employees.
+
+people always ask how I run a whole app business by myself. honestly? it's mostly these five:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+5. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+6. Mobbin: a library of screenshots from the best apps, I copy what already works
+
+they replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.
+
+save this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.
+
+#vibecode #coding #vibecoding #startuptools #indiehacker
+
+---
+Slides: title -> Notion -> checkvibe.dev -> slideys.app -> GitHub -> Railway -> Mobbin
+Generated: 2026-07-21 08:33
