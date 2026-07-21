@@ -1,0 +1,20 @@
+TITLE: How a single mistake almost cost me my entire business
+
+CAPTION:
+this is how I almost lost my entire business overnight 😳
+
+I built my app with AI tools, launched it, and got my first 100 users. life was good.
+
+then I got the email: someone hacked my app and all my users' data was leaked.
+
+I later found out this could've been prevented with a single security scan. so I built checkvibe to make sure this never happens to anybody ever again.
+
+scan your website for free at checkvibe.dev and only pay if you have issues.
+
+save this so it never happens to you.
+
+#vibecode #indiehacker #datbreach #cybersecurity #solopreneur
+
+---
+Slides: title -> launch -> hacked -> prevented -> built -> free-scan -> checkvibe.dev
+Generated: 2026-07-21 12:42
