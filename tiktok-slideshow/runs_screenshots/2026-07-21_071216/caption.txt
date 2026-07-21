@@ -1,0 +1,22 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+stop researching tools. this is the whole setup.
+
+this is everything I use to run my one-person app business. every product, every launch, every customer goes through at least one of these:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Convex: a database and backend for apps, stores all my data and logins and updates the screen in real time
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+
+I tried the complicated setups. I tried doing everything manually. nothing beats keeping it simple, five apps, each one doing one job really well.
+
+save it. use it. tell me which one surprised you in the comments 👇 follow for the rest of the playbook.
+
+#indiehacker #aitools #vibecoding #vibecode #entrepreneur
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Convex -> Railway -> Claude
+Generated: 2026-07-21 07:12
