@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+five apps. one business. zero employees.
+
+people always ask how I run a whole app business by myself. honestly? it's mostly these five:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+5. Cursor: an AI code editor, I describe what I want in plain English and it builds it with me
+
+they replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.
+
+save this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.
+
+#aitools #coding #aifounder #vibecoding #vibecode
+
+---
+Slides: title -> Framer -> checkvibe.dev -> slideys.app -> Antigravity -> Cursor
+Generated: 2026-07-21 22:50
