@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+the only 5 apps I'd keep if I had to start over tomorrow
+
+after two years of building apps on my own, I've cut everything down to what actually matters. every app on this list earns its spot:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. Convex: a database and backend for apps, stores all my data and logins and updates the screen in real time
+6. Vercel: a hosting service, it puts my apps live on the internet with one click
+
+I used to spend weeks hunting for the 'perfect tool.' now I just build. these five let me do that without thinking about my setup. if you've got an idea you keep putting off, this is your sign.
+
+save this and stop researching. you don't need more tools, you need to start. follow for the unfiltered version of building a business alone.
+
+#buildinpublic #startuptools #techtok #buildwithai #indiesaas
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> slideys.app -> Railway -> Convex -> Vercel
+Generated: 2026-07-22 08:33
