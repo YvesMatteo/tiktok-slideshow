@@ -1,0 +1,22 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+how one person runs an entire app business in 2026, 5 apps, no team, no investors
+
+everybody's selling courses on this. skip them. here's the actual day-to-day:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+4. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+that's it. no 30-app setup, no $500 a month in subscriptions. five apps that each do one thing really well. I think of an idea, build it, put it online, then make it better based on what people actually do. that loop is the whole secret.
+
+save this for the next time you're tempted to buy another tool you don't need. follow along, I share every part of building this thing.
+
+#buildinpublic #saasfounder #indiehacker #tech #indiesaas
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Claude -> Higgsfield -> PostHog
+Generated: 2026-07-22 07:12
