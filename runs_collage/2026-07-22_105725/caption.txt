@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+5. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+6. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#indiesaas #vibecoding #buildinpublic #entrepreneur #techtok
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Notion -> GitHub -> Antigravity -> PostHog
+Generated: 2026-07-22 10:57
