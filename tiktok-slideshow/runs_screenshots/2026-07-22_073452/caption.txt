@@ -1,0 +1,22 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#sidehustle #entrepreneur #saasfounder #vibecoding #aifounder
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> slideys.app -> Claude -> PostHog
+Generated: 2026-07-22 07:34
