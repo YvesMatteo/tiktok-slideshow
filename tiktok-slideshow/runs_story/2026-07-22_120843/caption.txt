@@ -1,0 +1,18 @@
+TITLE: This one email almost ended my business overnight
+
+CAPTION:
+the email that almost ended my business 😳
+
+I vibe-coded an app, shipped it, got my first 100 users. life was good.
+
+then someone hacked it and leaked all my users' data. I found out later a single scan could've prevented the whole thing.
+
+so I built checkvibe. scan your website for free at checkvibe.dev, only pay if you actually have issues.
+
+don't learn this the hard way like I did. save this.
+
+#buildwithai #aifounder #productivity #buildinpublic #datbreach
+
+---
+Slides: title -> launch -> hacked -> prevented -> built -> free-scan -> checkvibe.dev
+Generated: 2026-07-22 12:08
