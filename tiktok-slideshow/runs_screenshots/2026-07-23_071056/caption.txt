@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. Obsidian: a private notes app, everything saved on my own computer forever
+4. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+5. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#entrepreneur #indiesaas #startup #founder #saas
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Obsidian -> Antigravity -> GitHub
+Generated: 2026-07-23 07:10
