@@ -1,0 +1,22 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+my entire business fits in 5 app icons
+
+no warehouse, no staff, no meetings. just this:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+5. Convex: a database and backend for apps, stores all my data and logins and updates the screen in real time
+
+this is what running a one-person company actually looks like in 2026. lean on purpose.
+
+which one surprised you? comment below 👇 follow for more behind the scenes.
+
+#saasfounder #startup #solopreneur #vibecoding #indiehacker
+
+---
+Slides: title -> Notion -> checkvibe.dev -> slideys.app -> GitHub -> Convex
+Generated: 2026-07-23 09:38
