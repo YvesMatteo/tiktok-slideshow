@@ -1,0 +1,22 @@
+TITLE: how I build a website, step by step
+
+CAPTION:
+the step-by-step I wish someone showed me before I started building websites
+
+no course needed. this is the entire workflow, in order, for free:
+
+first I go to Mobbin — a library of screenshots from the best apps, I copy what already works
+then I go to Lovable — an AI app builder, describe an app in a sentence and it builds the whole thing for you
+then I run it through checkvibe.dev — a website checker for SEO, AEO and security, paste a link and get a report of what to fix in 30 seconds
+then I connect Supabase — a database for apps, stores all my data and logins, the whole engine room in one place
+then I deploy it on Railway — a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+inspo, build, check, database, launch. that's it. that's how one person ships a real website.
+
+save this and skip the $500 course. follow for how I run each step 👇
+
+#tech #coding #foundertok #buildinpublic #entrepreneur
+
+---
+Slides: title -> Mobbin -> Lovable -> checkvibe.dev -> Supabase -> Railway
+Generated: 2026-07-23 09:44
