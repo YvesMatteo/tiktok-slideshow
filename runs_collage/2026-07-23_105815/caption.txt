@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. Notion: a notes and planning app, every plan, idea and to-do in one place
+6. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#indiehacker #buildwithai #coding #founder #entrepreneur
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Higgsfield -> Railway -> Notion -> slideys.app
+Generated: 2026-07-23 10:58
