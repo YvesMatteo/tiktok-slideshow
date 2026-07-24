@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+5. Obsidian: a private notes app, everything saved on my own computer forever
+6. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#startup #saas #indiehacker #solopreneur #aifounder
+
+---
+Slides: title -> Notion -> checkvibe.dev -> slideys.app -> Claude -> Obsidian -> Pinterest
+Generated: 2026-07-24 10:53
