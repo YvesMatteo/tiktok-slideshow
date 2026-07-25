@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+4. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+5. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+6. Vercel: a hosting service, it puts my apps live on the internet with one click
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#foundertok #buildwithai #indiehacker #aifounder #vibecoding
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Pinterest -> slideys.app -> Framer -> Vercel
+Generated: 2026-07-25 10:20
