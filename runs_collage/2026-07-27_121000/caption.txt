@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. Vercel: a hosting service, it puts my apps live on the internet with one click
+5. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+6. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#vibecoding #aifounder #startuptools #vibecode #solopreneur
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Supabase -> Vercel -> slideys.app -> Lovable
+Generated: 2026-07-27 12:10
