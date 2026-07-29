@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+4. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+5. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+6. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#foundertok #indiesaas #sidehustle #saas #coding
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Claude -> PostHog -> Pinterest -> Supabase
+Generated: 2026-07-29 11:13
