@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+4. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+5. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+6. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#saasfounder #startup #saas #coding #aifounder
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Higgsfield -> PostHog -> GitHub -> Claude
+Generated: 2026-07-31 11:17
