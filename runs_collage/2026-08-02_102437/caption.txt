@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+4. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+5. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+6. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#aitools #coding #saasfounder #techtok #productivity
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Higgsfield -> Supabase -> GitHub -> PostHog
+Generated: 2026-08-02 10:24
