@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+everyone keeps asking what's on my laptop. here it is.
+
+this is the whole setup i use to build and run my apps by myself:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+6. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+
+no team, no office, no investors. these five replace what used to take a whole company.
+
+drop your own stack in the comments, i actually read them 👇 follow for more.
+
+#entrepreneur #tech #saas #foundertok #vibecoding
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Supabase -> PostHog -> Lovable -> slideys.app
+Generated: 2026-08-05 11:11
