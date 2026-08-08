@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+how i build a whole app in a weekend (the tools)
+
+people think it takes a team. it takes these five apps and a free weekend:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+6. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+
+idea on friday, live by sunday. that's the loop, and these are the tools that make it possible solo.
+
+save this for your next weekend project. follow to watch me build 👇
+
+#startuptools #buildinpublic #indiehacker #entrepreneur #aitools
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Supabase -> Obsidian -> Lovable -> Higgsfield
+Generated: 2026-08-08 09:26
