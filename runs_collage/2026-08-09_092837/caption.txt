@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+the only 5 apps I'd keep if I had to start over tomorrow
+
+after two years of building apps on my own, I've cut everything down to what actually matters. every app on this list earns its spot:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Vercel: a hosting service, it puts my apps live on the internet with one click
+4. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+6. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+I used to spend weeks hunting for the 'perfect tool.' now I just build. these five let me do that without thinking about my setup. if you've got an idea you keep putting off, this is your sign.
+
+save this and stop researching. you don't need more tools, you need to start. follow for the unfiltered version of building a business alone.
+
+#sidehustle #saasfounder #entrepreneur #foundertok #aitools
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Vercel -> Framer -> Lovable -> Pinterest
+Generated: 2026-08-09 09:28
