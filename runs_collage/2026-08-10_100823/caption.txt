@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+5 apps that feel illegal to know about as a solo founder
+
+i almost don't want to share these, but here's my whole stack:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+5. Obsidian: a private notes app, everything saved on my own computer forever
+6. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+
+each one does one thing so well it feels like cheating. this is how one person keeps up with whole teams.
+
+save this before i change my mind 😅 follow for the full breakdown 👇
+
+#aifounder #tech #startuptools #coding #indiesaas
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Supabase -> Lovable -> Obsidian -> slideys.app
+Generated: 2026-08-10 10:08
