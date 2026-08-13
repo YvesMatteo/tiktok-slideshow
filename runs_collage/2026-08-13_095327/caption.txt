@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+4. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+6. Obsidian: a private notes app, everything saved on my own computer forever
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#solopreneur #indiesaas #productivity #indiehacker #entrepreneur
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Framer -> PostHog -> Lovable -> Obsidian
+Generated: 2026-08-13 09:53
