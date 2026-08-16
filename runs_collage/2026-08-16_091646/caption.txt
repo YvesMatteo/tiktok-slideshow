@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+the apps nobody tells you about when you start a business
+
+the gurus sell courses. here's the actual stack, for free:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+4. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+5. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+6. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+
+five apps. that's the secret. i think of an idea, build it, put it online, and improve it based on what people do.
+
+save this and skip the $500 course. follow for the real version 👇
+
+#buildinpublic #vibecoding #saasfounder #startup #tech
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Framer -> Higgsfield -> Claude -> Lovable
+Generated: 2026-08-16 09:16
