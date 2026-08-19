@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+my entire business fits in 5 app icons
+
+no warehouse, no staff, no meetings. just this:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Vercel: a hosting service, it puts my apps live on the internet with one click
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+6. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+
+this is what running a one-person company actually looks like in 2026. lean on purpose.
+
+which one surprised you? comment below 👇 follow for more behind the scenes.
+
+#techtok #buildinpublic #founder #coding #saas
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Vercel -> Railway -> Framer -> GitHub
+Generated: 2026-08-19 09:22
