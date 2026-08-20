@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+five apps. one business. zero employees.
+
+people always ask how I run a whole app business by myself. honestly? it's mostly these five:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+4. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+5. Notion: a notes and planning app, every plan, idea and to-do in one place
+6. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+they replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.
+
+save this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.
+
+#tech #aitools #vibecoding #founder #startup
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Lovable -> Claude -> Notion -> Railway
+Generated: 2026-08-20 09:23
