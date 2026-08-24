@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+6. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#foundertok #techtok #coding #aitools #saas
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Antigravity -> Obsidian -> Vercel -> Claude
+Generated: 2026-08-24 09:35
