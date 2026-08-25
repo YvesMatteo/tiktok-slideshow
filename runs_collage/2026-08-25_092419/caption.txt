@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+the apps nobody tells you about when you start a business
+
+the gurus sell courses. here's the actual stack, for free:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+5. Notion: a notes and planning app, every plan, idea and to-do in one place
+6. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+
+five apps. that's the secret. i think of an idea, build it, put it online, and improve it based on what people do.
+
+save this and skip the $500 course. follow for the real version 👇
+
+#techtok #solopreneur #buildinpublic #indiehacker #founder
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> GitHub -> slideys.app -> Notion -> Framer
+Generated: 2026-08-25 09:24
