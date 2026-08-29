@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+stop researching tools. this is the whole setup.
+
+this is everything I use to run my one-person app business. every product, every launch, every customer goes through at least one of these:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+6. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+
+I tried the complicated setups. I tried doing everything manually. nothing beats keeping it simple, five apps, each one doing one job really well.
+
+save it. use it. tell me which one surprised you in the comments 👇 follow for the rest of the playbook.
+
+#indiesaas #saas #startuptools #vibecoding #indiehacker
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Antigravity -> Railway -> slideys.app -> Higgsfield
+Generated: 2026-08-29 14:04
