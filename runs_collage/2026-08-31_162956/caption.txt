@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+if i started over tomorrow with $0, i'd download these 5 apps first
+
+no savings, no audience, no connections. just these:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+4. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+5. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+6. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+
+this is the leanest way i know to go from idea to a real product on your own. start with the tools, the rest follows.
+
+save this for your fresh start. follow for the step by step 👇
+
+#vibecode #indiehacker #startup #founder #indiesaas
+
+---
+Slides: title -> Framer -> checkvibe.dev -> PostHog -> Antigravity -> Supabase -> Claude
+Generated: 2026-08-31 16:30
