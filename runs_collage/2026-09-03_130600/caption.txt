@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+broke college student to running my own apps, here's the stack
+
+no rich parents, no investors. i learned a few apps and started shipping:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+6. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+
+if you're young and broke but want to build, this is your shortcut. tools first, momentum second.
+
+save this. follow for how i got my first users 👇
+
+#buildinpublic #saas #foundertok #coding #startup
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> GitHub -> Claude -> PostHog -> Antigravity
+Generated: 2026-09-03 13:06
