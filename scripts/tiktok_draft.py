@@ -152,9 +152,11 @@ def main():
     print("\nRefreshing access token...")
     token = refresh_access_token(key, secret, refresh)
 
-    info = post_json(f"{API}/v2/post/publish/creator_info/query/", token, {}).get("data", {})
-    if info.get("creator_username"):
-        print(f"Authorized as @{info['creator_username']}")
+    if args.direct:
+        # creator_info requires video.publish; only needed for direct posting.
+        info = post_json(f"{API}/v2/post/publish/creator_info/query/", token, {}).get("data", {})
+        if info.get("creator_username"):
+            print(f"Authorized as @{info['creator_username']}")
 
     print("Submitting to TikTok...")
     res = post_json(f"{API}/v2/post/publish/content/init/", token, payload)
