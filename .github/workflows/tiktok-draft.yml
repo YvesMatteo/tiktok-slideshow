@@ -30,6 +30,20 @@ jobs:
   # deployment. Posting then fans out, one leg per account.
   build:
     runs-on: ubuntu-latest
+    # Actions cannot index the secrets context by a name built at runtime, and
+    # toJSON(secrets) -- the usual workaround -- makes GitHub refuse to start the
+    # run at all (action_required, no jobs, no logs). So every account's token is
+    # bound explicitly here and selected in bash by indirect expansion. A secret
+    # that does not exist expands to "", which is exactly the "has this account
+    # been authorised yet?" test. Adding an account means adding a line here.
+    env:
+      TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+      TIKTOK_REFRESH_TOKEN_AISTARTUPFOUNDER: ${{ secrets.TIKTOK_REFRESH_TOKEN_AISTARTUPFOUNDER }}
+      TIKTOK_REFRESH_TOKEN_AITOOLS_GUY: ${{ secrets.TIKTOK_REFRESH_TOKEN_AITOOLS_GUY }}
+      TIKTOK_REFRESH_TOKEN_STARTUPTOOLS101: ${{ secrets.TIKTOK_REFRESH_TOKEN_STARTUPTOOLS101 }}
+      TIKTOK_REFRESH_TOKEN_TYLER_AI: ${{ secrets.TIKTOK_REFRESH_TOKEN_TYLER_AI }}
+      TIKTOK_REFRESH_TOKEN_SOLOPRENEURTIPS: ${{ secrets.TIKTOK_REFRESH_TOKEN_SOLOPRENEURTIPS }}
+      TIKTOK_REFRESH_TOKEN_STARTUPFOUNDERTIPS: ${{ secrets.TIKTOK_REFRESH_TOKEN_STARTUPFOUNDERTIPS }}
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
@@ -133,6 +147,20 @@ jobs:
   post:
     needs: build
     runs-on: ubuntu-latest
+    # Actions cannot index the secrets context by a name built at runtime, and
+    # toJSON(secrets) -- the usual workaround -- makes GitHub refuse to start the
+    # run at all (action_required, no jobs, no logs). So every account's token is
+    # bound explicitly here and selected in bash by indirect expansion. A secret
+    # that does not exist expands to "", which is exactly the "has this account
+    # been authorised yet?" test. Adding an account means adding a line here.
+    env:
+      TIKTOK_REFRESH_TOKEN: ${{ secrets.TIKTOK_REFRESH_TOKEN }}
+      TIKTOK_REFRESH_TOKEN_AISTARTUPFOUNDER: ${{ secrets.TIKTOK_REFRESH_TOKEN_AISTARTUPFOUNDER }}
+      TIKTOK_REFRESH_TOKEN_AITOOLS_GUY: ${{ secrets.TIKTOK_REFRESH_TOKEN_AITOOLS_GUY }}
+      TIKTOK_REFRESH_TOKEN_STARTUPTOOLS101: ${{ secrets.TIKTOK_REFRESH_TOKEN_STARTUPTOOLS101 }}
+      TIKTOK_REFRESH_TOKEN_TYLER_AI: ${{ secrets.TIKTOK_REFRESH_TOKEN_TYLER_AI }}
+      TIKTOK_REFRESH_TOKEN_SOLOPRENEURTIPS: ${{ secrets.TIKTOK_REFRESH_TOKEN_SOLOPRENEURTIPS }}
+      TIKTOK_REFRESH_TOKEN_STARTUPFOUNDERTIPS: ${{ secrets.TIKTOK_REFRESH_TOKEN_STARTUPFOUNDERTIPS }}
     strategy:
       fail-fast: false
       max-parallel: 2
