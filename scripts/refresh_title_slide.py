@@ -1,244 +1,140 @@
 #!/usr/bin/env python3
-"""Refresh the 5-apps title slide: weighted draw from the 9 starting images,
-regenerated through Higgsfield image-to-image, then stamped with a hook line.
+"""Claim one never-before-used title slide from the bank and stamp it.
 
-This reproduces what the (now disabled) Claude Cowork scheduled task did with
-the Higgsfield MCP. GitHub Actions has no MCP access, so the generation goes
-through the Higgsfield Cloud HTTP API via the `higgsfield-client` package.
+Every posted slideshow must open on an image no post has ever used. That is a
+property of the *ledger*, not of a random draw: the bank holds a finite set of
+pre-generated images and `assets/title_bank/USED.tsv` records every one that has
+ever been claimed. A claimed image is never offered again, and the ledger is
+committed to the repo, so the guarantee survives across runs, accounts,
+machines and re-clones.
 
-Auth: HF_KEY = "key-id:key-secret" (one GitHub secret), or HF_API_KEY +
-      HF_API_SECRET. Credentials are created at https://cloud.higgsfield.ai/.
+Consequences that are deliberate, not oversights:
 
-Model: the Cowork task used `nano_banana_pro`, which exists only in the
-       Higgsfield MCP catalog -- the Cloud API is a separate registry. The
-       closest Cloud equivalents are tried in order (HF_MODELS, or HF_MODEL to
-       pin exactly one): `nano-banana`, then `higgsfield-ai/popcorn/auto`.
-       A model the account cannot reach answers 404/423 on submit in well under
-       a second, so the chain costs nothing when the first choice is enabled.
+  * The bank is exhaustible. When it runs dry this script FAILS (exit 1) rather
+    than reusing an image. A red build is the correct outcome -- the alternative
+    is silently posting a duplicate opener, which is the thing we are
+    preventing. Refill with scripts/build_title_bank.py.
+  * Claiming is not idempotent. Each invocation consumes exactly one image.
 
-The script NEVER hard-fails the build. Missing key, no credits, API error,
-timeout, NSFW flag, bad response -- it warns, falls back to the drawn local
-image (stamped or not per the case below), and exits 0.
+The weighted draw over the nine source looks is preserved from the Cowork task,
+but it now only chooses *which look* to spend; within that look the specific
+variant is whatever is still unclaimed. A look whose variants are exhausted is
+dropped from the draw and its weight redistributes over the rest.
+
+Usage:
+    refresh_title_slide.py [--out assets/title_slide.png] [--dry-run]
 """
 from __future__ import annotations
+import argparse
 import os
 import random
 import shutil
 import sys
-import time
-import urllib.request
+from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 ASSETS = REPO_ROOT / "assets"
-TITLE_SLIDE = ASSETS / "title_slide.png"
+BANK = ASSETS / "title_bank"
+LEDGER = BANK / "USED.tsv"
 FONT_DIR = ASSETS / "fonts"
 
 # --------------------------------------------------------------------------
-# Everything below to the next divider came from the Claude Cowork scheduled
-# task that used to run this every morning. It lived only in that task's text,
-# so it is pinned here as the single source of truth. Do not retune casually.
+# From the Claude Cowork scheduled task. The weights choose which of the nine
+# source looks a post opens on; the variant within that look is then whichever
+# generated image is still unclaimed.
 # --------------------------------------------------------------------------
+WEIGHTS = {
+    "start_18yo": 12, "start_always_2": 3, "start_always_3": 12,
+    "start_always_4": 17, "start_always_5": 17, "start_porsche": 9.75,
+    "start_jet": 9.75, "start_stairs": 9.75, "start_wolf": 9.75,
+}
 
-# Weighted draw over the 9 starting images (percentages, sum 100).
-POOL = [("start_18yo.png", 12), ("start_always_2.png", 3), ("start_always_3.png", 12),
-        ("start_always_4.png", 17), ("start_always_5.png", 17), ("start_porsche.png", 9.75),
-        ("start_jet.png", 9.75), ("start_stairs.png", 9.75), ("start_wolf.png", 9.75)]
+# These looks carry their own hook text baked into the photograph, so nothing
+# is stamped over them.
+TEXT_BAKED = {"start_porsche", "start_jet", "start_stairs", "start_wolf"}
 
-# CASE B images already carry their own hook text, baked into the photo.
-TEXT_BAKED = {"start_porsche.png", "start_jet.png", "start_stairs.png", "start_wolf.png"}
-
-# CASE A only: one of these is stamped onto the generated image.
 HOOKS = ["5 apps I use to build my startup",
          "5 apps every startup founder should use",
          "5 apps I use daily in my business",
          "5 apps I use to run my entire business"]
-
-# CASE A generation prompt (blank images -- keep them free of any text so the
-# stamped hook is the only writing in the frame).
-PROMPT_BLANK = (
-    "Either Same person or Different attractive about 25 year old person, "
-    "similar outfit, same overall color palette, clean and same aesthetic. "
-    "No text anywhere in the image — completely blank, no writing on the body, "
-    "the wall, or the background."
-)
-
-# CASE B generation prompts, per image. Nothing is stamped afterwards.
-PROMPTS_TEXT_BAKED = {
-    "start_wolf.png": "Keep the photo exactly the same, just change the background a bit.",
-    "start_porsche.png": "Keep the text exactly the same, change the image a bit overall.",
-    "start_jet.png": "Keep the text exactly the same, change the image a bit overall.",
-    "start_stairs.png": "Keep the text exactly the same, change the image a bit overall.",
-}
-
-# Generation settings (Cowork used model nano_banana_pro, 3:4, 2k, count 1,
-# one reference image; the Cloud model has no resolution knob).
-ASPECT_RATIO = "3:4"
-NUM_IMAGES = 1
-
 # --------------------------------------------------------------------------
-
-# Tried in order; the first that accepts the request wins. HF_MODEL pins one.
-DEFAULT_MODELS = ["nano-banana", "higgsfield-ai/popcorn/auto"]
-MODELS = ([os.environ["HF_MODEL"]] if os.environ.get("HF_MODEL")
-          else [m.strip() for m in os.environ.get("HF_MODELS", "").split(",") if m.strip()]
-          or DEFAULT_MODELS)
-GEN_TIMEOUT = float(os.environ.get("HF_TIMEOUT", "420"))   # seconds, whole job
-POLL_DELAY = 3.0
 
 
 def log(msg):
-    print(f"[refresh_title_slide] {msg}", flush=True)
+    print(f"[title-slide] {msg}", flush=True)
 
 
-def warn(msg):
-    log(f"WARN: {msg}")
+def read_ledger() -> set[str]:
+    """Every image ever claimed, as '<look>/<id>'."""
+    if not LEDGER.exists():
+        return set()
+    used = set()
+    for line in LEDGER.read_text().splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        used.add(line.split("\t")[0])
+    return used
 
 
-def build_arguments(model: str, prompt: str, image_url: str) -> dict:
-    """Per-family argument shape, from docs.higgsfield.ai/docs/openapi.json."""
-    if model.rstrip("/").endswith("nano-banana"):
-        return {
-            "prompt": prompt,
-            "num_images": NUM_IMAGES,
-            "aspect_ratio": ASPECT_RATIO,
-            "input_images": [{"type": "image_url", "image_url": image_url}],
-            "output_format": "png",
-        }
-    # popcorn / reve take a flat list of URLs. (reve/remix needs >= 2 images,
-    # so it is not usable here with a single reference.)
-    args = {
-        "prompt": prompt,
-        "num_images": NUM_IMAGES,
-        "aspect_ratio": ASPECT_RATIO,
-        "image_urls": [image_url],
-    }
-    if "popcorn" in model:
-        args["resolution"] = os.environ.get("HF_RESOLUTION", "1600p")
-    return args
+def available(used: set[str]) -> dict[str, list[str]]:
+    """Unclaimed images per look, in sorted order for determinism."""
+    stock: dict[str, list[str]] = {}
+    if not BANK.exists():
+        return stock
+    for look_dir in sorted(BANK.iterdir()):
+        if not look_dir.is_dir():
+            continue
+        free = sorted(p.name for p in look_dir.glob("*.jpg")
+                      if f"{look_dir.name}/{p.name}" not in used)
+        if free:
+            stock[look_dir.name] = free
+    return stock
 
 
-def upload_reference(hf, src: Path) -> str:
-    """Upload the reference image and return its public URL.
-
-    hf.upload_file() cannot be used: the presign endpoint signs an
-    `x-amz-tagging: retention=temporary` header and returns it in
-    `upload_headers`, but the SDK sends only Content-Type, so S3 answers
-    403 SignatureDoesNotMatch every time. Send the headers the API gave us.
-    """
-    import mimetypes
-    import httpx
-
-    content_type = mimetypes.guess_type(str(src))[0] or "image/png"
-    response = hf.sync_client._transport.request(
-        "POST", "/files/generate-upload-url", json={"content_type": content_type})
-    payload = response.json()
-    headers = payload.get("upload_headers") or {"Content-Type": content_type}
-    put = httpx.put(payload["upload_url"], content=src.read_bytes(),
-                    headers=headers, timeout=180)
-    put.raise_for_status()
-    return payload["public_url"]
+def total_images() -> int:
+    """Every image in the bank. Not rglob: look dirs may be symlinks."""
+    if not BANK.exists():
+        return 0
+    return sum(len(list(d.glob("*.jpg"))) for d in BANK.iterdir() if d.is_dir())
 
 
-def run_model(hf, model: str, prompt: str, image_url: str):
-    """Submit to one model and wait for it. Returns a result dict, or None."""
-    from higgsfield_client import Completed, DONE_STATUSES
+def claim(rng: random.Random) -> tuple[str, str, Path]:
+    """Pick and record one unclaimed image. Returns (look, ident, path)."""
+    used = read_ledger()
+    stock = available(used)
+    if not stock:
+        total = total_images()
+        raise SystemExit(
+            f"[title-slide] ERROR: the title bank is exhausted "
+            f"({len(used)} of {total} images already used).\n"
+            f"  Every image may be posted exactly once, so this run cannot "
+            f"proceed without repeating an opener.\n"
+            f"  Refill with: python3 scripts/build_title_bank.py --count N")
 
-    try:
-        controller = hf.submit(model, arguments=build_arguments(model, prompt, image_url))
-    except Exception as e:  # noqa: BLE001  -- 404 model_not_found, 423 blocked, 403 no credits
-        warn(f"{model}: submit failed ({type(e).__name__}: {e})")
-        return None
-    log(f"{model}: request {controller.request_id} submitted")
+    looks = list(stock)
+    weights = [WEIGHTS.get(k, 1) for k in looks]
+    look = rng.choices(looks, weights=weights, k=1)[0]
+    ident = rng.choice(stock[look])
+    key = f"{look}/{ident}"
 
-    deadline = time.monotonic() + GEN_TIMEOUT
-    try:
-        while True:
-            status = controller.status()
-            if isinstance(status, DONE_STATUSES):
-                break
-            if time.monotonic() > deadline:
-                warn(f"{model}: timed out after {GEN_TIMEOUT:.0f}s on {controller.request_id}")
-                try:
-                    controller.cancel()
-                except Exception:  # noqa: BLE001
-                    pass
-                return None
-            time.sleep(POLL_DELAY)
-        if not isinstance(status, Completed):
-            warn(f"{model}: ended as {type(status).__name__}")
-            return None
-        return controller.get()
-    except Exception as e:  # noqa: BLE001
-        warn(f"{model}: generation failed ({type(e).__name__}: {e})")
-        return None
+    # Append before the image is used anywhere. If a later step fails, the
+    # image stays burned -- losing one image is cheap, reusing one is not.
+    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    new = not LEDGER.exists()
+    with open(LEDGER, "a") as f:
+        if new:
+            f.write("# Title-bank images already posted. Append-only; never "
+                    "edit or remove a line -- an entry here is a promise that "
+                    "the image will never be posted again.\n"
+                    "# <look>/<id>\\t<claimed at UTC>\\t<claimed by>\n")
+        f.write(f"{key}\t{datetime.now(timezone.utc).isoformat(timespec='seconds')}"
+                f"\t{os.environ.get('TITLE_CLAIMED_BY', 'local')}\n")
 
-
-def generate(src: Path, prompt: str):
-    """Return generated image bytes, or None. Never raises."""
-    if not (os.environ.get("HF_KEY") or
-            (os.environ.get("HF_API_KEY") and os.environ.get("HF_API_SECRET"))):
-        warn("no Higgsfield credentials (set the HF_KEY secret)")
-        return None
-    try:
-        import higgsfield_client as hf
-    except Exception as e:  # noqa: BLE001
-        warn(f"higgsfield-client not installed ({e})")
-        return None
-
-    log(f"models={MODELS}")
-    log(f"prompt={prompt}")
-
-    try:
-        image_url = upload_reference(hf, src)
-        log(f"uploaded reference -> {image_url}")
-    except Exception as e:  # noqa: BLE001
-        warn(f"reference upload failed ({type(e).__name__}: {e})")
-        return None
-
-    result = None
-    for model in MODELS:
-        result = run_model(hf, model, prompt, image_url)
-        if result is not None:
-            break
-    if result is None:
-        return None
-
-    try:
-        url = result["images"][0]["url"]
-    except Exception as e:  # noqa: BLE001
-        warn(f"unexpected response shape ({e}); got {str(result)[:200]}")
-        return None
-
-    try:
-        with urllib.request.urlopen(url, timeout=120) as r:
-            data = r.read()
-    except Exception as e:  # noqa: BLE001
-        warn(f"download failed ({e})")
-        return None
-    if len(data) < 10_000:
-        warn(f"downloaded image suspiciously small ({len(data)} bytes)")
-        return None
-    log(f"generated {len(data)} bytes from {url}")
-    return data
-
-
-def write_generated(data: bytes, dest: Path) -> bool:
-    """Write the generated bytes as an upright PNG. False if it looks wrong."""
-    try:
-        from PIL import Image
-        import io
-        im = Image.open(io.BytesIO(data))
-        im.load()
-        if im.width > im.height:
-            warn(f"generated image is landscape {im.size}, keeping the local image")
-            return False
-        im.convert("RGB").save(dest, format="PNG")
-        log(f"wrote {dest.name} from Higgsfield ({im.width}x{im.height})")
-        return True
-    except Exception as e:  # noqa: BLE001
-        warn(f"could not use the generated image ({type(e).__name__}: {e})")
-        return False
+    remaining = sum(len(v) for v in stock.values()) - 1
+    log(f"claimed {key} ({remaining} unused images left in the bank)")
+    return look, ident, BANK / look / ident
 
 
 def stamp(path, text):
@@ -282,53 +178,40 @@ def stamp(path, text):
         d.text((x, y), line, font=font, fill=(255,255,255))
         y += line_h
     im.save(path)
-    print(f"[refresh_title_slide] stamped: {lines}")
+    print(f"[title-slide] stamped: {lines}")
 
 
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default=str(ASSETS / "title_slide.png"))
+    ap.add_argument("--dry-run", action="store_true",
+                    help="report bank stock without claiming anything")
+    args = ap.parse_args()
+
+    if args.dry_run:
+        used = read_ledger()
+        stock = available(used)
+        total = total_images()
+        log(f"bank: {total} images, {len(used)} used, "
+            f"{sum(len(v) for v in stock.values())} free")
+        for k in sorted(stock):
+            log(f"  {k:20s} {len(stock[k])} free")
+        return
+
     rng = random.SystemRandom()
-    available = [(n, w) for n, w in POOL if (ASSETS / n).exists()]
-    if not available:
-        warn("no starting images found in assets/")
-        return
-    drawn = rng.choices([n for n, _ in available], weights=[w for _, w in available], k=1)[0]
-    log(f"drew: {drawn}")
+    look, ident, src = claim(rng)
 
-    # Put the local image in place first, so every later step can only improve
-    # on a title slide that already exists.
-    try:
-        shutil.copyfile(ASSETS / drawn, TITLE_SLIDE)
-    except Exception as e:  # noqa: BLE001
-        warn(f"copy failed ({e})")
-        return
+    out = Path(args.out)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(src, out)
 
-    text_baked = drawn in TEXT_BAKED
-    prompt = PROMPTS_TEXT_BAKED[drawn] if text_baked else PROMPT_BLANK
-
-    data = generate(ASSETS / drawn, prompt)
-    if data is None or not write_generated(data, TITLE_SLIDE):
-        log(f"falling back to the local starting image {drawn}")
-        # Surface it on the run summary. scripts/refresh_title.py fell back on
-        # every run for two months without anyone noticing; a build that is
-        # green but quietly un-generated should still be visible.
-        if os.environ.get("GITHUB_ACTIONS"):
-            print(f"::warning title=Title slide not regenerated::Higgsfield did not "
-                  f"produce an image; using the committed {drawn} instead.")
-
-    if text_baked:
-        log("text-baked image, no stamping.")
+    if look in TEXT_BAKED:
+        log("text-baked look, nothing stamped.")
         return
     hook = rng.choice(HOOKS)
     log(f"hook: {hook}")
-    try:
-        stamp(TITLE_SLIDE, hook)
-    except Exception as e:  # noqa: BLE001
-        warn(f"stamping failed ({e})")
+    stamp(out, hook)
 
 
 if __name__ == "__main__":
-    try:
-        main()
-    except Exception as e:  # noqa: BLE001  -- never fail the build
-        print(f"[refresh_title_slide] WARN: unexpected error ({type(e).__name__}: {e})")
-    sys.exit(0)
+    main()

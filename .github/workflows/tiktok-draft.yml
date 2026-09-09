@@ -16,7 +16,7 @@ on:
         default: false
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -52,10 +52,12 @@ jobs:
       stamp: ${{ steps.roster.outputs.stamp }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python3 -m pip install --upgrade Pillow higgsfield-client
+      - run: python3 -m pip install --upgrade Pillow
 
       - name: Work out which accounts have a usable token
         id: roster
@@ -86,42 +88,46 @@ jobs:
       - name: Build one distinct deck per account
         env:
           WITH_SLIDEYS: '1'
-          HF_KEY: ${{ secrets.HF_KEY }}
           ACCOUNTS: ${{ steps.roster.outputs.accounts }}
           STAMP: ${{ steps.roster.outputs.stamp }}
         run: |
           set -euo pipefail
-          # The copy bank holds a fixed number of opening titles. Asking for a
-          # unique title per account is unsatisfiable once there are more
-          # accounts than titles, so only insist on a fresh one while an unused
-          # title still exists -- after that, repeats are allowed rather than
-          # burning attempts on an impossible constraint.
-          POOL=$(python3 -c "import json;print(len(json.load(open('assets/copy_bank.json'))['slideshow_title']))")
-          echo "distinct opening titles available: $POOL"
-          USED=""; DISTINCT=0
+          python3 scripts/refresh_title_slide.py --dry-run
           for SLUG in $(echo "$ACCOUNTS" | jq -r '.[]'); do
-            for ATTEMPT in 1 2 3 4 5 6 7 8; do
-              rm -rf runs
-              # Each attempt redraws the title slide too, so the accounts differ
-              # in the opening frame as well as the five apps and the caption.
+            rm -rf runs
+            # Claims one image out of the bank and burns it in USED.tsv. Two
+            # accounts cannot receive the same opener, in this batch or any
+            # future one, because a claimed image is never offered again.
+            TITLE_CLAIMED_BY="$SLUG@${GITHUB_RUN_ID:-local}" \
               python3 scripts/refresh_title_slide.py
-              python3 scripts/make_slideshow.py > /dev/null
-              DIR="runs/$(ls -1 runs | sort -r | head -n1)"
-              TITLE=$(sed -n 's/^TITLE: //p' "$DIR/caption.txt" | head -n1)
-              FRESH=1
-              case "$USED" in *"|$TITLE|"*) FRESH=0 ;; esac
-              if [ "$FRESH" = "0" ] && [ "$DISTINCT" -lt "$POOL" ] && [ "$ATTEMPT" -lt 8 ]; then
-                echo "  $SLUG attempt $ATTEMPT: '$TITLE' already used, regenerating"
-                continue
-              fi
-              if [ "$FRESH" = "1" ]; then USED="$USED|$TITLE|"; DISTINCT=$((DISTINCT+1)); fi
-              mkdir -p "decks/$SLUG/$STAMP"
-              cp "$DIR"/slide_*.jpg "$DIR/caption.txt" "decks/$SLUG/$STAMP/"
-              echo "$SLUG -> $TITLE"
-              break
-            done
+            python3 scripts/make_slideshow.py > /dev/null
+            DIR="runs/$(ls -1 runs | sort -r | head -n1)"
+            mkdir -p "decks/$SLUG/$STAMP"
+            cp "$DIR"/slide_*.jpg "$DIR/caption.txt" "decks/$SLUG/$STAMP/"
+            echo "$SLUG -> $(sed -n 's/^TITLE: //p' "$DIR/caption.txt" | head -n1)"
           done
           test -n "$(ls -A decks)"
+
+      - name: Record the consumed images before anything is posted
+        run: |
+          set -euo pipefail
+          # The ledger is the guarantee. Push it before posting: if the push
+          # cannot land, stop rather than post images we failed to burn.
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/title_bank/USED.tsv
+          if git diff --cached --quiet; then
+            echo "::error::No images were claimed -- refusing to post."; exit 1
+          fi
+          COUNT=$(git diff --cached --numstat -- assets/title_bank/USED.tsv | awk '{print $1}')
+          git commit -q -m "chore(title-bank): burn ${COUNT} image(s) for run ${GITHUB_RUN_ID}"
+          for ATTEMPT in 1 2 3 4 5; do
+            if git push origin HEAD:main; then echo "ledger pushed"; exit 0; fi
+            echo "  push rejected (attempt $ATTEMPT), rebasing on main"
+            git fetch origin main && git rebase origin/main || {
+              echo "::error::Could not rebase the ledger onto main."; exit 1; }
+          done
+          echo "::error::Could not push the consumed-image ledger; not posting."; exit 1
 
       - name: Assemble the Pages site
         run: |
