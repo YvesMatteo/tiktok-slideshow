@@ -37,6 +37,10 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 -m pip install --upgrade Pillow
+      - name: Probe toJSON(secrets)
+        env:
+          ALL_SECRETS: ${{ toJSON(secrets) }}
+        run: printf '%s' "$ALL_SECRETS" | jq -r 'keys[]'
       - name: Refresh the title slide
         if: ${{ !inputs.skip_generate }}
         run: python3 scripts/refresh_title_slide.py
