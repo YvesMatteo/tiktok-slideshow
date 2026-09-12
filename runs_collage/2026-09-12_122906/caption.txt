@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+how one person runs an entire app business in 2026, 5 apps, no team, no investors
+
+everybody's selling courses on this. skip them. here's the actual day-to-day:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+4. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+5. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+6. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+
+that's it. no 30-app setup, no $500 a month in subscriptions. five apps that each do one thing really well. I think of an idea, build it, put it online, then make it better based on what people actually do. that loop is the whole secret.
+
+save this for the next time you're tempted to buy another tool you don't need. follow along, I share every part of building this thing.
+
+#indiehacker #indiesaas #saas #startup #tech
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Lovable -> Antigravity -> Supabase -> slideys.app
+Generated: 2026-09-12 12:29
