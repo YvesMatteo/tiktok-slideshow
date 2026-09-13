@@ -235,6 +235,12 @@ def draw_heading_with_icon(base, name, key, y, top_font_size=80,
 
 
 def render_slide(slide, photo_path, shots_dir, out_path):
+    # ---- static slide: an already-finished image (the stamped title) ----
+    if slide.get('type') == 'static':
+        src = cover_crop(Image.open(slide['image']).convert('RGB'), W, H)
+        ImageEnhance.Brightness(src).enhance(0.95).save(out_path, quality=92)
+        return 0
+
     # ---- title slide: lifestyle photo + headline + subtitle overlay ----
     if slide.get('type') == 'title_overlay':
         im = cover_crop(Image.open(slide['image']).convert('RGB'), W, H)
@@ -302,7 +308,7 @@ def render_slideshow(config, photos_dir, shots_dir, out_dir):
     paths = []
     for i, slide in enumerate(config):
         p = os.path.join(out_dir, f"slide_{i:02d}.jpg")
-        if slide.get('type') == 'title_overlay':
+        if slide.get('type') in ('title_overlay', 'static'):
             photo_path = slide['image']
         else:
             photo_path = os.path.join(photos_dir, slide['photo'])

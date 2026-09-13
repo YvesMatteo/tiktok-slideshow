@@ -77,3 +77,18 @@ or commit a new one by hand.
   add new photos to your source folder, re-sync them into `photos/` and commit.
 - Slide 1 rotates among Claude / Notion / Framer / Higgsfield; checkvibe.dev is
   always slide 2; slides 3–5 are drawn from a rotating app pool.
+
+## What a posted deck looks like (tiktok-draft.yml)
+
+- **Opener**: one never-used image from `assets/title_bank/`, claimed by
+  `scripts/refresh_title_slide.py`. Blank looks get a hook stamped in the house
+  style: white bold Inter, left-aligned, no box, soft dark glow, placed in the
+  calmest band near 29% height. Hooks are plain business/startup lines and
+  rotate (none of the last 8 repeats). Text-baked looks (porsche, jet, stairs,
+  wolf) go out exactly as generated; nothing is stamped over them.
+- **App slides**: each deck picks one look. `logo` is 40% (logo tile, numbered
+  heading, caption). `shots` is 30% (the real screenshot in a browser window).
+  `collage` is 30% (icon heading, caption stickers, screenshot card). Screenshot
+  and collage decks only use apps with a file in `assets/screenshots/`. Force a
+  look with `SLIDE_STYLE=logo|shots|collage`.
+

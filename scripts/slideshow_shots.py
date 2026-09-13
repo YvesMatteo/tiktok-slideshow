@@ -46,6 +46,7 @@ DOMAINS = {
     'lovable': 'lovable.dev', 'obsidian': 'obsidian.md',
     'pinterest': 'pinterest.com', 'posthog': 'posthog.com',
     'railway': 'railway.com', 'supabase': 'supabase.com', 'vercel': 'vercel.com',
+    'slideys': 'slideys.app',
 }
 
 

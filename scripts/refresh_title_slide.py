@@ -50,14 +50,28 @@ WEIGHTS = {
     "start_jet": 9.75, "start_stairs": 9.75, "start_wolf": 9.75,
 }
 
-# These looks carry their own hook text baked into the photograph, so nothing
-# is stamped over them.
+# These looks carry their own hook text baked into the photograph. They are
+# posted exactly as generated: never stamp a second line of text over them.
 TEXT_BAKED = {"start_porsche", "start_jet", "start_stairs", "start_wolf"}
 
-HOOKS = ["5 apps I use to build my startup",
-         "5 apps every startup founder should use",
-         "5 apps I use daily in my business",
-         "5 apps I use to run my entire business"]
+# Plain, non-technical hooks: every line says "business" or "startup" so a
+# scroller gets it instantly. The count must stay 5 -- every deck has 5 apps.
+HOOKS = ["5 apps I use to run my entire business.",
+         "5 apps I use to build my startup.",
+         "the 5 apps behind my entire business.",
+         "5 apps every startup founder should use.",
+         "5 apps I use every day in my business.",
+         "how I run my whole business with just 5 apps.",
+         "5 apps that run my business for me.",
+         "5 apps I wish I knew before starting my business.",
+         "the only 5 apps my startup needs.",
+         "5 apps that save me hours in my business.",
+         "5 apps I'd use if I started a business today.",
+         "5 apps that help me run my startup alone."]
+# A hook used on any of the last RECENT_HOOKS openers is not drawn again, so
+# accounts in the same batch and back-to-back days open on different lines.
+RECENT_HOOKS = 8
+
 # --------------------------------------------------------------------------
 
 
@@ -100,8 +114,23 @@ def total_images() -> int:
     return sum(len(list(d.glob("*.jpg"))) for d in BANK.iterdir() if d.is_dir())
 
 
-def claim(rng: random.Random) -> tuple[str, str, Path]:
-    """Pick and record one unclaimed image. Returns (look, ident, path)."""
+def recent_hooks(n: int = RECENT_HOOKS) -> set[str]:
+    """Hooks stamped on the last n openers (4th ledger column, when present)."""
+    if not LEDGER.exists():
+        return set()
+    rows = [ln.split("\t") for ln in LEDGER.read_text().splitlines()
+            if ln.strip() and not ln.startswith("#")]
+    return {r[3] for r in rows[-n:] if len(r) > 3 and r[3] in HOOKS}
+
+
+def pick_hook(rng: random.Random) -> str:
+    fresh = [h for h in HOOKS if h not in recent_hooks()]
+    return rng.choice(fresh or HOOKS)
+
+
+def claim(rng: random.Random) -> tuple[str, str, Path, str | None]:
+    """Pick and record one unclaimed image, plus the hook to stamp on it (None
+    for text-baked looks). Returns (look, ident, path, hook)."""
     used = read_ledger()
     stock = available(used)
     if not stock:
@@ -118,6 +147,7 @@ def claim(rng: random.Random) -> tuple[str, str, Path]:
     look = rng.choices(looks, weights=weights, k=1)[0]
     ident = rng.choice(stock[look])
     key = f"{look}/{ident}"
+    hook = None if look in TEXT_BAKED else pick_hook(rng)
 
     # Append before the image is used anywhere. If a later step fails, the
     # image stays burned -- losing one image is cheap, reusing one is not.
@@ -128,57 +158,143 @@ def claim(rng: random.Random) -> tuple[str, str, Path]:
             f.write("# Title-bank images already posted. Append-only; never "
                     "edit or remove a line -- an entry here is a promise that "
                     "the image will never be posted again.\n"
-                    "# <look>/<id>\\t<claimed at UTC>\\t<claimed by>\n")
+                    "# <look>/<id>\\t<claimed at UTC>\\t<claimed by>"
+                    "\\t<hook stamped, or - for text-baked looks>\n")
         f.write(f"{key}\t{datetime.now(timezone.utc).isoformat(timespec='seconds')}"
-                f"\t{os.environ.get('TITLE_CLAIMED_BY', 'local')}\n")
+                f"\t{os.environ.get('TITLE_CLAIMED_BY', 'local')}\t{hook or '-'}\n")
 
     remaining = sum(len(v) for v in stock.values()) - 1
     log(f"claimed {key} ({remaining} unused images left in the bank)")
-    return look, ident, BANK / look / ident
+    return look, ident, BANK / look / ident, hook
+
+
+# ---- Opener typography -----------------------------------------------------
+# Matched to the reference opener (white bold sans, left-aligned, no box, soft
+# dark glow). Measured off the reference at 1494x2000: the first line spans
+# ~50% of the frame, starts 13.4% from the left and 29% from the top, and the
+# line pitch is ~1.22x the font size. Everything is a fraction of the frame so
+# any bank resolution renders the same.
+TEXT_X = 0.134          # left edge of every line, fraction of width
+TEXT_MAX_W = 0.60       # wrap width -> "5 apps I use to run my / entire business."
+FONT_SIZE = 0.0493      # fraction of width (53 px at 1080)
+LEADING = 1.22          # line pitch, multiple of font size
+TRACKING = -0.02        # letter-spacing, em (Inter runs wider than SF Display)
+PREFERRED_Y = 0.29      # reference cap-top position, fraction of height
+Y_RANGE = (0.07, 0.46)  # where the block is allowed to move to find calm space
+
+
+def _opener_font(size):
+    from PIL import ImageFont
+    for name in ("Inter-Bold.ttf", "Inter-SemiBold.ttf", "Poppins-SemiBold.ttf"):
+        if (FONT_DIR / name).exists():
+            return ImageFont.truetype(str(FONT_DIR / name), size)
+    return ImageFont.load_default()
+
+
+def _tracked_width(font, line, track_px):
+    return font.getlength(line) + track_px * max(0, len(line) - 1)
+
+
+def _wrap(font, text, max_w, track_px):
+    lines, cur = [], ""
+    for word in text.split():
+        trial = f"{cur} {word}".strip()
+        if not cur or _tracked_width(font, trial, track_px) <= max_w:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = word
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def _draw_tracked(draw, xy, line, font, track_px, fill):
+    """Draw a line with letter-spacing while keeping the font's kerning:
+    each glyph goes where the un-tracked prefix ends, plus the tracking."""
+    x0, y = xy
+    for i, ch in enumerate(line):
+        if ch != " ":
+            draw.text((x0 + font.getlength(line[:i]) + track_px * i, y), ch,
+                      font=font, fill=fill)
+
+
+def _pick_top(gray, box_w, box_h, x):
+    """Top edge for the text block: the calmest band (least edge detail, so
+    the words sit on wall/ceiling/sky rather than a head or furniture), nudged
+    toward the reference position so openers still feel consistent.
+
+    The band is scored by its busiest cells, not its mean, so a single head in
+    one corner of the block still disqualifies it."""
+    from PIL import ImageFilter, ImageStat
+    W, H = gray.size
+    edges = gray.filter(ImageFilter.GaussianBlur(1)).filter(ImageFilter.FIND_EDGES)
+    lo, hi = int(H * Y_RANGE[0]), int(H * Y_RANGE[1]) - box_h
+    pad = int(box_h * 0.2)
+    x0, x1 = max(0, x - pad), min(W, x + box_w + pad)
+    cols = 6
+    best = None
+    for top in range(lo, max(lo, hi) + 1, max(4, H // 120)):
+        y0, y1 = max(0, top - pad), min(H, top + box_h + pad)
+        cells = []
+        for c in range(cols):
+            cx0 = x0 + (x1 - x0) * c // cols
+            cx1 = x0 + (x1 - x0) * (c + 1) // cols
+            for cy0, cy1 in ((y0, (y0 + y1) // 2), ((y0 + y1) // 2, y1)):
+                cells.append(ImageStat.Stat(edges.crop((cx0, cy0, cx1, cy1))).mean[0])
+        cells.sort()
+        busy = cells[-1] + cells[-2] + sum(cells) / len(cells)
+        drift = abs(top - H * PREFERRED_Y) / H
+        score = busy + 40 * drift
+        if best is None or score < best[0]:
+            best = (score, top)
+    return best[1]
 
 
 def stamp(path, text):
-    from PIL import Image, ImageDraw, ImageFont
+    from PIL import Image, ImageDraw, ImageFilter, ImageStat
     im = Image.open(path).convert("RGB")
     if im.width > im.height:
         im = im.rotate(90, expand=True)
     W, H = im.size
-    size = max(16, int(W * 0.082))
-    font = None
-    for name in ("Poppins-Bold.ttf", "Inter-Bold.ttf"):
-        if (FONT_DIR / name).exists():
-            font = ImageFont.truetype(str(FONT_DIR / name), size); break
-    if font is None:
-        font = ImageFont.load_default()
-    d = ImageDraw.Draw(im)
-    max_w, lines, cur = W * 0.80, [], ""
-    for word in text.split():
-        trial = f"{cur} {word}".strip()
-        if d.textlength(trial, font=font) <= max_w:
-            cur = trial
-        else:
-            if cur: lines.append(cur)
-            cur = word
-    if cur: lines.append(cur)
-    line_h, top = int(size * 1.18), int(H * 0.09)
-    max_lw = max(d.textlength(l, font=font) for l in lines)
-    overlay = Image.new("RGBA", im.size, (0,0,0,0))
-    od = ImageDraw.Draw(overlay)
-    pad_x, pad_y = int(W * 0.045), int(size * 0.45)
-    od.rounded_rectangle(
-        [int((W-max_lw)/2-pad_x), top-pad_y, int((W+max_lw)/2+pad_x), top+line_h*len(lines)+pad_y],
-        radius=int(size*0.35), fill=(0,0,0,110))
-    im = Image.alpha_composite(im.convert("RGBA"), overlay).convert("RGB")
-    d = ImageDraw.Draw(im)
-    y = top
-    for line in lines:
-        x = (W - d.textlength(line, font=font)) / 2
-        for dx, dy in ((-3,3),(3,3),(0,4),(3,-3),(-3,-3)):
-            d.text((x+dx, y+dy), line, font=font, fill=(0,0,0))
-        d.text((x, y), line, font=font, fill=(255,255,255))
-        y += line_h
-    im.save(path)
-    print(f"[title-slide] stamped: {lines}")
+
+    size = max(16, round(W * FONT_SIZE))
+    font = _opener_font(size)
+    track = size * TRACKING
+    lines = _wrap(font, text, W * TEXT_MAX_W, track)
+    pitch = round(size * LEADING)
+    asc = font.getbbox("Hb")[1]            # blank space above the cap line
+    x = round(W * TEXT_X)
+    block_w = max(_tracked_width(font, ln, track) for ln in lines)
+    block_h = pitch * (len(lines) - 1) + size
+    cap_top = _pick_top(im.convert("L"), int(block_w), block_h, x)
+
+    # Glyphs on their own layer so the glow is built from the exact shapes.
+    layer = Image.new("L", im.size, 0)
+    d = ImageDraw.Draw(layer)
+    for i, ln in enumerate(lines):
+        _draw_tracked(d, (x, cap_top - asc + i * pitch), ln, font, track, 255)
+
+    # Soft dark glow, as in the reference: no box, no hard outline. Stronger on
+    # bright backgrounds so white type never washes out.
+    region = im.convert("L").crop((x, cap_top, x + int(block_w) + 1,
+                                   cap_top + block_h + 1))
+    luma = ImageStat.Stat(region).mean[0]
+    strength = 0.42 if luma < 150 else (0.55 if luma < 200 else 0.68)
+    glow = layer.filter(ImageFilter.GaussianBlur(size * 0.28))
+    glow = glow.point(lambda a: int(min(255, a * strength * 1.6)))
+    shadow = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    shadow.putalpha(glow)
+    offset = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    offset.paste(shadow, (0, round(size * 0.05)))
+
+    out = im.convert("RGBA")
+    out.alpha_composite(offset)
+    white = Image.new("RGBA", im.size, (255, 255, 255, 0))
+    white.putalpha(layer)
+    out.alpha_composite(white)
+    out.convert("RGB").save(path)
+    print(f"[title-slide] stamped at y={cap_top / H:.2f} (bg luma {luma:.0f}): {lines}")
 
 
 def main():
@@ -199,16 +315,16 @@ def main():
         return
 
     rng = random.SystemRandom()
-    look, ident, src = claim(rng)
+    look, ident, src, hook = claim(rng)
 
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(src, out)
 
-    if look in TEXT_BAKED:
-        log("text-baked look, nothing stamped.")
+    if hook is None:
+        # The photo already carries its own hook; a second line would clash.
+        log("text-baked look, posted as generated -- nothing stamped.")
         return
-    hook = rng.choice(HOOKS)
     log(f"hook: {hook}")
     stamp(out, hook)
 

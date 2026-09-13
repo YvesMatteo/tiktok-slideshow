@@ -345,9 +345,11 @@ def _mirror_post_html(post_html_path, stamp):
                      'GoogleDrive-MyDrive'),
     ]
     for parent in parents:
-        if not os.path.isdir(parent):
+        is_override = bool(override) and parent == override
+        if not is_override and not os.path.isdir(parent):
             continue
-        target_dir = (parent if override
+        # the override IS the destination; the synced roots get a subfolder
+        target_dir = (parent if is_override
                       else os.path.join(parent, 'TikTokSlideshows'))
         try:
             os.makedirs(target_dir, exist_ok=True)
@@ -388,42 +390,86 @@ def write_post_page(out_dir, title, full_caption, app_order, slide_files):
         fp.write(page)
 
 
+SHOTS = os.path.join(ASSETS, 'screenshots')
+
+# How often each app-slide look is used when SLIDE_STYLE isn't set.
+#   logo    -- logo tile + numbered heading + caption over a photo
+#   shots   -- the app's real screenshot in a browser window
+#   collage -- icon + name heading, caption stickers, screenshot card
+STYLE_WEIGHTS = {'logo': 0.4, 'shots': 0.3, 'collage': 0.3}
+
+
+def _pick_style():
+    forced = os.environ.get('SLIDE_STYLE', '').strip().lower()
+    if forced:
+        if forced not in STYLE_WEIGHTS:
+            raise SystemExit(f"SLIDE_STYLE must be one of {sorted(STYLE_WEIGHTS)}")
+        return forced
+    styles = list(STYLE_WEIGHTS)
+    return random.choices(styles, weights=[STYLE_WEIGHTS[k] for k in styles])[0]
+
+
+def _screenshot_roster():
+    """App keys with a screenshot on disk (screenshot/collage decks only)."""
+    if not os.path.isdir(SHOTS):
+        return set()
+    return {os.path.splitext(f)[0] for f in os.listdir(SHOTS)
+            if f.lower().endswith('.png')}
+
+
+def _chips(block):
+    """Split a copy block into at most two short caption stickers."""
+    parts = [p.strip() for p in block.split('\n') if p.strip()]
+    if len(parts) >= 2:
+        return parts[:2]
+    s = parts[0] if parts else ''
+    if '. ' in s:
+        a, b = s.split('. ', 1)
+        return [a.strip() + '.', b.strip()]
+    return [s]
+
+
 def main():
     bank = json.load(open(os.path.join(ASSETS, 'copy_bank.json')))
     approved = _lines(os.path.join(ASSETS, 'approved_photos.txt'))
 
+    # ---- deck style ----
+    # Every deck opens on the same stamped title slide; the five app slides
+    # come in one of three looks so the feed doesn't show the same layout
+    # every day. SLIDE_STYLE=logo|shots|collage forces one (for testing).
+    style = _pick_style()
+    roster = _screenshot_roster() if style != 'logo' else None
+
     # ---- pick apps ----
     # slide 1 rotates among the first_slide_pool (claude/notion/framer/
     # higgsfield); slide 2 is always CheckVibe; slides 3-5 are 3 distinct
-    # apps drawn from the rotating_pool, never repeating slide 1.
-    first = random.choice(bank['first_slide_pool'])
+    # apps drawn from the rotating_pool, never repeating slide 1. Screenshot
+    # and collage decks only draw apps that have a screenshot on disk.
+    def eligible(keys):
+        return [k for k in keys if roster is None or k in roster]
+
+    first = random.choice(eligible(bank['first_slide_pool']))
     second = bank['second_slide']
-    pin_slideys = os.environ.get('WITH_SLIDEYS') == '1'
-    if pin_slideys:
-        fixed = [first, second, 'slideys']
-        pool = [a for a in bank['rotating_pool'] if a not in fixed]
-        rest = random.sample(pool, max(0, 5 - 3))
-        apps = fixed + rest
-    else:
-        pool = [a for a in bank['rotating_pool'] if a not in (first, second)]
-        rest = random.sample(pool, max(0, 5 - 2))
-        apps = [first, second] + rest
+    pin_slideys = (os.environ.get('WITH_SLIDEYS') == '1'
+                   and bool(eligible(['slideys'])))
+    fixed = [first] + eligible([second])
+    if pin_slideys and 'slideys' not in fixed:
+        fixed.append('slideys')
+    pool = [a for a in eligible(bank['rotating_pool']) if a not in fixed]
+    apps = fixed + random.sample(pool, max(0, 5 - len(fixed)))
     variant = f"slide1={bank['apps'][first]['name']}"
 
-    # ---- pick 5 distinct photos for app slides (title is the static
-    # Higgsfield-rendered image at assets/title_slide.png), preferring
-    # photos whose brightness matches the title slide's mood ----
+    # ---- pick 5 distinct photos for app slides (title is the stamped
+    # bank image at assets/title_slide.png), preferring photos whose
+    # brightness matches the title slide's mood ----
     title_image = os.path.join(ASSETS, 'title_slide.png')
     app_photos, tone_note = pick_matching_photos(
         approved, os.path.abspath(PHOTOS), title_image, len(apps))
 
     # ---- build slide config ----
-    # 50% of runs: tease the lineup with a small row of the 5 app icons
-    # composited near the bottom of the title slide
-    show_preview = random.random() < 0.5
-    config = [{'type': 'static', 'image': title_image,
-               'preview_logos': ([bank['apps'][k]['logo'] for k in apps]
-                                 if show_preview else None)}]
+    # The title slide goes out exactly as stamped: photo + hook, nothing else
+    # (the old app-icon teaser row is gone, it cluttered the opener).
+    config = [{'type': 'static', 'image': title_image}]
     # five distinct layout combinations cycle through the 5 app slides so
     # the logo + text never sits in the same spot twice in a row
     layouts = [('top', 'inline'), ('middle', 'stacked'), ('bottom', 'inline'),
@@ -431,16 +477,29 @@ def main():
     random.shuffle(layouts)
     for i, key in enumerate(apps):
         a = bank['apps'][key]
-        pos, sub = layouts[i]
-        config.append({'type': 'app', 'photo': app_photos[i], 'logo': a['logo'],
-                       'num': i + 1, 'name': a['name'],
-                       'body': random.choice(a['copy']),
-                       'pos': pos, 'sub': sub})
+        body = random.choice(a['copy'])
+        slide = {'type': 'app', 'photo': app_photos[i], 'num': i + 1,
+                 'name': a['name'], 'body': body}
+        if style == 'logo':
+            pos, sub = layouts[i]
+            slide.update(logo=a['logo'], pos=pos, sub=sub)
+        else:
+            slide.update(shot=key, chips=_chips(body))
+        config.append(slide)
 
     # ---- render ----
     stamp = datetime.now().strftime('%Y-%m-%d_%H%M%S')
     out_dir = os.path.join(RUNS, stamp)
-    render_slideshow(config, os.path.abspath(PHOTOS), LOGOS, out_dir)
+    if style == 'shots':
+        import slideshow_shots
+        slideshow_shots.render_slideshow(config, os.path.abspath(PHOTOS),
+                                         SHOTS, out_dir)
+    elif style == 'collage':
+        import slideshow_collage
+        slideshow_collage.render_slideshow(config, os.path.abspath(PHOTOS),
+                                           SHOTS, out_dir)
+    else:
+        render_slideshow(config, os.path.abspath(PHOTOS), LOGOS, out_dir)
 
     # ---- long algorithm-optimized caption ----
     title = random.choice(bank['slideshow_title'])
@@ -458,6 +517,7 @@ def main():
     with open(os.path.join(out_dir, 'caption.txt'), 'w') as f:
         f.write(f"TITLE: {title}\n\nCAPTION:\n{full_caption}\n\n"
                 f"---\nSlides: {order}\n"
+                f"Style: {style}\n"
                 f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M')}\n")
 
     # ---- one-click post sheet: thumbnails + copy button + zip download ----
@@ -470,7 +530,7 @@ def main():
     now = datetime.now()
     print(f"GENERATED AT: {now.strftime('%H:%M  %a %b %d')}")
     print(f"FIRST SLIDE: {variant}")
-    print(f"TITLE PREVIEW ICONS: {'yes' if show_preview else 'no'}")
+    print(f"APP SLIDE STYLE: {style}")
     print(f"PHOTO TONE: {tone_note}")
     print(f"Slideshow ready: {out_dir}")
     print(f"  Open post.html — single self-contained file with thumbs,")

@@ -117,6 +117,11 @@ Open the mirrored file in mobile Safari and the "Save all 6 to Photos" +
 
 ## Title slide
 
+> Current pipeline (tiktok-draft.yml): the opener is claimed from
+> `assets/title_bank/` and stamped by `scripts/refresh_title_slide.py` (see
+> README "What a posted deck looks like"). App slides rotate between the logo,
+> screenshot and collage looks. The notes below describe the older Cowork flow.
+
 `assets/title_slide.png` is the first slide of every run, used as a
 `type:'static'` slide — no compositing, just cover-cropped to 3:4 with
 text baked in. The scheduled task **regenerates this file via Higgsfield
