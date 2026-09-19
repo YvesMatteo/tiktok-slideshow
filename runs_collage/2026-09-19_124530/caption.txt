@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+4. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+5. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+6. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#sidehustle #vibecode #buildinpublic #saasfounder #startuptools
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Supabase -> GitHub -> Claude -> slideys.app
+Generated: 2026-09-19 12:45
