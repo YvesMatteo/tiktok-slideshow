@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+4. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+6. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#buildwithai #productivity #entrepreneur #tech #startup
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Claude -> Supabase -> Lovable -> Antigravity
+Generated: 2026-09-20 13:16
