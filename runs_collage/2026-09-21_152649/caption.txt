@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+five apps. one business. zero employees.
+
+people always ask how I run a whole app business by myself. honestly? it's mostly these five:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+5. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+6. Obsidian: a private notes app, everything saved on my own computer forever
+
+they replace what used to take a whole team. I come up with ideas, build them, put them online and watch what people do with them, all from my laptop. if you want to leave the 9-5 one day, start by learning tools like these.
+
+save this. send it to the friend who keeps saying they'll 'start next month.' follow for more real talk about building alone.
+
+#techtok #startuptools #aitools #productivity #buildwithai
+
+---
+Slides: title -> Claude -> checkvibe.dev -> slideys.app -> Antigravity -> Supabase -> Obsidian
+Generated: 2026-09-21 15:26
