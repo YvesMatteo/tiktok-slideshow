@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+broke college student to running my own apps, here's the stack
+
+no rich parents, no investors. i learned a few apps and started shipping:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Vercel: a hosting service, it puts my apps live on the internet with one click
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+6. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+
+if you're young and broke but want to build, this is your shortcut. tools first, momentum second.
+
+save this. follow for how i got my first users 👇
+
+#saas #indiehacker #foundertok #tech #startup
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Vercel -> Obsidian -> Antigravity -> PostHog
+Generated: 2026-09-25 14:16
