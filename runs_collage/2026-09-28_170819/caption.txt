@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+POV: you find the exact app stack a solo founder uses every day
+
+stop scrolling, screenshot this. this is everything i use to run my business alone:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Notion: a notes and planning app, every plan, idea and to-do in one place
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+6. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+
+that's the whole thing. no fancy setup, no big team, no investors. five apps, each one doing one job really well.
+
+follow for the rest of the playbook. save it before it gets buried in your feed 👇
+
+#saasfounder #aitools #vibecode #coding #sidehustle
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Notion -> Obsidian -> Claude -> Higgsfield
+Generated: 2026-09-28 17:08
