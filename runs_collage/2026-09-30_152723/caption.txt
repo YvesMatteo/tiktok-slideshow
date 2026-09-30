@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+the apps nobody tells you about when you start a business
+
+the gurus sell courses. here's the actual stack, for free:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+5. Obsidian: a private notes app, everything saved on my own computer forever
+6. Vercel: a hosting service, it puts my apps live on the internet with one click
+
+five apps. that's the secret. i think of an idea, build it, put it online, and improve it based on what people do.
+
+save this and skip the $500 course. follow for the real version 👇
+
+#foundertok #vibecode #startuptools #productivity #coding
+
+---
+Slides: title -> Claude -> checkvibe.dev -> GitHub -> Higgsfield -> Obsidian -> Vercel
+Generated: 2026-09-30 15:27
