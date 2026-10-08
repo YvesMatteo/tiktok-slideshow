@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+the 5 apps that secretly run my entire one-person business 💻 save this before you scroll
+
+I quit my 9-5 to build apps full time. two years of trying every tool later, these are the only 5 I actually open every day:
+
+1. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Vercel: a hosting service, it puts my apps live on the internet with one click
+4. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+5. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+6. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+
+no team, no office, no investors. just me, my laptop and these 5 apps. if you've been wanting to build something of your own, an app, a side hustle, anything, this is the exact setup I'd copy.
+
+follow for more behind the scenes of running a one-person business. save this so you don't lose it. drop the app you can't live without in the comments 👇
+
+#founder #solopreneur #startuptools #aitools #saas
+
+---
+Slides: title -> Higgsfield -> checkvibe.dev -> Vercel -> Antigravity -> Railway -> GitHub
+Generated: 2026-10-08 15:56
