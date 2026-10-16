@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+everyone keeps asking what's on my laptop. here it is.
+
+this is the whole setup i use to build and run my apps by myself:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+4. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+5. PostHog: an analytics tool that shows me exactly what people do in my app, every click, every exit
+6. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+no team, no office, no investors. these five replace what used to take a whole company.
+
+drop your own stack in the comments, i actually read them 👇 follow for more.
+
+#saasfounder #indiesaas #founder #tech #sidehustle
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Higgsfield -> Supabase -> PostHog -> Railway
+Generated: 2026-10-16 13:36
