@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+broke college student to running my own apps, here's the stack
+
+no rich parents, no investors. i learned a few apps and started shipping:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+6. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+
+if you're young and broke but want to build, this is your shortcut. tools first, momentum second.
+
+save this. follow for how i got my first users 👇
+
+#vibecode #entrepreneur #saasfounder #saas #coding
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Antigravity -> Railway -> slideys.app -> GitHub
+Generated: 2026-10-20 13:56
