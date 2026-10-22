@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+6. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#startuptools #aitools #indiehacker #saasfounder #sidehustle
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Antigravity -> Railway -> Vercel -> Pinterest
+Generated: 2026-10-22 14:11
