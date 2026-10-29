@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+the apps nobody tells you about when you start a business
+
+the gurus sell courses. here's the actual stack, for free:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+4. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+6. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+five apps. that's the secret. i think of an idea, build it, put it online, and improve it based on what people do.
+
+save this and skip the $500 course. follow for the real version 👇
+
+#tech #solopreneur #startuptools #saasfounder #coding
+
+---
+Slides: title -> Claude -> checkvibe.dev -> slideys.app -> GitHub -> Vercel -> Pinterest
+Generated: 2026-10-29 15:43
