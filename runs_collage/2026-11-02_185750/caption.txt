@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+broke college student to running my own apps, here's the stack
+
+no rich parents, no investors. i learned a few apps and started shipping:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+4. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+5. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+6. Vercel: a hosting service, it puts my apps live on the internet with one click
+
+if you're young and broke but want to build, this is your shortcut. tools first, momentum second.
+
+save this. follow for how i got my first users 👇
+
+#coding #buildwithai #techtok #solopreneur #productivity
+
+---
+Slides: title -> Notion -> checkvibe.dev -> Antigravity -> Railway -> GitHub -> Vercel
+Generated: 2026-11-02 18:57
