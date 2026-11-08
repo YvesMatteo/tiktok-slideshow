@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+the 5 apps that secretly run my entire one-person business 💻 save this before you scroll
+
+I quit my 9-5 to build apps full time. two years of trying every tool later, these are the only 5 I actually open every day:
+
+1. Notion: a notes and planning app, every plan, idea and to-do in one place
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+5. Obsidian: a private notes app, everything saved on my own computer forever
+6. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+
+no team, no office, no investors. just me, my laptop and these 5 apps. if you've been wanting to build something of your own, an app, a side hustle, anything, this is the exact setup I'd copy.
+
+follow for more behind the scenes of running a one-person business. save this so you don't lose it. drop the app you can't live without in the comments 👇
+
+#tech #sidehustle #founder #startup #saasfounder
+
+---
+Slides: title -> Notion -> checkvibe.dev -> GitHub -> Supabase -> Obsidian -> Lovable
+Generated: 2026-11-08 15:39
