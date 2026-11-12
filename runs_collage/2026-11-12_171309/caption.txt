@@ -1,0 +1,23 @@
+TITLE: the only 5 apps I need to run my business
+
+CAPTION:
+how i build a whole app in a weekend (the tools)
+
+people think it takes a team. it takes these five apps and a free weekend:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. slideys.app: the app that makes these exact slideshows, describe your apps and it builds the whole post for you
+6. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+
+idea on friday, live by sunday. that's the loop, and these are the tools that make it possible solo.
+
+save this for your next weekend project. follow to watch me build 👇
+
+#saasfounder #buildwithai #startup #coding #vibecoding
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Railway -> Obsidian -> slideys.app -> Higgsfield
+Generated: 2026-11-12 17:13
