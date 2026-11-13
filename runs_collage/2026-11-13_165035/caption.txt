@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+4. Supabase: a database for apps, stores all my data and logins, the whole engine room in one place
+5. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+6. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#aifounder #saasfounder #buildwithai #buildinpublic #vibecoding
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Higgsfield -> Supabase -> Antigravity -> Pinterest
+Generated: 2026-11-13 16:50
