@@ -1,0 +1,23 @@
+TITLE: 5 apps every solo founder needs
+
+CAPTION:
+things i wish i knew before starting a business at 18: the tools
+
+i wasted months on the wrong apps. here's the short list that actually matters:
+
+1. Claude: an AI assistant I think through ideas with, it even helps me build my apps
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+4. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+5. Vercel: a hosting service, it puts my apps live on the internet with one click
+6. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+
+learn these and you're ahead of basically everyone still 'researching.' the goal isn't more tools, it's shipping something real.
+
+save this for when you finally start. follow for the rest. 👇
+
+#foundertok #startuptools #aifounder #saasfounder #vibecode
+
+---
+Slides: title -> Claude -> checkvibe.dev -> Pinterest -> Higgsfield -> Vercel -> Framer
+Generated: 2026-11-15 15:57
