@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+the only 5 apps I'd keep if I had to start over tomorrow
+
+after two years of building apps on my own, I've cut everything down to what actually matters. every app on this list earns its spot:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+4. Vercel: a hosting service, it puts my apps live on the internet with one click
+5. Lovable: an AI app builder, describe an app in a sentence and it builds the whole thing for you
+6. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+I used to spend weeks hunting for the 'perfect tool.' now I just build. these five let me do that without thinking about my setup. if you've got an idea you keep putting off, this is your sign.
+
+save this and stop researching. you don't need more tools, you need to start. follow for the unfiltered version of building a business alone.
+
+#entrepreneur #aitools #coding #buildinpublic #startup
+
+---
+Slides: title -> Framer -> checkvibe.dev -> GitHub -> Vercel -> Lovable -> Railway
+Generated: 2026-11-19 17:49
