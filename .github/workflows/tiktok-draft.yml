@@ -57,7 +57,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - run: python3 -m pip install --upgrade Pillow
+      - run: python3 -m pip install --upgrade Pillow fonttools
 
       - name: Work out which accounts have a usable token
         id: roster
@@ -86,22 +86,22 @@ jobs:
           echo "Building for: ${KEPT[*]}"
 
       - name: Build one distinct deck per account
+        # make_deck.py picks a format per account (rotation + learned weights,
+        # see assets/formats/) and QA-gates it. 'apps_classic' still claims a
+        # title image from the bank exactly as before. WITH_SLIDEYS is off: the
+        # 2026-11 teardown found a second owned product reads as an ad.
         env:
-          WITH_SLIDEYS: '1'
           ACCOUNTS: ${{ steps.roster.outputs.accounts }}
           STAMP: ${{ steps.roster.outputs.stamp }}
         run: |
           set -euo pipefail
-          python3 scripts/refresh_title_slide.py --dry-run
           for SLUG in $(echo "$ACCOUNTS" | jq -r '.[]'); do
             rm -rf runs
             # Claims one image out of the bank and burns it in USED.tsv. Two
             # accounts cannot receive the same opener, in this batch or any
             # future one, because a claimed image is never offered again.
-            TITLE_CLAIMED_BY="$SLUG@${GITHUB_RUN_ID:-local}" \
-              python3 scripts/refresh_title_slide.py
-            python3 scripts/make_slideshow.py > /dev/null
-            DIR="runs/$(ls -1 runs | sort -r | head -n1)"
+            DIR=$(TITLE_CLAIMED_BY="$SLUG@${GITHUB_RUN_ID:-local}" \
+              python3 scripts/make_deck.py --account "$SLUG")
             mkdir -p "decks/$SLUG/$STAMP"
             cp "$DIR"/slide_*.jpg "$DIR/caption.txt" "decks/$SLUG/$STAMP/"
             echo "$SLUG -> $(sed -n 's/^TITLE: //p' "$DIR/caption.txt" | head -n1)"
@@ -115,12 +115,12 @@ jobs:
           # cannot land, stop rather than post images we failed to burn.
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/title_bank/USED.tsv
+          git add assets/title_bank/USED.tsv assets/formats/LEDGER.tsv
           if git diff --cached --quiet; then
-            echo "::error::No images were claimed -- refusing to post."; exit 1
+            echo "::error::Nothing was recorded in the ledgers -- refusing to post."; exit 1
           fi
-          COUNT=$(git diff --cached --numstat -- assets/title_bank/USED.tsv | awk '{print $1}')
-          git commit -q -m "chore(title-bank): burn ${COUNT} image(s) for run ${GITHUB_RUN_ID}"
+          COUNT=$(git diff --cached --numstat -- assets/formats/LEDGER.tsv | awk '{print $1}')
+          git commit -q -m "chore(ledger): record ${COUNT} deck(s) for run ${GITHUB_RUN_ID}"
           for ATTEMPT in 1 2 3 4 5; do
             if git push origin HEAD:main; then echo "ledger pushed"; exit 0; fi
             echo "  push rejected (attempt $ATTEMPT), rebasing on main"
@@ -225,4 +225,4 @@ jobs:
           python3 scripts/tiktok_draft.py \
             --run "decks/${{ matrix.account }}/${{ needs.build.outputs.stamp }}" \
             --base-url "${{ vars.TIKTOK_SLIDES_BASE_URL }}/${{ matrix.account }}" \
-            ${{ inputs.direct && '--direct' || '' }}
+            $( { [ "${{ inputs.direct }}" = "true" ] || [[ ",${{ vars.TIKTOK_DIRECT_ACCOUNTS }}," == *",${{ matrix.account }},"* ]]; } && echo --direct )

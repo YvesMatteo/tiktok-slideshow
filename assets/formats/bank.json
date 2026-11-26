@@ -1,0 +1,105 @@
+{
+  "_doc": "Copy for scripts/deck_formats.py. Rules from the 2026-11 teardown (slideshow-research/REPORT.md): hooks <=10 words, first person, <=2 short lines per slide, one owned product (checkvibe), no CTA, short captions. Every list here is drawn without repeats via the ledger, so more entries = longer before anything repeats.",
+
+  "brand": {
+    "name": "CheckVibe",
+    "domain": "checkvibe.dev",
+    "logo": "checkvibe",
+    "price": "$24/mo",
+    "_price_note": "Starter plan on checkvibe.dev/pricing as of 2026-11-26. Update if pricing changes."
+  },
+
+  "hashtags": {
+    "core": ["#vibecoding", "#claude", "#startup"],
+    "pool": ["#wifimoney", "#aitools", "#buildinpublic", "#indiehacker", "#cursor", "#saas", "#techtok", "#founder", "#entrepreneur", "#coding"]
+  },
+
+  "two_types": [
+    {"title": "Two types of vibe coders:",
+     "left":  {"quote": "\"it works, ship it\"", "chips": ["API key in frontend", "RLS: off", "/admin is public"], "items": ["energy_drink", "pizza"], "logos": ["lovable"]},
+     "right": {"quote": "\"scan it, then ship it\"", "chips": ["keys server-side", "RLS: on", "0 critical issues"], "items": ["espresso_water"], "logos": ["claude", "checkvibe"]}},
+    {"title": "Two types of founders:",
+     "left":  {"quote": "\"security is a later problem\"", "chips": ["launch day", "data leak day 2", "apology tweet"], "items": ["energy_drink", "controller"], "logos": ["cursor"]},
+     "right": {"quote": "\"security took me 30 seconds\"", "chips": ["scan before launch", "fix in 10 min", "sleeps at night"], "items": ["espresso_water", "laptop"], "logos": ["claude", "checkvibe"]}},
+    {"title": "Two types of people at 25:",
+     "left":  {"quote": "\"relax, I'm only 25\"", "chips": ["3:00 AM bedtime", "11:30 AM alarm"], "items": ["controller", "energy_drink", "burger"], "logos": []},
+     "right": {"quote": "\"f*ck, I'm already 25\"", "chips": ["shipped 3 apps", "every one scanned"], "items": ["laptop", "espresso_water", "headphones"], "logos": ["claude", "checkvibe"]}}
+  ],
+
+  "versus": [
+    {"hook": "Her vs my security scanner", "left": "Her", "right": "CheckVibe", "left_sub": "Gives problems", "right_sub": "Finds problems (and fixes them)",
+     "pairs": [
+       [["are you even listening", "whatever", "nothing's wrong."], ["3 issues found", "Supabase key exposed in bundle", "fix: move it to an env var"]],
+       [["you changed", "you used to care"], ["RLS disabled on 'users'", "anyone can read every row", "fix: 1 policy, 2 lines"]],
+       [["we need to talk"], ["/admin has no auth check", "fix: protect the route server-side"]]
+     ]},
+    {"hook": "my ex vs my vibe-coded app's security scan", "left": "My ex", "right": "CheckVibe", "left_sub": "Kept secrets", "right_sub": "Found my secrets",
+     "pairs": [
+       [["it's fine.", "I'm fine."], ["OPENAI_API_KEY found in client JS", "severity: critical"]],
+       [["you never told me"], [".env pushed to public GitHub", "rotate these 2 keys now"]],
+       [["don't check my phone"], ["CORS: *", "any site can call your API"]]
+     ]}
+  ],
+
+  "price_parity": [
+    {"pairs": [["iced_latte", "4 iced lattes", "$24"], ["burger", "1 burger delivery", "$24"], ["cocktail", "2 cocktails", "$24"], ["popcorn", "1 movie night", "$24"]],
+     "closer": "same money,\ndifferent priorities"},
+    {"pairs": [["sneakers", "1 week of 'treat yourself'", "$24"], ["pizza", "2 pizzas at 1am", "$24"], ["energy_drink", "8 energy drinks", "$24"]],
+     "closer": "one of these stops your app\nfrom leaking user data"}
+  ],
+
+  "maxxing": [
+    {"title": "The art of\nvibe-coding maxxing", "center": "claude",
+     "topics": [
+       {"name": "Secrets maxxing", "tips": ["no API keys in frontend code", ".env in .gitignore before the first commit", "rotate any key that ever hit GitHub"]},
+       {"name": "RLS maxxing", "tips": ["turn on Row Level Security for every table", "one policy per action, not one for all", "test it logged out"]},
+       {"name": "Auth maxxing", "tips": ["check permissions on the server, never only in the UI", "protect /admin and /api routes", "rate-limit login"]},
+       {"name": "Deps maxxing", "tips": ["npm audit before every launch", "delete packages you don't use", "pin versions"]},
+       {"name": "Scan maxxing", "tips": ["paste your URL into checkvibe.dev", "fix criticals first", "rescan after every big prompt"]}
+     ]}
+  ],
+
+  "killing_app": [
+    {"hook": "5 mistakes killing your\nvibe-coded app", "accent": "killing",
+     "items": [
+       ["Your API keys are public", "Anything in your React bundle can be read in DevTools. Keys go on the server."],
+       ["Your database is wide open", "Supabase without RLS lets any user read any row."],
+       ["Your auth is a UI trick", "Hiding a button isn't security. Check permissions on the server."],
+       ["Your CORS is set to *", "Any website can call your API with your users' sessions."],
+       ["You pushed your .env", "Bots scrape GitHub for keys within minutes. Rotate them."]
+     ],
+     "outro": "I run every app through checkvibe.dev before I ship."},
+    {"hook": "4 things AI won't tell you\nabout the app it just built", "accent": "won't",
+     "items": [
+       ["It hardcoded your keys", "Search your code for 'sk-' and 'eyJ' right now."],
+       ["It skipped input validation", "It trusts whatever the browser sends."],
+       ["It left debug routes on", "/api/test and /admin ship to production."],
+       ["It used old packages", "Some with known vulnerabilities. Run an audit."]
+     ],
+     "outro": "I scan mine with checkvibe.dev. Takes 30 seconds."}
+  ],
+
+  "objection_loop": [
+    {"steps": [
+       ["\"but I don't know how to code\"", "lovable", "Lovable", "describe it, it builds it"],
+       ["\"but what if it gets hacked\"", "checkvibe", "CheckVibe", "paste your link, get every hole in 30 seconds"],
+       ["\"but I have no ideas\"", "claude", "Claude", "my co-founder at 2am"]
+     ],
+     "closer": "you just gotta start."},
+    {"steps": [
+       ["\"but I can't afford a developer\"", "cursor", "Cursor", "I describe it, it writes it"],
+       ["\"but I'm scared of leaking user data\"", "checkvibe", "CheckVibe", "scans my app before every launch"],
+       ["\"but I can't design\"", "framer", "Framer", "landing page in an afternoon"]
+     ],
+     "closer": "the excuses ran out\nbefore the tools did."}
+  ],
+
+  "captions": {
+    "two_types": ["which one are you", "be honest", ""],
+    "versus": ["at least one of them explains the problem", "", "no further questions"],
+    "price_parity": ["", "priorities", "your call"],
+    "maxxing": ["save this before your next launch", "", "screenshot this"],
+    "killing_app": ["most AI-built apps have at least 2 of these", "save this before you ship", ""],
+    "objection_loop": ["", "no more excuses", "start today"]
+  }
+}
