@@ -11,7 +11,8 @@ import urllib.parse
 import urllib.request
 
 DEFAULT_REDIRECT = "https://checkvibe.dev/tiktok/callback"
-SCOPES = "user.info.basic,video.upload"
+# Add video.list (stats loop) and video.publish (direct posting) once the app is approved for them.
+SCOPES = os.environ.get("TIKTOK_SCOPES", "user.info.basic,video.upload")
 
 
 def exchange(key: str, secret: str, code: str, redirect: str) -> dict:

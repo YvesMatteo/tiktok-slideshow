@@ -92,3 +92,25 @@ or commit a new one by hand.
   and collage decks only use apps with a file in `assets/screenshots/`. Force a
   look with `SLIDE_STYLE=logo|shots|collage`.
 
+
+## Format engine (multi-format autopilot)
+
+`scripts/make_deck.py --account <slug>` picks one of 7 formats per account per day and builds it into `runs/` with the same output as `make_slideshow.py`. The daily `tiktok-draft.yml` workflow now calls it.
+
+| format | what it is (source of the pattern) |
+|---|---|
+| `apps_classic` | the existing "5 apps" deck (needs the title bank; falls back to another format when it's empty) |
+| `two_types` | "Two types of vibe coders:" split meme, CheckVibe on the winning side (nicodunlap, 369k) |
+| `versus` | "Her" vs CheckVibe, chat bubbles vs scan-report card (nicodunlap, 201k) |
+| `price_parity` | "4 iced lattes $24" over "CheckVibe $24/mo" → "same money, different priorities" (113k) |
+| `maxxing` | radial "The art of vibe-coding maxxing" cheat-sheet + one slide per topic (save-driven, 106k) |
+| `killing_app` | editorial "5 mistakes killing your vibe-coded app", brand only on the last slide (105k) |
+| `objection_loop` | "but I don't know how to code" → red "bro..." → tool, over lifestyle photos (84k) |
+
+- **Copy:** `assets/formats/bank.json`. Add variants there; the least-used variant is drawn first.
+- **Rotation:** rules are listed at the top of `make_deck.py`. `assets/formats/LEDGER.tsv` records every deck and is committed by CI.
+- **QA gate:** fails the build on missing glyphs, banned phrases (personal names, dead hooks, CTAs), hooks over 12 words, more than 5 hashtags, or photo slides too bright behind white text.
+- **Learning:** `tiktok-stats.yml` runs `pull_stats.py` daily and writes `assets/formats/learned.json` (per-format view multipliers). It needs the `video.list` scope: re-auth with `TIKTOK_SCOPES=user.info.basic,video.upload,video.list python3 scripts/tiktok_auth.py`.
+- **Direct-post A/B:** set the repo variable `TIKTOK_DIRECT_ACCOUNTS=slug1,slug2` to direct-post those accounts while the rest stay drafts. This needs the `video.publish` scope and an audited TikTok app; otherwise direct posts are private-only.
+- **Product photos:** `assets/items/*.jpg`, generated with Higgsfield (nano banana pro, white studio background).
+- **Tests:** `python3 scripts/test_make_deck.py`.

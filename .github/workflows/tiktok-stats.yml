@@ -1,0 +1,60 @@
+name: Pull TikTok stats and relearn format weights
+
+# Daily: fetch each account's recent post stats (needs the video.list scope on
+# its token), match them to assets/formats/LEDGER.tsv, and rewrite
+# assets/formats/learned.json, which make_deck.py uses to weight formats.
+# An account whose token lacks video.list is skipped with a warning.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tiktok-publish   # shares the ledger with the publish workflow
+  cancel-in-progress: false
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    # Same explicit binding as tiktok-draft.yml (secrets can't be indexed at runtime).
+    env:
+      TIKTOK_REFRESH_TOKEN_AISTARTUPFOUNDER: ${{ secrets.TIKTOK_REFRESH_TOKEN_AISTARTUPFOUNDER }}
+      TIKTOK_REFRESH_TOKEN_AITOOLS_GUY: ${{ secrets.TIKTOK_REFRESH_TOKEN_AITOOLS_GUY }}
+      TIKTOK_REFRESH_TOKEN_STARTUPTOOLS101: ${{ secrets.TIKTOK_REFRESH_TOKEN_STARTUPTOOLS101 }}
+      TIKTOK_REFRESH_TOKEN_TYLER_AI: ${{ secrets.TIKTOK_REFRESH_TOKEN_TYLER_AI }}
+      TIKTOK_REFRESH_TOKEN_SOLOPRENEURTIPS: ${{ secrets.TIKTOK_REFRESH_TOKEN_SOLOPRENEURTIPS }}
+      TIKTOK_REFRESH_TOKEN_STARTUPFOUNDERTIPS: ${{ secrets.TIKTOK_REFRESH_TOKEN_STARTUPFOUNDERTIPS }}
+      TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+      TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 -m pip install --upgrade Pillow fonttools
+      - name: Fetch stats per account
+        env:
+          ACCOUNTS: ${{ vars.TIKTOK_ACCOUNTS }}
+        run: |
+          set -uo pipefail
+          for SLUG in $(echo "${ACCOUNTS:-}" | tr ',' ' '); do
+            UPPER=$(echo "$SLUG" | tr '[:lower:]' '[:upper:]' | tr -c 'A-Z0-9_\n' '_')
+            VAR="TIKTOK_REFRESH_TOKEN_${UPPER}"
+            [ -z "${!VAR:-}" ] && { echo "::warning::no token for $SLUG"; continue; }
+            TIKTOK_REFRESH_TOKEN="${!VAR}" python3 scripts/pull_stats.py --account "$SLUG" \
+              || echo "::warning::stats failed for $SLUG (missing video.list scope?)"
+          done
+          python3 scripts/pull_stats.py --learn-only
+      - name: Commit stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/formats/STATS.tsv assets/formats/learned.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -q -m "chore(stats): refresh post stats and learned weights"
+          for i in 1 2 3; do git push origin HEAD:main && exit 0; git pull --rebase origin main; done
+          exit 1
