@@ -82,10 +82,29 @@ def main() -> None:
     if "refresh_token" not in tokens:
         raise SystemExit(f"Token exchange failed:\n{json.dumps(tokens, indent=2)}")
 
-    print("\n" + "=" * 70)
-    print("Store this as the GitHub secret TIKTOK_REFRESH_TOKEN:\n")
-    print(tokens["refresh_token"])
-    print("=" * 70)
+    # Show which account approved, so a token never lands under the wrong slug.
+    try:
+        req = urllib.request.Request("https://open.tiktokapis.com/v2/user/info/?fields=display_name",
+                                     headers={"Authorization": f"Bearer {tokens['access_token']}"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            name = json.loads(resp.read())["data"]["user"]["display_name"]
+        print(f"\nAuthorized TikTok account: {name}")
+    except Exception:
+        pass
+
+    slug = os.environ.get("TIKTOK_SAVE_AS", "").strip()
+    if slug:
+        # Pipe straight into GitHub so the token is never printed or copied by hand.
+        import subprocess
+        secret_name = "TIKTOK_REFRESH_TOKEN_" + "".join(c if c.isalnum() else "_" for c in slug.upper())
+        subprocess.run(["gh", "secret", "set", secret_name, "--repo", "YvesMatteo/tiktok-slideshow"],
+                       input=tokens["refresh_token"], text=True, check=True)
+        print(f"Saved as GitHub secret {secret_name}.")
+    else:
+        print("\n" + "=" * 70)
+        print("Store this as the GitHub secret TIKTOK_REFRESH_TOKEN_<SLUG>:\n")
+        print(tokens["refresh_token"])
+        print("=" * 70)
     print(f"\nScopes granted: {tokens.get('scope')}")
 
 
