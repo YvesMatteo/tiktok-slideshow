@@ -1,0 +1,23 @@
+TITLE: the 5 apps my whole business runs on
+
+CAPTION:
+if i started over tomorrow with $0, i'd download these 5 apps first
+
+no savings, no audience, no connections. just these:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Obsidian: a private notes app, everything saved on my own computer forever
+4. GitHub: where builders store their code, it saves every version of my work so I can never lose anything
+5. Notion: a notes and planning app, every plan, idea and to-do in one place
+6. Antigravity: Google's AI builder, I give it a job and it plans and does it by itself
+
+this is the leanest way i know to go from idea to a real product on your own. start with the tools, the rest follows.
+
+save this for your fresh start. follow for the step by step 👇
+
+#indiehacker #coding #saasfounder #foundertok #aitools
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Obsidian -> GitHub -> Notion -> Antigravity
+Generated: 2026-11-26 18:43
