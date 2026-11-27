@@ -29,6 +29,7 @@ from datetime import datetime, timedelta, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import deck_formats as F  # noqa: E402
+import remix as R  # noqa: E402
 
 ROOT = F.ROOT
 FMT_DIR = os.path.join(ROOT, 'assets', 'formats')
@@ -177,7 +178,7 @@ def write_run(deck, account, fmt):
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument('--account', required=True)
-    ap.add_argument('--format', choices=sorted(BASE_WEIGHTS))
+    ap.add_argument('--format', choices=sorted(BASE_WEIGHTS) + ['remix'])
     ap.add_argument('--seed', type=int)
     ap.add_argument('--dry-run', action='store_true', help='build but do not write the ledger')
     a = ap.parse_args(argv)
@@ -185,8 +186,19 @@ def main(argv=None):
     rng = random.Random(a.seed)
     ledger = read_ledger()
     learned = json.load(open(LEARNED)) if os.path.exists(LEARNED) else {}
-    fmt = a.format or choose_format(a.account, ledger, rng, learned)
     bank = json.load(open(os.path.join(FMT_DIR, 'bank.json'), encoding='utf-8'))
+    # Remix decks (near-copies of proven viral posts) are the main format. The
+    # generated formats are only a fallback for when this account has used up the bank.
+    deck = None
+    if a.format in (None, 'remix'):
+        try:
+            deck, fmt = R.build(a.account, ledger, rng), 'remix'
+        except LookupError:
+            if a.format:
+                raise
+            print('::warning::remix bank exhausted for this account; falling back', file=sys.stderr)
+    if deck is None:
+        fmt = a.format or choose_format(a.account, ledger, rng, learned)
 
     if fmt == 'apps_classic':
         try:
@@ -199,7 +211,8 @@ def main(argv=None):
             print('::warning::apps_classic failed (title bank empty?); picking another format', file=sys.stderr)
             fmt = choose_format(a.account, ledger, rng, dict(learned, apps_classic=0))
     if fmt != 'apps_classic':
-        deck = F.FORMATS[fmt](rng, bank, Ctx(ledger, rng))
+        if deck is None:
+            deck = F.FORMATS[fmt](rng, bank, Ctx(ledger, rng))
         errs = qa(deck)
         if errs:
             raise SystemExit('QA failed:\n  ' + '\n  '.join(errs))

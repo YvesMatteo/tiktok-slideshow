@@ -51,4 +51,15 @@ d = F.Deck([], 'hook', '#a', 'x:0', drawn=[('Good afternoon, Yves', F.BOLD), ('o
 errs = ' '.join(M.qa(d))
 assert 'banned' in errs and 'missing glyphs' in errs, errs
 
+# remix: never the same deck twice on one account, and spread across accounts
+import remix as R  # noqa: E402
+all_decks = R.decks()
+assert len(all_decks) >= 2
+led = [row('a', 'remix', 1, f'remix:{all_decks[0]}')]
+for seed in range(50):
+    assert R.pick_deck('a', led, random.Random(seed)) != all_decks[0]
+    assert R.pick_deck('b', led, random.Random(seed)) != all_decks[0]  # used by 'a' yesterday
+led_all = [row('a', 'remix', 30, f'remix:{d}') for d in all_decks]
+assert R.pick_deck('a', led_all, random.Random(0)) is None  # exhausted -> caller falls back
+
 print('ok')

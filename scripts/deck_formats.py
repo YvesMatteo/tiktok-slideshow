@@ -255,7 +255,7 @@ def price_parity(rng, bank, ctx):
         c.text((560, 1100), b['price'], MED, 64, fill=GREY)
         deck.slides.append(c.done())
     c = Canvas(deck)
-    c.text((W // 2, 600), v['closer'], BOLD, 84, anchor='ma', align='center', leading=1.2)
+    c.text((W // 2, 600), v['closer'], BOLD, 84, anchor='ma', align='center', leading=1.2, maxw=W - 140)
     c.vcenter(0, H)
     deck.slides.append(c.done())
     return deck

@@ -93,7 +93,23 @@ or commit a new one by hand.
   look with `SLIDE_STYLE=logo|shots|collage`.
 
 
-## Format engine (multi-format autopilot)
+## Remix bank (main format)
+
+`assets/remix_bank/<deck>/`: near-copies of proven viral slideshows with CheckVibe swapped in. Each deck is `slide_XX.jpg` plus `deck.json` (title, caption, source post, source views). `make_deck.py` posts from this bank first, using these rules (`scripts/remix.py`):
+
+- A deck is never posted twice on the same account.
+- A deck another account used in the last 2 days is skipped.
+- Every post gets a small per-account crop and brightness jitter, so no two uploads are pixel-identical.
+
+When an account has used every deck, it falls back to the generated formats below.
+
+How decks are built (offline, `scripts/remix_tools.py`):
+
+1. Source images are Pinterest photos (`~/pinterest-scraper`) or the original viral slides.
+2. Each image gets a light Nano Banana 2 edit on Higgsfield, enough to avoid duplicate-content flags and to swap CheckVibe in.
+3. The real CheckVibe logo and real text are stamped on top, because image models garble small logos and text.
+
+## Format engine (fallback formats)
 
 `scripts/make_deck.py --account <slug>` picks one of 7 formats per account per day and builds it into `runs/` with the same output as `make_slideshow.py`. The daily `tiktok-draft.yml` workflow now calls it.
 
