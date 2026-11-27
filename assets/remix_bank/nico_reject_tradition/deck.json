@@ -1,6 +1,39 @@
 {
- "title": "reject tradition, embrace modernity",
- "caption": "#claude #vibecoding #ai #startup",
  "source": "nicodunlap/7706554964759366925",
- "source_views": 84100
+ "source_views": 84100,
+ "titles": [
+  "reject tradition, embrace modernity",
+  "the old way vs the new way",
+  "how I code in 2026",
+  "stackoverflow era is over",
+  "reject tradition"
+ ],
+ "captions": [
+  "tutorials and stackoverflow walked so AI could run",
+  "the old stack vs the stack that ships",
+  "name every app in the bottom row",
+  "how coding looks now",
+  "no more 6 hour tutorials"
+ ],
+ "hashtags": {
+  "core": [
+   "#vibecoding",
+   "#claude",
+   "#aitools"
+  ],
+  "pool": [
+   "#buildinpublic",
+   "#indiehacker",
+   "#startup",
+   "#saas",
+   "#techtok",
+   "#wifimoney",
+   "#entrepreneur",
+   "#coding",
+   "#founder",
+   "#solofounder",
+   "#programming",
+   "#softwareengineer"
+  ]
+ }
 }

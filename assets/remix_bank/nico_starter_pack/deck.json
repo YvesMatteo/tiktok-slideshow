@@ -1,6 +1,39 @@
 {
- "title": "starter packs",
- "caption": "#claude #vibecoding #startup",
  "source": "nicodunlap/7685052745132297485",
- "source_views": 140500
+ "source_views": 140500,
+ "titles": [
+  "starter packs",
+  "vibe coder starter pack",
+  "which starter pack are you",
+  "the founder starter pack",
+  "starter packs (be honest)"
+ ],
+ "captions": [
+  "which one are you",
+  "the vibe coder one is too accurate",
+  "swipe to find yours",
+  "every item on the first one is a requirement",
+  "be honest, you own at least 3 of these"
+ ],
+ "hashtags": {
+  "core": [
+   "#vibecoding",
+   "#starterpack",
+   "#claude"
+  ],
+  "pool": [
+   "#buildinpublic",
+   "#indiehacker",
+   "#startup",
+   "#saas",
+   "#techtok",
+   "#wifimoney",
+   "#entrepreneur",
+   "#coding",
+   "#founder",
+   "#solofounder",
+   "#founderlife",
+   "#relatable"
+  ]
+ }
 }

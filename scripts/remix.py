@@ -2,7 +2,9 @@
 """Remix bank: near-copies of proven viral slideshows with CheckVibe swapped in.
 
 Each deck lives in assets/remix_bank/<deck_id>/ as slide_XX.(jpg|png) plus a
-deck.json {"title", "caption", "source", "source_views"}. Decks are built offline
+deck.json {"titles": [...], "captions": [...], "hashtags": {"core": [...], "pool": [...]},
+"source", "source_views"}. Titles/captions rotate, so accounts that get the same
+deck never post the same text. Decks are built offline
 (Pinterest photos / original viral slides -> light Nano Banana 2 edit -> real
 CheckVibe logo + real text drawn on top, see remix_tools.py) and only *posted*
 from here.
@@ -84,4 +86,15 @@ def build(account, ledger, rng):
     seed = int(hashlib.sha1(f'{account}:{deck_id}'.encode()).hexdigest()[:8], 16)
     jr = random.Random(seed)
     slides = [jitter(Image.open(os.path.join(d, f)), jr) for f in files]
-    return RemixDeck(slides, meta['title'], meta['caption'], f'remix:{deck_id}')
+    title, caption = pick_text(meta, deck_id, ledger, jr)
+    return RemixDeck(slides, title, caption, f'remix:{deck_id}')
+
+
+def pick_text(meta, deck_id, ledger, rng):
+    """n-th use of a deck gets the n-th title/caption variant; 5 hashtags = core + random pool picks."""
+    n = sum(1 for r in ledger if r['format'] == 'remix' and r['variant'] == f'remix:{deck_id}')
+    title = meta['titles'][n % len(meta['titles'])]
+    caption = meta['captions'][(n * 2) % len(meta['captions'])]  # different stride from titles -> more combos
+    core, pool = meta['hashtags']['core'], meta['hashtags']['pool']
+    tags = core + rng.sample([t for t in pool if t not in core], 5 - len(core))
+    return title, f'{caption}\n\n{" ".join(tags)}'.strip()

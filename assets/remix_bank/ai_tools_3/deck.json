@@ -1,6 +1,39 @@
 {
- "title": "my favourite AI tools",
- "caption": "#aitools #claude #vibecoding #techtok #productivity",
  "source": "theworkflowguy/7663620969059077398 (layout)",
- "source_views": 1200000
+ "source_views": 1200000,
+ "titles": [
+  "my favourite AI tools",
+  "the AI tools I actually use",
+  "AI tools that run my whole setup",
+  "my AI stack rn",
+  "the only AI tools I pay for"
+ ],
+ "captions": [
+  "tried way too many AI tools this year. these are the ones that stayed",
+  "claude for building, checkvibe so nothing leaks, the rest is vibes",
+  "if you vibe code, slide 3 is the one nobody talks about",
+  "save this before your next build",
+  "my whole setup as a solo founder, no team, no agency"
+ ],
+ "hashtags": {
+  "core": [
+   "#aitools",
+   "#vibecoding",
+   "#claude"
+  ],
+  "pool": [
+   "#buildinpublic",
+   "#indiehacker",
+   "#startup",
+   "#saas",
+   "#techtok",
+   "#wifimoney",
+   "#entrepreneur",
+   "#coding",
+   "#founder",
+   "#solofounder",
+   "#productivity",
+   "#aiapps"
+  ]
+ }
 }

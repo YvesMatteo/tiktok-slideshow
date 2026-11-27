@@ -62,4 +62,14 @@ for seed in range(50):
 led_all = [row('a', 'remix', 30, f'remix:{d}') for d in all_decks]
 assert R.pick_deck('a', led_all, random.Random(0)) is None  # exhausted -> caller falls back
 
+# captions rotate: 2nd use of a deck gets different text than the 1st, always 5 hashtags
+import json  # noqa: E402
+meta = json.load(open(os.path.join(R.BANK, all_decks[0], 'deck.json')))
+t1, c1 = R.pick_text(meta, all_decks[0], [], random.Random(0))
+t2, c2 = R.pick_text(meta, all_decks[0], [row('a', 'remix', 1, f'remix:{all_decks[0]}')], random.Random(0))
+assert (t1, c1) != (t2, c2) and c1.count('#') == 5 and len(t1) <= 90
+for d in all_decks:  # every deck has the new caption fields
+    m = json.load(open(os.path.join(R.BANK, d, 'deck.json')))
+    assert m['titles'] and m['captions'] and len(m['hashtags']['core']) <= 5, d
+
 print('ok')
