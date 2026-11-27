@@ -1,0 +1,23 @@
+TITLE: 5 apps that run my entire business
+
+CAPTION:
+the apps nobody tells you about when you start a business
+
+the gurus sell courses. here's the actual stack, for free:
+
+1. Framer: a no-code website builder, design by dragging things around, hit publish and it's live
+2. checkvibe.dev: a security scanner for websites, paste a link, get a report of what to fix in 30 seconds
+3. Higgsfield: an AI that makes my photos, ads and videos, no camera or designer needed
+4. Obsidian: a private notes app, everything saved on my own computer forever
+5. Pinterest: a visual search engine where I find design ideas and get free visitors to my websites
+6. Railway: a hosting service that keeps my apps' behind-the-scenes machinery running, zero headaches
+
+five apps. that's the secret. i think of an idea, build it, put it online, and improve it based on what people do.
+
+save this and skip the $500 course. follow for the real version 👇
+
+#startup #saasfounder #buildwithai #techtok #buildinpublic
+
+---
+Slides: title -> Framer -> checkvibe.dev -> Higgsfield -> Obsidian -> Pinterest -> Railway
+Generated: 2026-11-27 18:34
