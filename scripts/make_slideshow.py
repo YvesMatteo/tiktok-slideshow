@@ -429,6 +429,18 @@ def _chips(block):
     return [s]
 
 
+N_APPS = int(os.environ.get('N_APPS', '5'))  # 3, 4 or 5 tools per deck (make_deck.py varies it)
+_WORDS = {3: 'three', 4: 'four', 5: 'five'}
+
+
+def with_count(text, n=None):
+    """Rewrite '5 apps' / 'five apps' copy for an n-app deck ('9-5' is left alone)."""
+    import re
+    n = n or N_APPS
+    text = re.sub(r'(?<![\d-])\b5\b(?!-)', str(n), text)
+    return re.sub(r'\b([Ff])ive\b', lambda m: (_WORDS[n].capitalize() if m.group(1) == 'F' else _WORDS[n]), text)
+
+
 def main():
     bank = json.load(open(os.path.join(ASSETS, 'copy_bank.json')))
     approved = _lines(os.path.join(ASSETS, 'approved_photos.txt'))
@@ -456,7 +468,7 @@ def main():
     if pin_slideys and 'slideys' not in fixed:
         fixed.append('slideys')
     pool = [a for a in eligible(bank['rotating_pool']) if a not in fixed]
-    apps = fixed + random.sample(pool, max(0, 5 - len(fixed)))
+    apps = fixed + random.sample(pool, max(0, N_APPS - len(fixed)))
     variant = f"slide1={bank['apps'][first]['name']}"
 
     # ---- pick 5 distinct photos for app slides (title is the stamped
@@ -502,7 +514,7 @@ def main():
         render_slideshow(config, os.path.abspath(PHOTOS), LOGOS, out_dir)
 
     # ---- long algorithm-optimized caption ----
-    title = random.choice(bank['slideshow_title'])
+    title = with_count(random.choice(bank['slideshow_title']))
     tags = ' '.join(random.sample(bank['hashtags'], 5))
     order = ' -> '.join(['title'] + [bank['apps'][k]['name'] for k in apps])
     app_lines = [
@@ -510,7 +522,7 @@ def main():
         for i, k in enumerate(apps)
     ]
     app_list = '\n'.join(app_lines)
-    template = random.choice(bank['caption_templates'])
+    template = with_count(random.choice(bank['caption_templates']))
     full_caption = (template
                     .replace('{app_list}', app_list)
                     .replace('{hashtags}', tags))

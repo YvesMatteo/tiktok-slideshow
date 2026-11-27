@@ -201,14 +201,19 @@ def two_types(rng, bank, ctx):
 
 
 def versus(rng, bank, ctx):
+    """Familiar tool first (variant 'lead' slides, e.g. Her vs Claude), CheckVibe punchline after."""
     i, v = ctx.pick_variant('versus', bank['versus'])
     deck = Deck([], v['hook'], caption_for('versus', bank, rng), f'versus:{i}')
-    for pi, (left, right) in enumerate(v['pairs']):
+    b = bank['brand']
+    slides = [(l['left_msgs'], l['right_lines'], l['logo'], l['name'], l['left_sub'], l['right_sub']) for l in v.get('lead', [])]
+    slides += [(left, right, b['logo'], v['right'], v['left_sub'] if pi == 0 else None, v['right_sub'] if pi == 0 else None)
+               for pi, (left, right) in enumerate(v['pairs'])]
+    for left, right, logo, name, left_sub, right_sub in slides:
         c = Canvas(deck)
         # headers: plain word vs logo + brand (the punchline)
         c.text((270, 150), v['left'], BOLD, 84, anchor='ma')
-        c.logo(bank['brand']['logo'], (810, 120), 110)
-        c.text((810, 195), v['right'], BOLD, 70, anchor='ma')
+        c.logo(logo, (810, 120), 110)
+        c.text((810, 195), name, BOLD, 70, anchor='ma')
         y = 360
         for msg in left:                                  # iMessage-ish bubbles
             f = c.font(MED, 42); tw = min(max(c.d.textlength(l, font=f) for l in wrap(c.d, msg, f, 400)), 400)
@@ -228,31 +233,34 @@ def versus(rng, bank, ctx):
                 c.d.ellipse((600, yy + 10, 620, yy + 30), fill=CLAUDE_ORANGE)
             yy = c.text((635 if k == 0 else 600, yy), ln, SEMI if k == 0 else MED, 38,
                         fill=(255, 255, 255) if k == 0 else (200, 200, 200), maxw=400 if k else 370) + 20
-        if pi == 0:
+        if left_sub:
             by = max(y, yy + 25) + 70
-            c.text((270, by), v['left_sub'], MED, 40, fill=GREY, anchor='ma')
-            c.text((800, by), v['right_sub'], MED, 40, fill=GREY, anchor='ma', maxw=440)
+            c.text((270, by), left_sub, MED, 40, fill=GREY, anchor='ma')
+            c.text((800, by), right_sub, MED, 40, fill=GREY, anchor='ma', maxw=440)
         c.vcenter(0, H)
         deck.slides.append(c.done())
     return deck
 
 
 def price_parity(rng, bank, ctx):
+    """'lead' slides compare a familiar spend with a familiar tool (PS Plus vs Claude) before CheckVibe shows up."""
     i, v = ctx.pick_variant('price_parity', bank['price_parity'])
-    pairs = rng.sample(v['pairs'], min(3, len(v['pairs'])))
     b = bank['brand']
-    first = pairs[0]
-    deck = Deck([], f"{first[1]} {first[2]} vs {b['name']} {b['price']}",
+    lead = [tuple(l) for l in v.get('lead', [])]
+    pairs = [(k, lab, pr, b['logo'], b['name'], b['price'])
+             for k, lab, pr in rng.sample(v['pairs'], min(3 - min(len(lead), 2), len(v['pairs'])))]
+    first = (lead + pairs)[0]
+    deck = Deck([], f"{first[1]} {first[2]} vs {first[4]} {first[5]}",
                 caption_for('price_parity', bank, rng), f"price_parity:{i}:{'|'.join(p[0] for p in pairs)}")
-    for key, label, price in pairs:
+    for key, label, price, logo, name, bprice in lead + pairs:
         c = Canvas(deck)
         c.item(key, (300, 360), 400)
         c.text((560, 280), label, BOLD, 64, maxw=470)
         c.text((560, 450), price, MED, 64, fill=GREY)
         c.d.line((60, 720, W - 60, 720), fill=(230, 230, 230), width=3)
-        c.logo(b['logo'], (300, 1080), 300)
-        c.text((560, 1000), b['name'], BOLD, 72)
-        c.text((560, 1100), b['price'], MED, 64, fill=GREY)
+        c.logo(logo, (300, 1080), 300)
+        c.text((560, 1000), name, BOLD, 72, maxw=470)
+        c.text((560, 1100), bprice, MED, 64, fill=GREY)
         deck.slides.append(c.done())
     c = Canvas(deck)
     c.text((W // 2, 600), v['closer'], BOLD, 84, anchor='ma', align='center', leading=1.2, maxw=W - 140)

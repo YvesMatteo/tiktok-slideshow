@@ -72,4 +72,11 @@ for d in all_decks:  # every deck has the new caption fields
     m = json.load(open(os.path.join(R.BANK, d, 'deck.json')))
     assert m['titles'] and m['captions'] and len(m['hashtags']['core']) <= 5, d
 
+# classic 'N apps' deck is mixed in, but never twice in a row on one account
+assert not any(M.wants_classic('a', [row('a', 'apps_classic', 1)], random.Random(s)) for s in range(200))
+share = sum(M.wants_classic('a', [row('a', 'remix', 1)], random.Random(s)) for s in range(2000)) / 2000
+assert 0.25 < share < 0.45, share
+import make_slideshow as MS  # noqa: E402
+assert MS.with_count('5 apps I quit my 9-5 for. Five apps.', 3) == '3 apps I quit my 9-5 for. Three apps.'
+
 print('ok')

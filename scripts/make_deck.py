@@ -40,6 +40,8 @@ RUNS = os.path.join(ROOT, 'runs')
 BASE_WEIGHTS = {'apps_classic': 3, 'two_types': 2, 'versus': 2, 'price_parity': 2,
                 'maxxing': 2, 'killing_app': 1.5, 'objection_loop': 1.5}
 REST_USES, REST_DAYS = 3, 14
+CLASSIC_SHARE = 0.35                          # share of posts that are the classic 'N apps I use' deck
+APP_COUNTS = {5: 0.4, 4: 0.35, 3: 0.25}       # how many tools a classic deck shows
 PHOTO_REST_DAYS = 60
 BANNED = re.compile(r'\byves\b|good (morning|afternoon|evening),|winter arc|every startup founder should'
                     r'|feel illegal|link in bio|comment below|follow for', re.I)
@@ -150,9 +152,16 @@ def qa(deck):
 
 # ------------------------------------------------------------------ build ---
 
-def build_apps_classic(account):
-    """The proven '5 apps' deck, built by the existing pipeline unchanged."""
-    env = dict(os.environ, TITLE_CLAIMED_BY=os.environ.get('TITLE_CLAIMED_BY', f'{account}@local'))
+def wants_classic(account, ledger, rng):
+    """Mix the original 'N apps I use to run my business' deck in between remixes, never twice in a row."""
+    mine = sorted((r for r in ledger if r['account'] == account), key=lambda r: r['dt'])
+    return not (mine and mine[-1]['format'] == 'apps_classic') and rng.random() < CLASSIC_SHARE
+
+
+def build_apps_classic(account, n_apps=5):
+    """The proven 'N apps' deck (3, 4 or 5 tools), built by the existing pipeline."""
+    env = dict(os.environ, TITLE_CLAIMED_BY=os.environ.get('TITLE_CLAIMED_BY', f'{account}@local'),
+               N_APPS=str(n_apps))
     subprocess.run([sys.executable, os.path.join(ROOT, 'scripts', 'refresh_title_slide.py')], check=True, env=env)
     before = set(os.listdir(RUNS)) if os.path.isdir(RUNS) else set()
     subprocess.run([sys.executable, os.path.join(ROOT, 'scripts', 'make_slideshow.py')], check=True,
@@ -190,7 +199,11 @@ def main(argv=None):
     # Remix decks (near-copies of proven viral posts) are the main format. The
     # generated formats are only a fallback for when this account has used up the bank.
     deck = None
-    if a.format in (None, 'remix'):
+    if a.format is None and wants_classic(a.account, ledger, rng):
+        a_fmt = 'apps_classic'
+    else:
+        a_fmt = a.format
+    if a_fmt is None or a.format == 'remix':
         try:
             deck, fmt = R.build(a.account, ledger, rng), 'remix'
         except LookupError:
@@ -198,18 +211,22 @@ def main(argv=None):
                 raise
             print('::warning::remix bank exhausted for this account; falling back', file=sys.stderr)
     if deck is None:
-        fmt = a.format or choose_format(a.account, ledger, rng, learned)
+        fmt = a_fmt or choose_format(a.account, ledger, rng, learned)
 
     if fmt == 'apps_classic':
+        n_apps = rng.choices(list(APP_COUNTS), list(APP_COUNTS.values()))[0]
         try:
-            out, hook = build_apps_classic(a.account)
-            variant, photos = 'apps_classic', ''
+            out, hook = build_apps_classic(a.account, n_apps)
+            variant, photos = f'apps_classic:{n_apps}', ''
         except subprocess.CalledProcessError:
             if a.format:
                 raise
-            # usually: title bank exhausted. Post a different format rather than nothing.
+            # usually: title bank exhausted. Post a remix (or another format) rather than nothing.
             print('::warning::apps_classic failed (title bank empty?); picking another format', file=sys.stderr)
-            fmt = choose_format(a.account, ledger, rng, dict(learned, apps_classic=0))
+            try:
+                deck, fmt = R.build(a.account, ledger, rng), 'remix'
+            except LookupError:
+                fmt = choose_format(a.account, ledger, rng, dict(learned, apps_classic=0))
     if fmt != 'apps_classic':
         if deck is None:
             deck = F.FORMATS[fmt](rng, bank, Ctx(ledger, rng))

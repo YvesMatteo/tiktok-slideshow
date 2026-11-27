@@ -55,11 +55,10 @@ WEIGHTS = {
 TEXT_BAKED = {"start_porsche", "start_jet", "start_stairs", "start_wolf"}
 
 # Plain, non-technical hooks: every line says "business" or "startup" so a
-# scroller gets it instantly. The count must stay 5 -- every deck has 5 apps.
+# scroller gets it instantly. Written for 5; with_count() rewrites them for 3/4-app decks.
 HOOKS = ["5 apps I use to run my entire business.",
          "5 apps I use to build my startup.",
          "the 5 apps behind my entire business.",
-         "5 apps every startup founder should use.",
          "5 apps I use every day in my business.",
          "how I run my whole business with just 5 apps.",
          "5 apps that run my business for me.",
@@ -120,12 +119,14 @@ def recent_hooks(n: int = RECENT_HOOKS) -> set[str]:
         return set()
     rows = [ln.split("\t") for ln in LEDGER.read_text().splitlines()
             if ln.strip() and not ln.startswith("#")]
-    return {r[3] for r in rows[-n:] if len(r) > 3 and r[3] in HOOKS}
+    return {r[3] for r in rows[-n:] if len(r) > 3}
 
 
 def pick_hook(rng: random.Random) -> str:
-    fresh = [h for h in HOOKS if h not in recent_hooks()]
-    return rng.choice(fresh or HOOKS)
+    from make_slideshow import with_count  # same 5 -> N_APPS rewrite as the captions
+    hooks = [with_count(h) for h in HOOKS]
+    fresh = [h for h in hooks if h not in recent_hooks()]
+    return rng.choice(fresh or hooks)
 
 
 def claim(rng: random.Random) -> tuple[str, str, Path, str | None]:
@@ -142,6 +143,11 @@ def claim(rng: random.Random) -> tuple[str, str, Path, str | None]:
             f"proceed without repeating an opener.\n"
             f"  Refill with: python3 scripts/build_title_bank.py --count N")
 
+    if os.environ.get('N_APPS', '5') != '5':  # these photos have '5 apps' baked into them
+        stock = {k: v for k, v in stock.items() if k not in TEXT_BAKED}
+        if not stock:
+            raise SystemExit('[title-slide] ERROR: no unbaked title images left for a '
+                             f"{os.environ['N_APPS']}-app deck. Refill the bank.")
     looks = list(stock)
     weights = [WEIGHTS.get(k, 1) for k in looks]
     look = rng.choices(looks, weights=weights, k=1)[0]

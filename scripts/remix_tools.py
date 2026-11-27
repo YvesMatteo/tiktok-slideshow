@@ -123,3 +123,73 @@ def glass_apps(bg_photo, small, big, apps, tile=None):
         t = cover(tile, 540, 380)
         im.paste(t, (200, 920))
     return im.convert('RGB')
+
+
+SHOTS = os.path.join(ROOT, 'assets', 'screenshots')
+APPS = {  # key: (name, domain, tagline) for browser-preview slides
+    'claude': ('Claude', 'claude.ai', '*the best AI assistant'),
+    'checkvibe': ('CheckVibe', 'checkvibe.dev', '*finds the security holes in your app'),
+    'lovable': ('Lovable', 'lovable.dev', '*builds the whole app for you'),
+    'framer': ('Framer', 'framer.com', '*websites in an afternoon'),
+    'supabase': ('Supabase', 'supabase.com', '*your backend in 5 minutes'),
+    'higgsfield': ('Higgsfield', 'higgsfield.ai', '*every photo and video you need'),
+    'vercel': ('Vercel', 'vercel.com', '*one click and it’s live'),
+    'notion': ('Notion', 'notion.com', '*my second brain'),
+    'github': ('GitHub', 'github.com', '*never lose your code again'),
+    'railway': ('Railway', 'railway.com', '*servers without the headache'),
+    'obsidian': ('Obsidian', 'obsidian.md', '*notes that think with you'),
+    'posthog': ('PostHog', 'posthog.com', '*see what users actually do'),
+}
+
+
+def browser(key, w):
+    """Mac-style browser window showing the app's real website screenshot. Returns RGBA with shadow."""
+    name, domain, _ = APPS[key]
+    shot = Image.open(os.path.join(SHOTS, f'{key}.png')).convert('RGB')
+    bar = int(w * 0.055)
+    body_h = int(w * 0.62)
+    s = w / shot.width
+    shot = shot.resize((w, max(body_h, int(shot.height * s))), Image.LANCZOS).crop((0, 0, w, body_h))  # top of page = hero
+    win = Image.new('RGB', (w, bar + body_h), (236, 236, 239))
+    win.paste(shot, (0, bar))
+    d = ImageDraw.Draw(win)
+    r = bar * 0.17
+    for i, col in enumerate(((255, 95, 87), (254, 188, 46), (40, 200, 64))):
+        cx = bar * 0.55 + i * bar * 0.48
+        d.ellipse((cx - r, bar / 2 - r, cx + r, bar / 2 + r), fill=col)
+    pw, ph = w * 0.42, bar * 0.6
+    d.rounded_rectangle((w / 2 - pw / 2, bar / 2 - ph / 2, w / 2 + pw / 2, bar / 2 + ph / 2), radius=ph / 2, fill=(255, 255, 255))
+    d.text((w / 2, bar / 2), domain, font=font('Inter-Medium.ttf', int(bar * 0.36)), fill=(90, 90, 95), anchor='mm')
+    mask = Image.new('L', win.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle((0, 0, win.width - 1, win.height - 1), radius=int(w * 0.025), fill=255)
+    pad = 40
+    out = Image.new('RGBA', (win.width + 2 * pad, win.height + 2 * pad), (0, 0, 0, 0))
+    sh = Image.new('RGBA', out.size, (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 70), (pad, pad + 14), mask)
+    out.alpha_composite(sh.filter(ImageFilter.GaussianBlur(18)))
+    win = win.convert('RGBA'); win.putalpha(mask)
+    out.alpha_composite(win, (pad, pad))
+    return out
+
+
+def niche_app(key, bg=(205, 209, 223)):
+    """theworkflowguy 168k layout: logo + name + '*tagline' on lavender, browser preview instead of phones."""
+    name, domain, tag = APPS[key]
+    im = Image.new('RGBA', (W, H), bg + (255,))
+    logo = Image.open(os.path.join(LOGOS, f'{key}.png')).convert('RGBA').resize((250, 250), Image.LANCZOS)
+    sh = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 60), (190, 160), logo.split()[3])
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(14)))
+    im.alpha_composite(logo, (190, 140))
+    d = ImageDraw.Draw(im)
+    fn = 96
+    while font('Inter-SemiBold.ttf', fn).getlength(name) > W - 520 and fn > 60:
+        fn -= 4
+    d.text((480, 175), name, font=font('Inter-SemiBold.ttf', fn), fill=(15, 15, 15), anchor='la')
+    ft = 40
+    while font('Inter-SemiBold.ttf', ft).getlength(tag) > W - 500 and ft > 26:
+        ft -= 2
+    d.text((475, 300), tag, font=font('Inter-SemiBold.ttf', ft), fill=(15, 15, 15), anchor='la')
+    win = browser(key, 940)
+    im.alpha_composite(win, ((W - win.width) // 2, 500))
+    return im.convert('RGB')
